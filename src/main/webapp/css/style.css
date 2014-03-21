@@ -1,0 +1,155 @@
+@CHARSET "ISO-8859-1";
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing:    border-box;
+	box-sizing:         border-box;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+header,
+nav,
+section,
+summary {
+	display: block;
+}
+footer {
+	display: none;
+}
+
+ html {
+	font-size: 100%;
+	overflow-y: scroll;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+body {
+background-image: url("../img/body.png");
+margin:0px;
+}
+#pilepapier
+{
+	padding:20px;
+	margin:20px;
+	background-color: #FDFDFD;
+	border: 1px solid #CACACA;
+	border-bottom: 0;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	-moz-background-clip: padding;
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box;
+	-webkit-box-shadow: inset 0 0.53em 2.618em rgba(0, 0, 0, 0.05), inset 0 0 0 0.618em rgba(255, 255, 255, 0.55), 0 1px 1px rgba(0, 0, 0, 0.15), /* The top layer shadow */ 0 10px 0 -5px #EEE, /* The second layer */ 0 10px 1px -4px rgba(0, 0, 0, 0.125), /* The second layer shadow */ 0 20px 0 -10px #EEE, /* The third layer */ 0 20px 1px -9px rgba(0, 0, 0, 0.125), /* The third layer shadow */ 0 1em 2em rgba(0, 0, 0, 0.1);
+	box-shadow: inset 0 0.53em 2.618em rgba(0, 0, 0, 0.05), inset 0 0 0 0.618em rgba(255, 255, 255, 0.55), 0 1px 1px rgba(0, 0, 0, 0.15), /* The top layer shadow */ 0 10px 0 -5px #EEE, /* The second layer */ 0 10px 1px -4px rgba(0, 0, 0, 0.125), /* The second layer shadow */ 0 20px 0 -10px #EEE, /* The third layer */ 0 20px 1px -9px rgba(0, 0, 0, 0.125), /* The third layer shadow */ 0 1em 2em rgba(0, 0, 0, 0.1);
+}
+.site-header {
+	position: relative;
+}
+.site-header .home-link {
+	color: #141412;
+	display: block;
+	margin: 0 auto;
+	max-width: 1080px;
+	padding: 60px;
+	text-decoration: none;
+	width: 100%;
+	text-align:center;
+}
+ .site-title
+{
+	font-size:300%; 
+	font-family: Complex, Adobe Caslan Pro, Adobe Ming Std L, Georgia, serif; 
+	font-weight:100; 
+	padding-bottom: 10px; 
+	text-decoration: none;
+	margin: 0;
+	line-height: 1;
+	color: #139C00;
+}
+.site-description
+{
+	font: 300 18px Complex, Helvetica, sans-serif; 
+	color:black;
+	margin: 0;
+}
+#vide
+{
+	/* height:440px; */
+	clear:both;
+}
+div.carresb, 
+div.carresj, 
+div.carresr, 
+div.carreso, 
+div.carresvi, 
+div.carresve
+{
+	float: left; 
+	height: 200px;
+	width: 200px;
+	background-color: black; 
+	position: relative; 
+	margin:10px;
+	border-radius: 150px;
+	opacity:0.9;
+	font-size: 170%;
+  	color:white;
+  	font-family: FootLight MT Light, Georgia, serif;
+	text-align: center;
+  	transition-property: transform;
+    -webkit-transition-property: transform; 
+	-webkit-transition-duration: 1s;
+	-moz-transition-property: transform;
+	-o-transition-property: transform;
+}
+div.carreso:hover
+{
+	background-color: yellow; 
+    transform:scale(1.1);
+	-webkit-transform:scale(1.1) rotate(360deg);
+	-ms-transform:scale(1.1);
+}
+div.carresb:hover,
+div.carresj:hover,
+div.carresr:hover
+{
+	background-color: orange; 
+    transform:scale(1.1);
+	-webkit-transform:scale(1.1) rotate(360deg);
+	-ms-transform:scale(1.1);
+}
+div.carresvi:hover
+{
+	background-color: purple; 
+    transform:scale(1.1);
+	-webkit-transform:scale(1.1) rotate(360deg);
+	-ms-transform:scale(1.1);
+}
+div.carresve:hover
+{
+	background-color: green; 
+    transform:scale(1.1);
+	-webkit-transform:scale(1.1) rotate(360deg);
+	-ms-transform:scale(1.1);
+}
+.site-main {
+	margin-left: auto;
+  margin-right: auto;
+	max-width: 660px;
+	width: 100%;
+}
+.site-footer {
+	background-color: #CACACA;
+	color: #686758;
+	font-size: 20px;
+	text-align: center;
+	width: 100%;bottom: 0px;
+	padding:5px;
+	margin-top:20px;
+}
+.site-main {
+position: relative;
+}
