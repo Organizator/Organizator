@@ -25,29 +25,51 @@
 	
 	<div class="container">
 	  <div class="alert alert-warning">
-        <strong>Attention !</strong> Ne quittez pas cette page ou vous devrez recommencer à 0.
+        <strong>Attention !</strong> Ne quittez pas cette page ou vous devrez recommencer du début !
       </div>
-      <form class="form-signin1" role="form" method=post action="new3">
-	        <h2 class="form-signin1-heading">Inscription - page 2</h2>
+      <form class="form-signin1" role="form" method=post action="date">
+	        <h2 class="form-signin1-heading">Nouveau projet - 2/?</h2>
+	        <h2 class="form-signin1-heading">Détails organisateur</h2>
 	        <input type="email" class="form-control" placeholder="${mail}" required="" autofocus="" disabled="disabled" style="margin-bottom:15px" >
 	        <input type="hidden" id="mail" name="mail" value="${mail}">
-			<select class="form-control start" required="">
+	        <input type="text" class="form-control mid" placeholder="NOM" id="NOM" name="NOM" required="">
+	        <input type="text" class="form-control end" placeholder="Prenom" id="Prenom" name="Prenom" required="">
+	        <select class="form-control start" required="" id="classe" name="classe">
+	        	<option value="0">Classe</option>
+	        	<option value="32">32</option>
+				<option value="33">33</option>
+				<option value="34">33</option>
+				<option value="35">35</option>
+				<option value="42">35</option>
+	        </select>
+	        <select class="form-control mid" required="" id="pole" name="pole">
 	        	<option value="0">Pôle BDE/BDS</option>
-				<option value="42">42</option>
+				<option value="PES">PES</option>
+				<option value="BDA">BDA</option>
+				<option value="Cap'so">Cap'so</option>
+				<option value="PET">PET</option>
+				<option value="BDS">BDS</option>
 	        </select>
 	        <select class="form-control mid" required=""  id="asso" name="asso">
 	        	<option value="0">Association</option>
+				<option value="WhEI">Whei</option>
+				<option value="WhEI">Déclic HEI</option>
+				<option value="WhEI">Rock HEI</option>
+				<option value="WhEI">42</option>
 				<option value="WhEI">42</option>
 	        </select>	
-	        <select class="form-control mid" required="">
+	        <select class="form-control end" required=""  id="resp" name="resp">
 	        	<option value="0">Responsabilité</option>
-				<option value="42">42</option>
-	        </select>		
-	        <select class="form-control end" required="">
-	        	<option value="0">Date</option>
-				<option value="42">42</option>
-	        </select>
+				<option value="Président">Président</option>
+				<option value="Communication">Communication</option>
+				<option value="Autre">Autre</option>
+	        </select>	
 	        <button class="btn btn-lg btn-success btn-block" type="submit">Etape suivante</button>
+	        <button type="reset" class="btn btn-lg btn-info btn-block" style="margin-top:5px;">Réinitialiser</button>
+	        
+      </form>
+      <form class="form-signin1" role="form" method=post action="new1">
+      <button type="submit" class="btn btn-lg btn-warning btn-block">Retour</button>
       </form>
     </div>
 	<%-- <%@include file="footer.jsp" %> --%>

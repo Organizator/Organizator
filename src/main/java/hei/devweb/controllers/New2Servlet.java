@@ -25,7 +25,7 @@ public class New2Servlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/index.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/new2.jsp");
 		view.forward(request, response);
 	}
 

@@ -25,22 +25,60 @@
 	
 	<div class="container">
 	  <div class="alert alert-warning">
-        <strong>Attention !</strong> Ne quittez pas cette page ou vous devrez recommencer à 0.
+        <strong>Attention !</strong> Ne quittez pas cette page ou vous devrez recommencer du début !
       </div>
-      <form class="form-signin1" role="form" method=post action="new3">
-	        <h2 class="form-signin1-heading">Inscription - détails évènement</h2>
-	        <input type="email" class="form-control start" placeholder="${mail}" required="" autofocus="" disabled="disabled">
+      <form class="form-signin1" role="form" method=post action="new4">
+	        <h2 class="form-signin1-heading">Nouveau projet - 4/? </h2>
+	        <h2 class="form-signin1-heading">Détails évènement</h2>
+	        <input type="email" class="form-control start" placeholder="${sessionScope.sessionMembre.mail}" required="" autofocus="" disabled="disabled">
 	        <input type="hidden" id="mail" name="mail" value="${mail}">
 	        <input type="text" class="form-control end" placeholder="${asso}" required="" autofocus="" disabled="disabled">
 	        <input type="hidden" id="asso" name="asso" value="${asso}">
+	        <h4 class="form-signin1-heading" align="center">Heure </h4>
+	        <input type="time" class="form-control start" style="margin-top:25px; placeholder="Time" id="time" name="time" required="">
+	        <p></p>
 			<select class="form-control start" required="" >
 				<option value="0">Type d'évènement :</option>
 	        	<option value="Petit dejeuner">Petit dejeuner</option>
 				<option value="Afterwork">Afterwork</option>
 				<option value="Autre">Autre</option>
 	        </select>
+	        <p></p>
+	        <select class="form-control end" required="" >
+				<option value="0">Alcool</option>
+	        	<option value="Oui">Oui</option>
+				<option value="Non">Non</option>
+	        </select>
+	        <p></p>
 	        <input type="number" class="form-control end" placeholder="Nombre de personnes attendues" id="effectif" name="effectif">
+	        <select class="form-control end" required="" >
+				<option value="0">Dans HEI</option>
+	        	<option value="Oui">Oui</option>
+				<option value="Non">Non</option>
+	        </select>
+	        <p></p>
+	        <select class="form-control mid" required="" id="batiment" name="batiment">
+	        	<option value="0">Bâtiment</option>
+				<option value="PES">PES</option>
+				<option value="BDA">BDA</option>
+				<option value="Cap'so">Cap'so</option>
+				<option value="PET">PET</option>
+				<option value="BDS">BDS</option>
+	        </select>
+	        <p></p>
+	        <select class="form-control mid" required="" id="salle" name="salle">
+	        	<option value="0">Salle</option>
+				<option value="PES">PES</option>
+				<option value="BDA">BDA</option>
+				<option value="Cap'so">Cap'so</option>
+				<option value="PET">PET</option>
+				<option value="BDS">BDS</option>
+	        </select>
+	        <p></p>
 	        <button class="btn btn-lg btn-success btn-block" type="submit">Etape suivante</button>
+      </form>
+      <form class="form-signin1" role="form" method=post action="date">
+      <button type="submit" class="btn btn-lg btn-warning btn-block">Retour</button>
       </form>
     </div>
 	<%-- <%@include file="footer.jsp" %> --%>

@@ -29,6 +29,16 @@
      		<p>Organizator guide l'utilisateur dans sa démarche, de l'idée de la création de son évènement jusqu'à sa réalisation.</p>
      	</div>
     </div>
+    
+    
+    <div class="container">
+          <div class="form-signin" style="padding-top:5px;">
+        <a href="index"><button class="btn btn-lg btn-primary btn-block">Retour Accueil</button></a>
+        <c:if test="${!empty sessionScope.sessionMembre}">
+	        <a href="deconnexion"><button class="btn btn-lg btn-danger btn-block" style="margin-top:5px;">Déconnexion</button></a>
+	    </c:if>
+		</div>
+	</div>
 	<%-- <%@include file="footer.jsp" %> --%>
   </body>
 </html>

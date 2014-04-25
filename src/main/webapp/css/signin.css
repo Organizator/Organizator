@@ -2,11 +2,12 @@ body {
   padding-top: 40px;
   padding-bottom: 40px;
   background-color: #eee;
-  background-image: url(http://www.scar.fr/ImgWeb/DEFAULT_FOND_PAGE.jpg);
+  background-image: url("../img/DEFAULT_FOND_PAGE.jpg");
+  background-size:100%;
 }
 
 .form-signin {
-  max-width: 330px;
+  max-width: 340px;
   padding: 15px;
   padding-bottom:0px;
   margin: 0 auto;

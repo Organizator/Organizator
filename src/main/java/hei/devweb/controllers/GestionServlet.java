@@ -22,7 +22,7 @@ public class GestionServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/index.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/gestion.jsp");
 		view.forward(request, response);
 	}
 
