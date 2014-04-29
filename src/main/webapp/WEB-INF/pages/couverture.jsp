@@ -87,19 +87,19 @@
  <TH> Désignation </TH> 
  <TH> Statut </TH> 
  <TH> Ignorer ? </TH>
- <TH> Actions </TH> 
+ <TH> Mise à jour du statut </TH> 
   	</TR> 
   <TR> 
  <TD> Photographie </TD> 
  <TD> <span class="glyphicon glyphicon-ok"></span> </TD> 
  <TD><span class="label label-warning">Oui</span></TD> 
- <TD> <span class="glyphicon glyphicon-envelope"></span> <span class="glyphicon glyphicon-floppy-saved"></span> <span class="glyphicon glyphicon-floppy-remove"></span>	</TD> 
+ <TD><span class="glyphicon glyphicon-floppy-saved"></span> <span class="glyphicon glyphicon-floppy-remove"></span>	</TD> 
   </TR>
   <TR> 
  <TD> Couverture vidéo </TD> 
  <TD> <span class="glyphicon glyphicon-ok"></span> </TD> 
  <TD><span class="label label-warning">Oui</span></TD> 
- <TD> <span class="glyphicon glyphicon-envelope"></span> <span class="glyphicon glyphicon-floppy-saved"></span> <span class="glyphicon glyphicon-floppy-remove"></span></TD> 
+ <TD><span class="glyphicon glyphicon-floppy-saved"></span> <span class="glyphicon glyphicon-floppy-remove"></span></TD> 
   </TR> 
   </table>
   

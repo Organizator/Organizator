@@ -33,6 +33,18 @@
 		<servlet-class>hei.devweb.controllers.AnnulationServlet</servlet-class>
 	</servlet>
 	<servlet>
+		<servlet-name>Eventadmin</servlet-name>
+		<servlet-class>hei.devweb.controllers.EventadminServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>Materiel</servlet-name>
+		<servlet-class>hei.devweb.controllers.MaterielServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>Gestionadmin</servlet-name>
+		<servlet-class>hei.devweb.controllers.GestionadminServlet</servlet-class>
+	</servlet>
+	<servlet>
 		<servlet-name>About</servlet-name>
 		<servlet-class>hei.devweb.controllers.AboutServlet</servlet-class>
 	</servlet>
@@ -98,12 +110,20 @@
 		<url-pattern>/index</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
+		<servlet-name>Gestionadmin</servlet-name>
+		<url-pattern>/gestionadmin</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
 		<servlet-name>About</servlet-name>
 		<url-pattern>/about</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>Admin</servlet-name>
 		<url-pattern>/indexAdmin</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Eventadmin</servlet-name>
+		<url-pattern>/eventadmin</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>New1</servlet-name>
@@ -132,6 +152,10 @@
 	<servlet-mapping>
 		<servlet-name>Couverture</servlet-name>
 		<url-pattern>/couverture</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Materiel</servlet-name>
+		<url-pattern>/materiel</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>New4</servlet-name>

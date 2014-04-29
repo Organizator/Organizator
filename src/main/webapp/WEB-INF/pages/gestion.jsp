@@ -65,10 +65,11 @@
 	     		<h2 class="form-signin1-heading" align="center">Panneau de gestion : accueil</h2>
 	     
 	     <div class="form-signin" style="padding-top:5px;">
-	        <a href="etat"><button class="btn btn-lg btn-info btn-block">Status Administratifs</button></a>
+	        <a href="etat"><button class="btn btn-lg btn-info btn-block">Statuts Administratifs</button></a>
 	        <a href="time"><button class="btn btn-lg btn-info btn-block" style="margin-top:5px;">Modification date / lieu</button></a>
 	        <a href="comm"><button class="btn btn-lg btn-info btn-block" style="margin-top:5px;">Communication</button></a>
 	        <a href="couverture"><button class="btn btn-lg btn-info btn-block" style="margin-top:5px;">Couverture photo - vidéo</button></a>
+	        <a href="materiel"><button class="btn btn-lg btn-info btn-block" style="margin-top:5px;">Matériel</button></a>	
 	        <a href="gestion"><button class="btn btn-lg btn-info btn-block" style="margin-top:5px;">Autres services</button></a>	
 		</div>
 

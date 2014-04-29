@@ -31,7 +31,7 @@
 	    <c:if test="${!empty form.erreurs['motDePasse']}">
 	        <div class="alert alert-warning"><strong>${form.resultat}</strong> ${form.erreurs['motDePasse']}</div>
 	    </c:if>
-      <form class="form-signin" role="form" method=post action="index">
+      <form class="form-signin" role="form" method=post action="gestionadmin">
 	        <h2 class="form-signin-heading" align="center">Entrez vos identifiants Admin</h2>
 	        <input type="email" class="form-control" placeholder="Adresse e-mail HEI" required="" autofocus="" id="mail" name="mail" >
 	        <input type="password" class="form-control" placeholder="Mot de passe" required="" id="motDePasse" name="motDePasse" >

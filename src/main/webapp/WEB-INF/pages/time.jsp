@@ -36,6 +36,9 @@
 	        	<option value="Oui">Oui</option>
 				<option value="Non">Non</option>
 	        </select>
+	     <div class="alert alert-danger">
+	        <center><strong>Attention !</strong> En modifiant le lieu <strong>dans HEI</strong> vous devrez reformuler une demande auprès du service logistique de HEI via rubrique "Statuts administratifs"</center>
+	     </div>
 	        <p></p>
 	        <select class="form-control mid" required="" id="batiment" name="batiment">
 	        	<option value="0">Bâtiment</option>
