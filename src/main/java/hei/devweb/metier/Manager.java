@@ -35,8 +35,4 @@ public class Manager {
 		membreDao.ajouterMembre(membre);
 	}
 	
-//	public void ajouterScore(Integer score, String idMembre) {
-//		membreDao.ajouterScore(score, idMembre);
-//	}
-	
 }

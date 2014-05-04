@@ -107,7 +107,9 @@
 
        	<div class="form-signin" style="padding-top:10px;">
        		<a href="photo"><button class="btn btn-lg btn-success btn-block" style="margin-top:5px;">Demande sonorisation</button></a>
+       		<a href=""><button class="btn btn-lg btn-warning btn-block" style="margin-top:5px;">Ignorer / Ne pas ignorer Sonorisation</button></a>
        		<a href="video"><button class="btn btn-lg btn-success btn-block" style="margin-top:5px;">Demande éclairage</button></a>
+       		<a href=""><button class="btn btn-lg btn-warning btn-block" style="margin-top:5px;">Ignorer / Ne pas ignorer Eclairage</button></a>
 			<a href="gestion"><button class="btn btn-lg btn-info btn-block" style="margin-top:5px;">Retour panneau de gestion</button></a>
 	        <a href="index"><button class="btn btn-lg btn-danger btn-block" style="margin-top:5px;">Déconnexion</button></a>
 		</div>

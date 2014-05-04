@@ -30,9 +30,8 @@
 	   <div class="alert alert-danger">
         <center><strong>Attention !</strong> Vous êtes sur le point de créer un nouvel évènement !</center>
        </div>
-	        <input type="date" class="form-control start" placeholder="${sessionScope.sessionMembre.date}" required="" autofocus="" disabled="disabled">
+	        <input type="date" class="form-control start" placeholder="${date}" required="" autofocus="" disabled="disabled">
 	        <input type="hidden" id="date" name="date" value="${date}">
-	        <p></p>
 	        <input type="text" class="form-control end" placeholder="${type}" required="" autofocus="" disabled="disabled">
 	        <input type="hidden" id="type" name="type" value="${type}">
 	        <button class="btn btn-lg btn-success btn-block" type="submit">Valider</button>

@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
 
 public class RestrictionFilter implements Filter {
     public static final String ACCES_CONNEXION  = "/index";
-    public static final String ATT_SESSION_USER = "sessionMembre";
+    public static final String ATT_SESSION_USER = "sessionUtilisateur";
 
     public void init( FilterConfig config ) throws ServletException {
     }

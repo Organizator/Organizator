@@ -5,8 +5,6 @@ public class Association {
 	private String mail;
 	private String nom;
 	private String pole;
-	private String asso;
-	private String resp;
 
 	public Association(Integer id, String nom, String mail, String pole) {
 		super();
@@ -14,14 +12,6 @@ public class Association {
 		this.nom = nom;
 		this.mail = mail;
 		this.pole = pole;
-	}
-
-	public String getAsso() {
-		return asso;
-	}
-
-	public void setAsso(String asso) {
-		this.asso = asso;
 	}
 
 	public Integer getId() {
@@ -55,6 +45,5 @@ public class Association {
 	public void setPole(String pole) {
 		this.pole = pole;
 	}
-
 
 }

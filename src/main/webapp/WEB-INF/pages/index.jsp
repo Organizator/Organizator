@@ -21,9 +21,9 @@
 	</jsp:include> --%>
 	
 	<div class="container">
-		<c:if test="${!empty sessionScope.sessionMembre}">
+		<c:if test="${!empty sessionScope.sessionUtilisateur}">
 	        <%-- Si l'utilisateur existe en session, alors on affiche son adresse email. --%>
-	        <div class="alert alert-success"><strong>${form.resultat}</strong> Vous êtes connecté(e) avec l'adresse : ${sessionScope.sessionMembre.mail}</div>
+	        <div class="alert alert-success"><strong>${form.resultat}</strong> Vous êtes connecté(e) avec l'adresse : ${sessionScope.sessionUtilisateur.mail}</div>
 	    </c:if>
 	    <c:if test="${!empty form.erreurs['mail']}">
 	        <div class="alert alert-warning"><strong>${form.resultat}</strong> ${form.erreurs['mail']}</div>
@@ -34,16 +34,16 @@
       <form class="form-signin" role="form" method=post action="index">
 	        <h2 class="form-signin-heading" style="padding-bottom:15px;">Entrez vos identifiants</h2>
 	        <input type="email" class="form-control" placeholder="Adresse e-mail HEI" required="" autofocus="" id="mail" name="mail" >
-	        <p></p>
 	        <input type="password" class="form-control" placeholder="Mot de passe" required="" id="motDePasse" name="motDePasse" >
-	        <label class="checkbox">
+	        <!-- <label class="checkbox">
 	          <input type="checkbox" value="remember-me"> Resté connecté ?
-	        </label>
+	        </label> -->
+	        <p class="${empty form.erreurs ? 'succes' : 'erreur'}">${form.resultat}</p>
 	        <button class="btn btn-lg btn-success btn-block" type="submit">Connexion</button>
       </form>
       <div class="form-signin" style="padding-top:5px;">
-        <a href="new1"><button class="btn btn-lg btn-primary btn-block">Inscription</button></a>
-        <c:if test="${!empty sessionScope.sessionMembre}">
+        <a href="inscription"><button class="btn btn-lg btn-primary btn-block">Inscription</button></a>
+        <c:if test="${!empty sessionScope.sessionUtilisateur}">
 	        <a href="deconnexion"><button class="btn btn-lg btn-danger btn-block" style="margin-top:5px;">Déconnexion</button></a>
 	    </c:if>
         <a href="about"><button class="btn btn-lg btn-info btn-block" style="margin-top:5px;">A propos</button></a>

@@ -20,14 +20,14 @@ public class New3Servlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/new3.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("new3.jsp");
 		view.forward(request, response);
 	}
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/new3.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("new3.jsp");
 		view.forward(request, response);
 	}
 

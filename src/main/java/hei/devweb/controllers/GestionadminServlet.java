@@ -15,14 +15,14 @@ public class GestionadminServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/gestionadmin.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("admin/gestionadmin.jsp");
 		view.forward(request, response);
 	}
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/gestionadmin.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("admin/gestionadmin.jsp");
 		view.forward(request, response);
 	}
 

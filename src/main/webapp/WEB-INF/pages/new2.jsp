@@ -32,7 +32,7 @@
 	        <h2 class="form-signin1-heading">Détails organisateur</h2>
 	        <input type="email" class="form-control" placeholder="${mail}" required="" autofocus="" disabled="disabled" style="margin-bottom:15px" >
 	        <input type="hidden" id="mail" name="mail" value="${mail}">
-	        <input type="text" class="form-control mid" placeholder="NOM" id="NOM" name="NOM" required="">
+	        <input type="text" class="form-control start" placeholder="NOM" id="NOM" name="NOM" required="">
 	        <input type="text" class="form-control end" placeholder="Prenom" id="Prenom" name="Prenom" required="">
 	        <select class="form-control start" required="" id="classe" name="classe">
 	        	<option value="0">Classe</option>

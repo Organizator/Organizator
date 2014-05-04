@@ -24,10 +24,10 @@ public class AssociationDAO {
 			while (results.next()) {
 				Association association = new Association(
 						results.getInt("idAsso"),
-						results.getString("Nom"), 
-						results.getInt("Mail"),
-						results.getString("Pole"));
-				listeassociations.add(sauce);
+						results.getString("nom"), 
+						results.getString("mail"),
+						results.getString("pole"));
+				listeassociations.add(association);
 			}
 
 			// Fermer la connexion
@@ -42,18 +42,17 @@ public class AssociationDAO {
 		return listeassociations;
 	}
 	
-	public static void ajouterSauce(Sauce sauce) {
+	public static void ajouterAssociation(Association association) {
 		try {
 			Connection connection = DataSourceProvider.getDataSource()
 					.getConnection();
 
 			// Utiliser la connexion
 			PreparedStatement stmt = connection
-					.prepareStatement("INSERT INTO `Sauces`(`Couleur`,`PrixSauce`,`GoutSauce`,`NomSauce`) VALUES(?, ?, ?, ?)");
-			stmt.setString(1, sauce.getCouleur());
-			stmt.setInt(2, sauce.getPrixSauce());
-			stmt.setString(3, sauce.getGoutSauce());
-			stmt.setString(4, sauce.getNomSauce());
+					.prepareStatement("INSERT INTO `Associations`(`nom`,`mail`,`pole`) VALUES(?, ?, ?)");
+			stmt.setString(1, association.getNom());
+			stmt.setString(2, association.getMail());
+			stmt.setString(3, association.getPole());
 			stmt.executeUpdate();
 
 			// Fermer la connexion
@@ -65,15 +64,15 @@ public class AssociationDAO {
 		}
 	}
 	
-	public static void supprimerSauce(Integer idSauce) {
+	public static void supprimerAssociation(Integer idAssociation) {
 		try {
 			Connection connection = DataSourceProvider.getDataSource()
 					.getConnection();
 
 			// Utiliser la connexion
 			PreparedStatement stmt = connection
-					.prepareStatement("DELETE FROM Sauces WHERE idSauce = ?");
-			stmt.setInt(1,idSauce);
+					.prepareStatement("DELETE FROM Associations WHERE idAssociation = ?");
+			stmt.setInt(1,idAssociation);
 			stmt.executeUpdate();
 
 			// Fermer la connexion

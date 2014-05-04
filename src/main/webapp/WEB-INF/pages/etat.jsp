@@ -113,8 +113,11 @@
 
        	<div class="form-signin" style="padding-top:10px;">
        		<a href="papiers"><button class="btn btn-lg btn-success btn-block" style="margin-top:5px;">Demande logistique HEI</button></a>
+       		<a href=""><button class="btn btn-lg btn-warning btn-block" style="margin-top:5px;">Ignorer / Ne pas ignorer Administration</button></a>
        		<a href="papiers"><button class="btn btn-lg btn-success btn-block" style="margin-top:5px;">Déclaration d'évènement</button></a>
-       		<a href="papiers"><button class="btn btn-lg btn-success btn-block" style="margin-top:5px;">Demande autorisation du pôle</button></a>       		
+       		<a href=""><button class="btn btn-lg btn-warning btn-block" style="margin-top:5px;">Ignorer / Ne pas ignorer Pôle</button></a>
+       		<a href="papiers"><button class="btn btn-lg btn-success btn-block" style="margin-top:5px;">Demande autorisation du pôle</button></a>
+       		<a href=""><button class="btn btn-lg btn-warning btn-block" style="margin-top:5px;">Ignorer / Ne pas ignorer Logistique HEI</button></a>       		
        		<a href="annulation"><button class="btn btn-lg btn-danger btn-block" style="margin-top:5px;">Annuler l'évènement</button></a>
 			<a href="gestion"><button class="btn btn-lg btn-info btn-block" style="margin-top:5px;">Retour panneau de gestion</button></a>
 	        <a href="index"><button class="btn btn-lg btn-danger btn-block" style="margin-top:25px;">Déconnexion</button></a>

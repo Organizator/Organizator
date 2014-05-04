@@ -28,7 +28,9 @@
 	        <h2 class="form-signin1-heading" align="center">Situation de l'évènement : modification</h2>
 	        <h3 class="form-signin1-heading" align="center">Date </h3>
 	        <input type="date" class="form-control start" style="margin-top:25px; placeholder="Date" id="date" name="date" required="">
-	        <h3 class="form-signin1-heading" align="center">Heure </h3>
+	        <h3 class="form-signin1-heading" align="center">Heure Début</h3>
+	        <input type="time" class="form-control start" style="margin-top:25px; placeholder="Time" id="time" name="time" required="">
+	        <h3 class="form-signin1-heading" align="center">Heure Fin</h3>
 	        <input type="time" class="form-control start" style="margin-top:25px; placeholder="Time" id="time" name="time" required="">
 	        <h3 class="form-signin1-heading" align="center">Lieu </h3>
 	        <select class="form-control end" required="" >

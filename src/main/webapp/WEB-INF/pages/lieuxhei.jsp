@@ -46,34 +46,19 @@
  <TD><span class="label label-success">300</span></TD> 
  <TD><span class="glyphicon glyphicon-remove"></span></TD> 
   </TR>
-  <TR> 
- <TD> Accord pôle </TD> 
- <TD> <span class="glyphicon glyphicon-ok"></span> </TD> 
- <TD><span class="label label-warning">Oui</span></TD> 
- <TD><span class="glyphicon glyphicon-floppy-saved"></span> <span class="glyphicon glyphicon-floppy-remove"></span></TD> 
+    <TR> 
+ <TD> Salle de pause </TD> 
+ <TD> Segard </TD> 
+ <TD><span class="label label-success">300</span></TD> 
+ <TD><span class="glyphicon glyphicon-remove"></span></TD> 
   </TR>
-     <TR> 
- <TH> Désignation </TH> 
- <TH> Statut </TH> 
- <TH> Ignorer ? </TH>
- <TH> Actions </TH> 
-  	</TR> 
-   <TR> 
- <TD> Accord lieu </TD> 
- <TD> <span class="glyphicon glyphicon-ok"></span> </TD> 
- <TD><span class="label label-warning">Oui</span></TD> 
- <TD><span class="glyphicon glyphicon-floppy-saved"></span> <span class="glyphicon glyphicon-floppy-remove"></span></TD> 
-  </TR>  
   </table>
   
 </div>
 
        	<div class="form-signin" style="padding-top:10px;">
-       		<a href="papiers"><button class="btn btn-lg btn-success btn-block" style="margin-top:5px;">Demande logistique HEI</button></a>
-       		<a href="papiers"><button class="btn btn-lg btn-success btn-block" style="margin-top:5px;">Déclaration d'évènement</button></a>
-       		<a href="papiers"><button class="btn btn-lg btn-success btn-block" style="margin-top:5px;">Demande autorisation du pôle</button></a>       		
-       		<a href="annulation"><button class="btn btn-lg btn-danger btn-block" style="margin-top:5px;">Annuler l'évènement</button></a>
-			<a href="gestion"><button class="btn btn-lg btn-info btn-block" style="margin-top:5px;">Retour panneau de gestion</button></a>
+       		<a href="ajoutlieuxadmin"><button class="btn btn-lg btn-success btn-block" style="margin-top:5px;">Ajouter nouveau lieu</button></a>       		
+			<a href="gestionadmin"><button class="btn btn-lg btn-info btn-block" style="margin-top:5px;">Retour panneau de gestion</button></a>
 	        <a href="index"><button class="btn btn-lg btn-danger btn-block" style="margin-top:25px;">Déconnexion</button></a>
 		</div>
     </div>

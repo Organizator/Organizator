@@ -66,26 +66,63 @@ public class MembreDao {
 			e.printStackTrace();
 		}
 	}
+	
+	public void supprimerMembre(Membre membre) {
+		try {
+			Connection connection = DataSourceProvider.getDataSource()
+					.getConnection();
+			// Utiliser la connexion
+			PreparedStatement stmt = connection
+					.prepareStatement("DELETE FROM `membre` WHERE `mail`=?");
+			stmt.setString(1, membre.getMail());
+			stmt.executeUpdate();
 
-//	public void ajouterScore(Integer score, String idMembre) {
-//		try {
-//			Connection connection = DataSourceProvider.getDataSource()
-//					.getConnection();
-//
-//			// Utiliser la connexion
-//			PreparedStatement stmt = connection
-//					.prepareStatement("UPDATE  `tennisworld`.`membre` SET  `meilleurscore` =  ? WHERE  `membre`.`pseudo` =?;");
-//			stmt.setInt(1, score);
-//			stmt.setString(2, idMembre);
-//			stmt.executeUpdate();
-//
-//			// Fermer la connexion
-//			stmt.close();
-//			connection.close();
-//
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-//	}
+			// Fermer la connexion
+			stmt.close();
+			connection.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void activerMembre(Membre membre) {
+		try {
+			Connection connection = DataSourceProvider.getDataSource()
+					.getConnection();
+			// Utiliser la connexion
+			PreparedStatement stmt = connection
+					.prepareStatement("UPDATE membre set statut='actif' WHERE mail=?");
+			stmt.setString(1, membre.getMail());
+			stmt.executeUpdate();
+
+			// Fermer la connexion
+			stmt.close();
+			connection.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void desactiverMembre(Membre membre) {
+		try {
+			Connection connection = DataSourceProvider.getDataSource()
+					.getConnection();
+			// Utiliser la connexion
+			PreparedStatement stmt = connection
+					.prepareStatement("UPDATE membre set statut='desactive' WHERE mail=?");
+			stmt.setString(1, membre.getMail());
+			stmt.executeUpdate();
+
+			// Fermer la connexion
+			stmt.close();
+			connection.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
 
 }
