@@ -1,6 +1,15 @@
 package hei.devweb.controllers;
 
+import hei.devweb.metier.Manager;
+import hei.devweb.model.Boisson;
+import hei.devweb.model.Commande;
+import hei.devweb.model.Pole;
+import hei.devweb.model.Sandwich;
+import hei.devweb.model.Sauce;
+
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,14 +24,33 @@ public class GestionpolesServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/gestionpoles.jsp");
-		view.forward(request, response);
+		
+		List<Pole>listepoles = new ArrayList<Pole>();
+		listepoles = Manager.getInstance().listerPoles();
+		
+		List<Commande> listecommandes = Manager.getInstance().listerCommandes();
+		
+		List<Boisson> listeboisson = new ArrayList<Boisson>();
+		listeboisson = Manager.getInstance().listerBoissons();
+		
+		List<Sandwich> listesandwich = new ArrayList<Sandwich>();
+		listesandwich = Manager.getInstance().listerSandwichs();
+		
+		request.setAttribute("commandes", listecommandes);
+		request.setAttribute("sauces", listesausse);
+		request.setAttribute("boissons", listeboisson);
+		request.setAttribute("sandwichs", listesandwich);
+		RequestDispatcher view = request.getRequestDispatcher("admin/gestionpoles.jsp");
+		view.forward(request, response);	
 	}
+	
+	
+	
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/gestionpoles.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("admin/gestionpoles.jsp");
 		view.forward(request, response);
 	}
 

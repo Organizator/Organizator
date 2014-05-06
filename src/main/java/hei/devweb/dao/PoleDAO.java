@@ -1,7 +1,6 @@
 package hei.devweb.dao;
 
-import hei.devweb.model.Association;
-import hei.devweb.model.Salle;
+import hei.devweb.model.Pole;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,20 +12,20 @@ import java.util.List;
 
 public class PoleDAO {
 
-	public static List<Salle> listerSalles() {
-		List<Salle> listesalles = new ArrayList<Salle>();
+	public static List<Pole> listerPoles() {
+		List<Pole> listepoles = new ArrayList<Pole>();
 		try {
 			Connection connection = DataSourceProvider.getDataSource()
 					.getConnection();
 
 			Statement stmt = connection.createStatement();
-			ResultSet results = stmt.executeQuery("SELECT * FROM Salles");
+			ResultSet results = stmt.executeQuery("SELECT * FROM poles");
 
 			while (results.next()) {
-				Salle salle = new Salle(
-						results.getInt("idSalle"),
-						results.getString("Nom"));
-				listesalles.add(salle);
+				Pole pole = new Pole(
+						results.getInt("idpole"),
+						results.getString("nom"));
+				listepoles.add(pole);
 			}
 
 			// Fermer la connexion
@@ -38,18 +37,18 @@ public class PoleDAO {
 			e.printStackTrace();
 		}
 
-		return listesalles;
+		return listepoles;
 	}
 	
-	public static void ajouterSalle(Salle salle) {
+	public static void ajouterPole(Pole pole) {
 		try {
 			Connection connection = DataSourceProvider.getDataSource()
 					.getConnection();
 
 			// Utiliser la connexion
 			PreparedStatement stmt = connection
-					.prepareStatement("INSERT INTO `Salles`(`NomSalle`) VALUES(?)");
-			stmt.setString(1, salle.getNom());
+					.prepareStatement("INSERT INTO `poles`(`nom`) VALUES(?)");
+			stmt.setString(1, pole.getNom());
 			stmt.executeUpdate();
 
 			// Fermer la connexion
@@ -61,15 +60,15 @@ public class PoleDAO {
 		}
 	}
 	
-	public static void supprimerSalle(Integer idSalle) {
+	public static void supprimerPole(Integer idpole) {
 		try {
 			Connection connection = DataSourceProvider.getDataSource()
 					.getConnection();
 
 			// Utiliser la connexion
 			PreparedStatement stmt = connection
-					.prepareStatement("DELETE FROM Salles WHERE idSalle = ?");
-			stmt.setInt(1,idSalle);
+					.prepareStatement("DELETE FROM poles WHERE idpole = ?");
+			stmt.setInt(1,idpole);
 			stmt.executeUpdate();
 
 			// Fermer la connexion
