@@ -20,14 +20,14 @@ public class AjoutpoleadminServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		RequestDispatcher view = request.getRequestDispatcher("admin/ajoutpoleadmin.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("ajoutpoleadmin.jsp");
 		view.forward(request, response);
 	}
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		RequestDispatcher view = request.getRequestDispatcher("admin/ajoutpoleadmin.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("ajoutpoleadmin.jsp");
 		view.forward(request, response);
 	}
 

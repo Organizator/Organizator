@@ -20,6 +20,10 @@ public class New3Servlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
+		String date = request.getParameter("date");
+		
+		request.setAttribute( "date", date );
+		
 		RequestDispatcher view = request.getRequestDispatcher("new3.jsp");
 		view.forward(request, response);
 	}

@@ -20,7 +20,7 @@ public class DeconnexionServlet extends HttpServlet {
         session.invalidate();
 
         /* Redirection vers le Site du Zéro ! */
-        response.sendRedirect( "" );
+        response.sendRedirect( "index" );
         
 	}
 	

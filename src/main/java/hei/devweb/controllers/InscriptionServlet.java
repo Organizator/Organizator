@@ -65,7 +65,15 @@ public class InscriptionServlet extends HttpServlet {
         request.setAttribute( ATT_ERREURS, erreurs );
         request.setAttribute( ATT_RESULTAT, resultat );
 		
-		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/inscription.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("inscription");
+		view.forward(request, response);
+	}
+	
+
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		RequestDispatcher view = request.getRequestDispatcher("inscription");
 		view.forward(request, response);
 	}
 		
@@ -97,11 +105,5 @@ public class InscriptionServlet extends HttpServlet {
 	    }
 	}
 
-	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/inscription.jsp");
-		view.forward(request, response);
-	}
 
 }

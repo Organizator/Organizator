@@ -6,16 +6,7 @@
 <html>
   <head>
     <title>Organizator - Accueil</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <!-- Bootstrap -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/bootstrap-theme.min.css" rel="stylesheet">
-    <!-- <link rel="stylesheet" type="text/css" href="css/style.css"> -->
-    <link rel="stylesheet" type="text/css" href="../css/signin.css">
-    <script src="../js/jquery.js"></script>
-	<script src="../js/bootstrap.min.js "></script>
-	
+	<%@include file="../include/links.jsp" %>
   </head>
   <body>
 	<!-- Menu de navigation -->
@@ -30,10 +21,9 @@
       <form class="form-signin1" role="form" method=post action="new4">
 	        <h2 class="form-signin1-heading">Nouveau projet - 4/? </h2>
 	        <h2 class="form-signin1-heading">Détails évènement</h2>
-	        <input type="email" class="form-control start" placeholder="${sessionScope.sessionMembre.mail}" required="" autofocus="" disabled="disabled">
-	        <input type="hidden" id="mail" name="mail" value="${mail}">
-	        <input type="text" class="form-control end" placeholder="${asso}" required="" autofocus="" disabled="disabled">
-	        <input type="hidden" id="asso" name="asso" value="${asso}">
+	        <input type="email" class="form-control start" placeholder="${sessionScope.sessionUtilisateur.mail}" required="" autofocus="" disabled="disabled">
+	        <input type="text" class="form-control end" placeholder="${date}" required="" autofocus="" disabled="disabled">
+	        <input type="hidden" id="asso" name="asso" value="${date}">
 	        <h4 class="form-signin1-heading" align="center">Heure Début / Fin</h4>
 	        <input type="time" class="form-control start" placeholder="Time" id="time" name="time" required="">
 	        <input type="time" class="form-control end" placeholder="Time" id="time" name="time" required="">
@@ -54,16 +44,8 @@
 	        	<option value="Oui">Oui</option>
 				<option value="Non">Non</option>
 	        </select>
-	        <select class="form-control mid" required="" id="batiment" name="batiment">
-	        	<option value="0">Bâtiment</option>
-				<option value="PES">PES</option>
-				<option value="BDA">BDA</option>
-				<option value="Cap'so">Cap'so</option>
-				<option value="PET">PET</option>
-				<option value="BDS">BDS</option>
-	        </select>
-	        <select class="form-control end" required="" id="salle" name="salle">
-	        	<option value="0">Salle</option>
+	        <select class="form-control end" required="" id="batiment" name="batiment">
+	        	<option value="0">Bâtiment (si dans HEI)</option>
 				<option value="PES">PES</option>
 				<option value="BDA">BDA</option>
 				<option value="Cap'so">Cap'so</option>

@@ -23,6 +23,10 @@
 		<filter-name>RestrictionFilter</filter-name>
 		<url-pattern>/in/*</url-pattern>
 	</filter-mapping>
+	<filter-mapping>
+		<filter-name>RestrictionFilter</filter-name>
+		<url-pattern>/admin/*</url-pattern>
+	</filter-mapping>
 	
 	<servlet>
 		<servlet-name>Accueil</servlet-name>
@@ -47,6 +51,10 @@
 	<servlet>
 		<servlet-name>Gestionpoles</servlet-name>
 		<servlet-class>hei.devweb.controllers.GestionpolesServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>SupprimerPole</servlet-name>
+		<servlet-class>hei.devweb.controllers.SupprimerPoleServlet</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>Gestioncomm</servlet-name>
@@ -99,10 +107,6 @@
 	<servlet>
 		<servlet-name>Inscription</servlet-name>
 		<servlet-class>hei.devweb.controllers.InscriptionServlet</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>New2</servlet-name>
-		<servlet-class>hei.devweb.controllers.New2Servlet</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>Date</servlet-name>
@@ -159,11 +163,11 @@
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>Ajoutcommadmin</servlet-name>
-		<url-pattern>/ajoutcommadmin</url-pattern>
+		<url-pattern>/admin/ajoutcommadmin</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>Gestionadmin</servlet-name>
-		<url-pattern>/gestionadmin</url-pattern>
+		<url-pattern>/admin/gestionadmin</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>About</servlet-name>
@@ -171,7 +175,7 @@
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>Annulationadmin</servlet-name>
-		<url-pattern>/annulationadmin</url-pattern>
+		<url-pattern>/admin/annulationadmin</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>Admin</servlet-name>
@@ -179,64 +183,63 @@
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>Gestionassos</servlet-name>
-		<url-pattern>/gestionassos</url-pattern>
+		<url-pattern>/admin/gestionassos</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>Gestioncomm</servlet-name>
-		<url-pattern>/gestioncomm</url-pattern>
+		<url-pattern>/admin/gestioncomm</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>Gestionpoles</servlet-name>
-		<url-pattern>/gestionpoles</url-pattern>
+		<url-pattern>/admin/gestionpoles</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>SupprimerPole</servlet-name>
+		<url-pattern>/admin/supprimerpole</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 	<servlet-name>Ajoutassoadmin</servlet-name>
-		<url-pattern>/ajoutassoadmin</url-pattern>
+		<url-pattern>/admin/ajoutassoadmin</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 	<servlet-name>Ajoutpoleadmin</servlet-name>
-		<url-pattern>/ajoutpoleadmin</url-pattern>
+		<url-pattern>/admin/ajoutpoleadmin</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 	<servlet-name>Ajoutrespadmin</servlet-name>
-		<url-pattern>/ajoutrespadmin</url-pattern>
+		<url-pattern>/admin/ajoutrespadmin</url-pattern>
 	</servlet-mapping>
-	
 	<servlet-mapping>
 		<servlet-name>Gestionresp</servlet-name>
-		<url-pattern>/gestionresp</url-pattern>
+		<url-pattern>/admin/gestionresp</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>Eventadmin</servlet-name>
-		<url-pattern>/eventadmin</url-pattern>
+		<url-pattern>/admin/eventadmin</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>Batimentshei</servlet-name>
-		<url-pattern>/batimentshei</url-pattern>
+		<url-pattern>/admin/batimentshei</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Ajoutlieuxadmin</servlet-name>
+		<url-pattern>/admin/ajoutlieuxadmin</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Lieuxhei</servlet-name>
+		<url-pattern>/admin/lieuxhei</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>Inscription</servlet-name>
 		<url-pattern>/inscription</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
-		<servlet-name>Ajoutlieuxadmin</servlet-name>
-		<url-pattern>/ajoutlieuxadmin</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>Lieuxhei</servlet-name>
-		<url-pattern>/lieuxhei</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>New2</servlet-name>
-		<url-pattern>/new2</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
 		<servlet-name>Date</servlet-name>
-		<url-pattern>/date</url-pattern>
+		<url-pattern>/in/date</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 	<servlet-name>Erreur</servlet-name>
-		<url-pattern>/erreur</url-pattern>
+		<url-pattern>/in/erreur</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>New3</servlet-name>
@@ -244,35 +247,35 @@
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>Annulation</servlet-name>
-		<url-pattern>/annulation</url-pattern>
+		<url-pattern>/in/annulation</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>Couverture</servlet-name>
-		<url-pattern>/couverture</url-pattern>
+		<url-pattern>/in/couverture</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>Materiel</servlet-name>
-		<url-pattern>/materiel</url-pattern>
+		<url-pattern>/in/materiel</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>New4</servlet-name>
-		<url-pattern>/new4</url-pattern>
+		<url-pattern>/in/new4</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>Etat</servlet-name>
-		<url-pattern>/etat</url-pattern>
+		<url-pattern>/in/etat</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>Time</servlet-name>
-		<url-pattern>/time</url-pattern>
+		<url-pattern>/in/time</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>Gestion</servlet-name>
-		<url-pattern>/gestion</url-pattern>
+		<url-pattern>/in/gestion</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>Comm</servlet-name>
-		<url-pattern>/comm</url-pattern>
+		<url-pattern>/in/comm</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>Deconnexion</servlet-name>

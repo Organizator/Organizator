@@ -1,14 +1,12 @@
 package hei.devweb.controllers;
 
 import hei.devweb.metier.Manager;
-import hei.devweb.model.Boisson;
-import hei.devweb.model.Commande;
 import hei.devweb.model.Pole;
-import hei.devweb.model.Sandwich;
-import hei.devweb.model.Sauce;
 
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -24,25 +22,20 @@ public class GestionpolesServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-		List<Pole>listepoles = new ArrayList<Pole>();
-		listepoles = Manager.getInstance().listerPoles();
-		
-		List<Commande> listecommandes = Manager.getInstance().listerCommandes();
-		
-		List<Boisson> listeboisson = new ArrayList<Boisson>();
-		listeboisson = Manager.getInstance().listerBoissons();
-		
-		List<Sandwich> listesandwich = new ArrayList<Sandwich>();
-		listesandwich = Manager.getInstance().listerSandwichs();
-		
-		request.setAttribute("commandes", listecommandes);
-		request.setAttribute("sauces", listesausse);
-		request.setAttribute("boissons", listeboisson);
-		request.setAttribute("sandwichs", listesandwich);
-		RequestDispatcher view = request.getRequestDispatcher("admin/gestionpoles.jsp");
-		view.forward(request, response);	
-	}
+				String Nom = request.getParameter("nom");
+
+				
+				Pole nouveauPole = new Pole(null, Nom);
+				Manager.getInstance().ajouterPole(nouveauPole);
+
+				List<Pole>listepoles = new ArrayList<Pole>();
+				listepoles = Manager.getInstance().listerPoles();
+
+				request.setAttribute("poles", listepoles);
+
+				RequestDispatcher view = request.getRequestDispatcher("gestionpoles.jsp");
+				view.forward(request, response);	
+			}	
 	
 	
 	
@@ -50,8 +43,14 @@ public class GestionpolesServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		RequestDispatcher view = request.getRequestDispatcher("admin/gestionpoles.jsp");
-		view.forward(request, response);
-	}
+				
+				List<Pole>listepoles = new ArrayList<Pole>();
+				listepoles = Manager.getInstance().listerPoles();
+
+				request.setAttribute("poles", listepoles);
+
+				RequestDispatcher view = request.getRequestDispatcher("gestionpoles.jsp");
+				view.forward(request, response);	
+			}
 
 }

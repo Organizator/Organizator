@@ -5,14 +5,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Organizator - Inscription</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
-    <!-- <link rel="stylesheet" type="text/css" href="css/style.css"> -->
-    <link rel="stylesheet" type="text/css" href="css/signin.css">
+    <title>Organizator - Date nouveau projet</title>
+    <%@include file="../include/links.jsp" %>
   </head>
   <body>
 	<!-- Menu de navigation -->
@@ -22,7 +16,7 @@
 	
 	<div class="container">
       	<form class="form-signin1" role="form" method=post action="new3">
-	        <h2 class="form-signin1-heading">Nouveau projet - 3/? </h2>
+	        <h2 class="form-signin1-heading">Nouveau projet</h2>
 	        <h2 class="form-signin1-heading">Date de l'évènement </h2>
 	        <input type="date" class="form-control" style="margin-top:25px; placeholder="Date" id="date" name="date" required="">
 	        <button class="btn btn-lg btn-success btn-block" style="margin-top:25px; type="submit">Etape suivante</button>

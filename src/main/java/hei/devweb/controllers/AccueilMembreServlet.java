@@ -16,10 +16,8 @@ public class AccueilMembreServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		/* Récupération et destruction de la session en cours */
         HttpSession session = request.getSession();
 
-        /* Redirection vers le Site du Zéro ! */
         RequestDispatcher view = request.getRequestDispatcher("accueilmembre.jsp");
 		view.forward(request, response);
         

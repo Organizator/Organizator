@@ -12,10 +12,10 @@ public class DataSourceProvider {
 		if (dataSource == null) {
 			dataSource = new MysqlDataSource();
 			dataSource.setServerName("localhost");
-			dataSource.setPort(8889);
+			dataSource.setPort(3306);
 			dataSource.setDatabaseName("organizator");
 			dataSource.setUser("root");
-			dataSource.setPassword("root");
+			dataSource.setPassword("");
 		}
 		return dataSource;
 	}
