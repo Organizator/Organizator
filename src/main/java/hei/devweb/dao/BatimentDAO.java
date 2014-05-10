@@ -1,6 +1,6 @@
 package hei.devweb.dao;
 
-import hei.devweb.model.Association;
+import hei.devweb.model.Batiment;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,24 +10,22 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AssociationDAO {
+public class BatimentDAO {
 
-	public static List<Association> listerAssociations() {
-		List<Association> listeassociations = new ArrayList<Association>();
+	public static List<Batiment> listerBatiments() {
+		List<Batiment> listebatiments = new ArrayList<Batiment>();
 		try {
 			Connection connection = DataSourceProvider.getDataSource()
 					.getConnection();
 
 			Statement stmt = connection.createStatement();
-			ResultSet results = stmt.executeQuery("SELECT * FROM associations");
+			ResultSet results = stmt.executeQuery("SELECT * FROM batiments");
 
 			while (results.next()) {
-				Association association = new Association(
-						results.getInt("idAssociation"),
-						results.getString("nom"), 
-						results.getString("mail"),
-						results.getString("pole"));
-				listeassociations.add(association);
+				Batiment batiment = new Batiment(
+						results.getInt("idBatiment"),
+						results.getString("nom"));
+				listebatiments.add(batiment);
 			}
 
 			// Fermer la connexion
@@ -39,20 +37,18 @@ public class AssociationDAO {
 			e.printStackTrace();
 		}
 
-		return listeassociations;
+		return listebatiments;
 	}
 	
-	public static void ajouterAssociation(Association association) {
+	public static void ajouterBatiment(Batiment batiment) {
 		try {
 			Connection connection = DataSourceProvider.getDataSource()
 					.getConnection();
 
 			// Utiliser la connexion
 			PreparedStatement stmt = connection
-					.prepareStatement("INSERT INTO `associations`(`nom`,`mail`,`pole`) VALUES(?, ?, ?)");
-			stmt.setString(1, association.getNom());
-			stmt.setString(2, association.getMail());
-			stmt.setString(3, association.getPole());
+					.prepareStatement("INSERT INTO `batiments`(`nom`) VALUES(?)");
+			stmt.setString(1, batiment.getNom());
 			stmt.executeUpdate();
 
 			// Fermer la connexion
@@ -64,15 +60,15 @@ public class AssociationDAO {
 		}
 	}
 	
-	public static void supprimerAssociation(Integer idAssociation) {
+	public static void supprimerBatiment(Integer idBatiment) {
 		try {
 			Connection connection = DataSourceProvider.getDataSource()
 					.getConnection();
 
 			// Utiliser la connexion
 			PreparedStatement stmt = connection
-					.prepareStatement("DELETE FROM associations WHERE idAssociation = ?");
-			stmt.setInt(1,idAssociation);
+					.prepareStatement("DELETE FROM batiments WHERE idBatiment = ?");
+			stmt.setInt(1,idBatiment);
 			stmt.executeUpdate();
 
 			// Fermer la connexion

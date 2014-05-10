@@ -20,15 +20,16 @@ public class AnnulationadminServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/annulationadmin.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("annulationadmin.jsp");
 		view.forward(request, response);
 	}
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/annulationadmin.jsp");
+		
+		RequestDispatcher view = request.getRequestDispatcher("annulationadmin.jsp");
 		view.forward(request, response);
-	}
+	}	
 
 }

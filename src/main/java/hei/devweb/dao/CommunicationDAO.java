@@ -19,11 +19,11 @@ public class CommunicationDAO {
 					.getConnection();
 
 			Statement stmt = connection.createStatement();
-			ResultSet results = stmt.executeQuery("SELECT * FROM Communications");
+			ResultSet results = stmt.executeQuery("SELECT * FROM communications");
 
 			while (results.next()) {
 				Communication communication = new Communication(
-						results.getInt("idAsso"),
+						results.getInt("idComm"),
 						results.getString("nom"), 
 						results.getString("contact"),
 						results.getString("message"));
@@ -49,7 +49,7 @@ public class CommunicationDAO {
 
 			// Utiliser la connexion
 			PreparedStatement stmt = connection
-					.prepareStatement("INSERT INTO `Communications`(`nom`,`contact`,`message`) VALUES(?, ?, ?)");
+					.prepareStatement("INSERT INTO `communications`(`nom`,`contact`,`message`) VALUES(?, ?, ?)");
 			stmt.setString(1, communication.getNom());
 			stmt.setString(2, communication.getContact());
 			stmt.setString(3, communication.getMessage());
@@ -71,7 +71,7 @@ public class CommunicationDAO {
 
 			// Utiliser la connexion
 			PreparedStatement stmt = connection
-					.prepareStatement("DELETE FROM Communications WHERE idCommunication = ?");
+					.prepareStatement("DELETE FROM communications WHERE idComm = ?");
 			stmt.setInt(1,idCommunication);
 			stmt.executeUpdate();
 

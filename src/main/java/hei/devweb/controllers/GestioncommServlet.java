@@ -1,6 +1,12 @@
 package hei.devweb.controllers;
 
+import hei.devweb.metier.Manager;
+import hei.devweb.model.Communication;
+import hei.devweb.model.Pole;
+
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,14 +21,33 @@ public class GestioncommServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/gestioncomm.jsp");
+				String Nom = request.getParameter("nom");
+				String Contact = request.getParameter("contact");
+				String Message = request.getParameter("message");
+
+				
+				Communication nouvelleCommunication = new Communication(null, Nom, Contact, Message);
+				Manager.getInstance().ajouterCommunication(nouvelleCommunication);
+
+				List<Communication>listecommunications = new ArrayList<Communication>();
+				listecommunications = Manager.getInstance().listerCommunications();
+
+				request.setAttribute("communications", listecommunications);
+				
+		RequestDispatcher view = request.getRequestDispatcher("gestioncomm.jsp");
 		view.forward(request, response);
 	}
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/gestioncomm.jsp");
+				
+				List<Communication>listecommunications = new ArrayList<Communication>();
+				listecommunications = Manager.getInstance().listerCommunications();
+
+				request.setAttribute("communications", listecommunications);
+				
+		RequestDispatcher view = request.getRequestDispatcher("gestioncomm.jsp");
 		view.forward(request, response);
 	}
 

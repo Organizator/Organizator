@@ -46,7 +46,7 @@
         <c:if test="${!empty sessionScope.sessionUtilisateur}">
         	<div class="form-signin" style="padding-top:5px;">
 	        	<a href="in/date"><button class="btn btn-lg btn-success btn-block">Nouvel évènement</button></a>
-	        	<a href="in/gestion"><button class="btn btn-lg btn-primary btn-block" style="margin-top:5px;">Gérer vos évènements</button></a>
+	        	<a href="in/choix"><button class="btn btn-lg btn-primary btn-block" style="margin-top:5px;">Gérer vos évènements</button></a>
 	        	<a href="about"><button class="btn btn-lg btn-info btn-block" style="margin-top:5px;">A propos</button></a>
 	        	<a href="deconnexion"><button class="btn btn-lg btn-danger btn-block" style="margin-top:5px;">Déconnexion</button></a>
 	        	<a href="admin/gestionadmin"><button class="btn btn-lg btn-link btn-block" href="test">Administration</button></a>

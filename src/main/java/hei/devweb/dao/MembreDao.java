@@ -42,6 +42,35 @@ public class MembreDao {
 //
 //		return liste;
 //	}
+	
+//	public Membre getMembre(Integer idMembre) {
+//		Membre membre = null;
+//		try {
+//			Connection connection = DataSourceProvider.getDataSource()
+//					.getConnection();
+//
+//			// Utiliser la connexion
+//			PreparedStatement stmt = connection
+//					.prepareStatement("SELECT * FROM membre WHERE idmembre = ?");
+//			stmt.setInt(1, idMembre);
+//			ResultSet result = stmt.executeQuery();
+//			if (result.next()) {
+//				membre = new Membre(result.getInt("idmembre"),
+//						result.getInt("classement"), 
+//						result.getString("prenom"),
+//						result.getString("nom"),
+//						result.getString("pays"));
+//			}
+//			System.out.println("RETOUR:"+result.getString("resume"));
+//			// Fermer la connexion
+//			stmt.close();
+//			connection.close();
+//
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
+//		return membre;
+//	}
 
 	public void ajouterMembre(Membre membre) {
 		try {
@@ -85,44 +114,5 @@ public class MembreDao {
 			e.printStackTrace();
 		}
 	}
-	
-	public void activerMembre(Membre membre) {
-		try {
-			Connection connection = DataSourceProvider.getDataSource()
-					.getConnection();
-			// Utiliser la connexion
-			PreparedStatement stmt = connection
-					.prepareStatement("UPDATE membre set statut='actif' WHERE mail=?");
-			stmt.setString(1, membre.getMail());
-			stmt.executeUpdate();
-
-			// Fermer la connexion
-			stmt.close();
-			connection.close();
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
-	
-	public void desactiverMembre(Membre membre) {
-		try {
-			Connection connection = DataSourceProvider.getDataSource()
-					.getConnection();
-			// Utiliser la connexion
-			PreparedStatement stmt = connection
-					.prepareStatement("UPDATE membre set statut='desactive' WHERE mail=?");
-			stmt.setString(1, membre.getMail());
-			stmt.executeUpdate();
-
-			// Fermer la connexion
-			stmt.close();
-			connection.close();
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
-
 
 }

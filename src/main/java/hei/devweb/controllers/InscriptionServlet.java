@@ -2,9 +2,11 @@ package hei.devweb.controllers;
 
 import hei.devweb.metier.Manager;
 import hei.devweb.model.Membre;
+import hei.devweb.model.Pole;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
@@ -65,16 +67,17 @@ public class InscriptionServlet extends HttpServlet {
         request.setAttribute( ATT_ERREURS, erreurs );
         request.setAttribute( ATT_RESULTAT, resultat );
 		
-		RequestDispatcher view = request.getRequestDispatcher("inscription");
-		view.forward(request, response);
+        request.getRequestDispatcher( "WEB-INF/pages/inscription.jsp" ).forward( request, response );
 	}
 	
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		RequestDispatcher view = request.getRequestDispatcher("inscription");
-		view.forward(request, response);
+		List<Pole> poles = Manager.getInstance().listerPoles();
+		request.setAttribute("poles", poles);
+		
+		request.getRequestDispatcher( "WEB-INF/pages/inscription.jsp" ).forward( request, response );
 	}
 		
 		/**

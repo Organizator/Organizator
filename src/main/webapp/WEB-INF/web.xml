@@ -33,6 +33,10 @@
 		<servlet-class>hei.devweb.controllers.AccueilServlet</servlet-class>
 	</servlet>
 	<servlet>
+		<servlet-name>SupprimerCommunication</servlet-name>
+		<servlet-class>hei.devweb.controllers.SupprimerCommunicationServlet</servlet-class>
+	</servlet>
+	<servlet>
 		<servlet-name>Ajoutassoadmin</servlet-name>
 		<servlet-class>hei.devweb.controllers.AjoutassoadminServlet</servlet-class>
 	</servlet>
@@ -41,8 +45,16 @@
 		<servlet-class>hei.devweb.controllers.AjoutcommadminServlet</servlet-class>
 	</servlet>
 	<servlet>
+		<servlet-name>Planningadmin</servlet-name>
+		<servlet-class>hei.devweb.controllers.PlanningadminServlet</servlet-class>
+	</servlet>
+	<servlet>
 		<servlet-name>Gestionassos</servlet-name>
 		<servlet-class>hei.devweb.controllers.GestionassosServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>SupprimerAssociation</servlet-name>
+		<servlet-class>hei.devweb.controllers.SupprimerAssociationServlet</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>Gestionresp</servlet-name>
@@ -67,6 +79,10 @@
 	<servlet>
 		<servlet-name>Batimentshei</servlet-name>
 		<servlet-class>hei.devweb.controllers.BatimentsheiServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>SupprimerBatiment</servlet-name>
+		<servlet-class>hei.devweb.controllers.SupprimerBatimentServlet</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>Lieuxhei</servlet-name>
@@ -121,8 +137,8 @@
 		<servlet-class>hei.devweb.controllers.ErreurServlet</servlet-class>
 	</servlet>
 	<servlet>
-		<servlet-name>New3</servlet-name>
-		<servlet-class>hei.devweb.controllers.New3Servlet</servlet-class>
+		<servlet-name>New</servlet-name>
+		<servlet-class>hei.devweb.controllers.NewServlet</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>Ajoutrespadmin</servlet-name>
@@ -133,12 +149,12 @@
 		<servlet-class>hei.devweb.controllers.CommServlet</servlet-class>
 	</servlet>
 	<servlet>
-		<servlet-name>New4</servlet-name>
-		<servlet-class>hei.devweb.controllers.New4Servlet</servlet-class>
+		<servlet-name>Confirmation</servlet-name>
+		<servlet-class>hei.devweb.controllers.ConfirmationServlet</servlet-class>
 	</servlet>
 	<servlet>
-		<servlet-name>Ajoutpoleadmin</servlet-name>
-		<servlet-class>hei.devweb.controllers.AjoutpoleadminServlet</servlet-class>
+		<servlet-name>Choix</servlet-name>
+		<servlet-class>hei.devweb.controllers.ChoixServlet</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>Etat</servlet-name>
@@ -162,10 +178,6 @@
 		<url-pattern>/index</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
-		<servlet-name>Ajoutcommadmin</servlet-name>
-		<url-pattern>/admin/ajoutcommadmin</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
 		<servlet-name>Gestionadmin</servlet-name>
 		<url-pattern>/admin/gestionadmin</url-pattern>
 	</servlet-mapping>
@@ -178,12 +190,20 @@
 		<url-pattern>/admin/annulationadmin</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
+		<servlet-name>Planningadmin</servlet-name>
+		<url-pattern>/admin/planningadmin</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
 		<servlet-name>Admin</servlet-name>
 		<url-pattern>/indexAdmin</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>Gestionassos</servlet-name>
 		<url-pattern>/admin/gestionassos</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>SupprimerAssociation</servlet-name>
+		<url-pattern>/admin/supprimerassociation</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>Gestioncomm</servlet-name>
@@ -194,20 +214,12 @@
 		<url-pattern>/admin/gestionpoles</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
+		<servlet-name>SupprimerCommunication</servlet-name>
+		<url-pattern>/admin/supprimercommunication</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
 		<servlet-name>SupprimerPole</servlet-name>
 		<url-pattern>/admin/supprimerpole</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-	<servlet-name>Ajoutassoadmin</servlet-name>
-		<url-pattern>/admin/ajoutassoadmin</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-	<servlet-name>Ajoutpoleadmin</servlet-name>
-		<url-pattern>/admin/ajoutpoleadmin</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-	<servlet-name>Ajoutrespadmin</servlet-name>
-		<url-pattern>/admin/ajoutrespadmin</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>Gestionresp</servlet-name>
@@ -222,8 +234,8 @@
 		<url-pattern>/admin/batimentshei</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
-		<servlet-name>Ajoutlieuxadmin</servlet-name>
-		<url-pattern>/admin/ajoutlieuxadmin</url-pattern>
+		<servlet-name>SupprimerBatiment</servlet-name>
+		<url-pattern>/admin/supprimerbatiment</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>Lieuxhei</servlet-name>
@@ -242,8 +254,8 @@
 		<url-pattern>/in/erreur</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
-		<servlet-name>New3</servlet-name>
-		<url-pattern>/in/new3</url-pattern>
+		<servlet-name>New</servlet-name>
+		<url-pattern>/in/new</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>Annulation</servlet-name>
@@ -258,8 +270,12 @@
 		<url-pattern>/in/materiel</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
-		<servlet-name>New4</servlet-name>
-		<url-pattern>/in/new4</url-pattern>
+		<servlet-name>Confirmation</servlet-name>
+		<url-pattern>/in/confirmation</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Choix</servlet-name>
+		<url-pattern>/in/choix</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>Etat</servlet-name>

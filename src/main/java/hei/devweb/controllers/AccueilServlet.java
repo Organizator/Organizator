@@ -1,7 +1,6 @@
 package hei.devweb.controllers;
 
 import hei.devweb.dao.ConnexionForm;
-import hei.devweb.model.Membre;
 import hei.devweb.model.Utilisateur;
 
 import java.io.IOException;

@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Organizator - Accueil</title>
+    <title>Organizator - Gestion des pôles</title>
     <%@include file="../include/links.jsp" %>
   </head>
   <body style="padding-top:0px;">

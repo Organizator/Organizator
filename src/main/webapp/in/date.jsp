@@ -15,14 +15,15 @@
 	</jsp:include> --%>
 	
 	<div class="container">
-      	<form class="form-signin1" role="form" method=post action="new3">
+      	<form class="form-signin1" role="form" method=post action="new">
 	        <h2 class="form-signin1-heading">Nouveau projet</h2>
 	        <h2 class="form-signin1-heading">Date de l'évènement </h2>
-	        <input type="date" class="form-control" style="margin-top:25px; placeholder="Date" id="date" name="date" required="">
-	        <button class="btn btn-lg btn-success btn-block" style="margin-top:25px; type="submit">Etape suivante</button>
+	        <input type="date" class="form-control" style="margin-top:25px; margin-bottom:10px;" placeholder="Date" id="date" name="date" required="" >
+	        <button class="btn btn-lg btn-success btn-block" type="submit">Valider</button>
+	        <button type="reset" class="btn btn-lg btn-info btn-block" style="margin-top:5px;">Réinitialiser</button>
       	</form>
-      <form class="form-signin1" role="form" method=post action="new2">
-      <button type="submit" class="btn btn-lg btn-warning btn-block">Retour</button>
+      <form class="form-signin1" role="form" method=post action="index">
+      <button type="submit" class="btn btn-lg btn-warning btn-block">Retour Accueil</button>
       </form>
     </div>
 	<%-- <%@include file="footer.jsp" %> --%>

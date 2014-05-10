@@ -34,11 +34,9 @@
 			<h2 class="form-signin1-heading" align="center">Page d'administration : accueil</h2>
 	     
 	     <div class="form-signin" style="padding-top:5px;">
-	     	<a href="etat"><button class="btn btn-lg btn-success btn-block">Planning</button></a>
-	        <a href="lieuxhei"><button class="btn btn-lg btn-info btn-block" style="margin-top:5px;">Lieux HEI</button></a>
+	     	<a href="planningadmin"><button class="btn btn-lg btn-success btn-block">Planning</button></a>
 	        <a href="batimentshei"><button class="btn btn-lg btn-info btn-block" style="margin-top:5px;">Bâtiments</button></a>
 	        <a href="gestionassos"><button class="btn btn-lg btn-info btn-block" style="margin-top:5px;">Associations</button></a>
-	        <a href="gestionresp"><button class="btn btn-lg btn-info btn-block" style="margin-top:5px;">Responsabilités</button></a>
 	        <a href="gestioncomm"><button class="btn btn-lg btn-info btn-block" style="margin-top:5px;">Communication</button></a>
 	        <a href="gestionpoles"><button class="btn btn-lg btn-info btn-block" style="margin-top:5px;">Pôles</button></a>	
 	        <a href="blocdate"><button class="btn btn-lg btn-warning btn-block" style="margin-top:5px;">Blocage de date</button></a>	

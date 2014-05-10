@@ -2,16 +2,16 @@ package hei.devweb.model;
 
 public class Event {
 	private Integer id;
-	private Integer affluence;
-	private Integer heuredebut;
-	private Integer heurefin;
+	private String date;
+	private String affluence;
+	private String heuredebut;
+	private String heurefin;
 	private String typeevent;
 	private String asso;
 	private String organisateur;
 	private String mailorganisateur;
 	private String batiment;
 	private String salle;
-	private String alcool;
 	private String danshei;
 	
 	private String statutTV;
@@ -40,7 +40,7 @@ public class Event {
 	private String ignorePhoto;
 	private String ignoreVideo;
 
-	public Event(Integer id, Integer heuredebut, Integer heurefin, String typeevent, String alcool, String danshei, String organisateur, String mailorganisateur, String batiment, String salle, Integer affluence,
+	public Event(Integer id, String asso, String date, String heuredebut, String heurefin, String typeevent, String danshei, String organisateur, String mailorganisateur, String batiment, String salle, String affluence,
 			String statutTV, String statutAffiche, String statutReseau, String statutRadio, String statutNewsletter, String statutDepeche, String statutFlyers, 
 			String ignoreTV, String ignoreAffiche, String ignoreReseau, String ignoreRadio, String ignoreNewsletter, String ignoreDepeche, String ignoreFlyers,
 			String statutSon, String statutLumiere, 
@@ -49,10 +49,11 @@ public class Event {
 			String ignorePhoto, String ignoreVideo) {
 		super();
 		this.id = id;
+		this.asso = asso;
+		this.date = date;
 		this.heuredebut = heuredebut;
 		this.heurefin = heurefin;
 		this.typeevent = typeevent;
-		this.alcool = alcool;
 		this.danshei = danshei;
 		this.organisateur = organisateur;
 		this.mailorganisateur = mailorganisateur;
@@ -85,6 +86,14 @@ public class Event {
 		this.statutVideo = statutVideo;
 		this.ignorePhoto = ignorePhoto;
 		this.ignoreVideo = ignoreVideo;
+	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
 	}
 
 	public String getStatutPhoto() {
@@ -151,19 +160,19 @@ public class Event {
 		this.mailorganisateur = mailorganisateur;
 	}
 
-	public Integer getHeuredebut() {
+	public String getHeuredebut() {
 		return heuredebut;
 	}
 
-	public void setHeuredebut(Integer heuredebut) {
+	public void setHeuredebut(String heuredebut) {
 		this.heuredebut = heuredebut;
 	}
 	
-	public Integer getHeurefin() {
+	public String getHeurefin() {
 		return heurefin;
 	}
 
-	public void setHeurefin(Integer heurefin) {
+	public void setHeurefin(String heurefin) {
 		this.heurefin = heurefin;
 	}
 
@@ -183,14 +192,6 @@ public class Event {
 		this.salle = salle;
 	}
 	
-	public String getAlcool() {
-		return alcool;
-	}
-
-	public void setAlcool(String alcool) {
-		this.alcool = alcool;
-	}
-	
 	public String getDanshei() {
 		return danshei;
 	}
@@ -207,11 +208,11 @@ public class Event {
 		this.typeevent = typeevent;
 	}
 	
-	public Integer getAffluence() {
+	public String getAffluence() {
 		return affluence;
 	}
 
-	public void setAffluence(Integer affluence) {
+	public void setAffluence(String affluence) {
 		this.affluence = affluence;
 	}
 	
