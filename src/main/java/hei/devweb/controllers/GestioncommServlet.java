@@ -21,18 +21,27 @@ public class GestioncommServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-				String Nom = request.getParameter("nom");
-				String Contact = request.getParameter("contact");
-				String Message = request.getParameter("message");
+		
+		String Nom = request.getParameter("nom");
+		String Contact = request.getParameter("contact");
+		String Message = request.getParameter("message");
 
-				
-				Communication nouvelleCommunication = new Communication(null, Nom, Contact, Message);
-				Manager.getInstance().ajouterCommunication(nouvelleCommunication);
+		if (request.getParameter("id") == null){
+			Communication nouvelleCommunication = new Communication(null, Nom, Contact, Message);
+			Manager.getInstance().ajouterCommunication(nouvelleCommunication);
+		}
+		else
+		{
+			String idComm = request.getParameter("id");
+			Manager.getInstance().modifierCommunication(idComm, Contact, Message);
+		}
+		
+		
 
-				List<Communication>listecommunications = new ArrayList<Communication>();
-				listecommunications = Manager.getInstance().listerCommunications();
+		List<Communication>listecommunications = new ArrayList<Communication>();
+		listecommunications = Manager.getInstance().listerCommunications();
 
-				request.setAttribute("communications", listecommunications);
+		request.setAttribute("communications", listecommunications);
 				
 		RequestDispatcher view = request.getRequestDispatcher("gestioncomm.jsp");
 		view.forward(request, response);

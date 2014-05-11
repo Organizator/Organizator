@@ -22,9 +22,9 @@
 	        <button class="btn btn-lg btn-success btn-block" type="submit">Valider</button>
 	        <button type="reset" class="btn btn-lg btn-info btn-block" style="margin-top:5px;">Réinitialiser</button>
       	</form>
-      <form class="form-signin1" role="form" method=post action="index">
-      <button type="submit" class="btn btn-lg btn-warning btn-block">Retour Accueil</button>
-      </form>
+      <div class="form-signin1" style="padding-top:10px;">
+			<a href="../index"><button class="btn btn-lg btn-warning btn-block" style="margin-top:5px;">Retour accueil</button></a>
+		</div>
     </div>
 	<%-- <%@include file="footer.jsp" %> --%>
   </body>

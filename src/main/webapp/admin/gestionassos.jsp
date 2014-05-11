@@ -95,7 +95,7 @@
 
        	<div class="form-signin" style="padding-top:10px;">
 			<a href="gestionadmin"><button class="btn btn-lg btn-info btn-block" style="margin-top:5px;">Retour page d'administration</button></a>
-	        <a href="index"><button class="btn btn-lg btn-danger btn-block" style="margin-top:25px;">Déconnexion</button></a>
+	        <a href="../deconnexion"><button class="btn btn-lg btn-danger btn-block" style="margin-top:5px;">Déconnexion</button></a>
 		</div>
     </div>
 	<%-- <%@include file="footer.jsp" %> --%>

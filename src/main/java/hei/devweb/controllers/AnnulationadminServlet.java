@@ -1,5 +1,7 @@
 package hei.devweb.controllers;
 
+import hei.devweb.metier.Manager;
+
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -20,16 +22,34 @@ public class AnnulationadminServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		RequestDispatcher view = request.getRequestDispatcher("annulationadmin.jsp");
-		view.forward(request, response);
+		Integer idEvent = Integer.parseInt(request.getParameter("idEvent"));
+		
+		idEvent = Integer.parseInt(request.getParameter("idEvent"));
+		Manager.getInstance().supprimerEvent(idEvent);
+		
+		
+		response.sendRedirect("gestionadmin.jsp");
 	}
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
+		Integer idEvent = Integer.parseInt(request.getParameter("id"));
+		String date = request.getParameter("date");
+		String type = request.getParameter("type");
+		String organisateur = request.getParameter("organisateur");
+		String nom = request.getParameter("nom");
+		
+		request.setAttribute( "idEvent", idEvent );
+		request.setAttribute( "date", date );
+		request.setAttribute( "type", type );
+		request.setAttribute( "organisateur", organisateur );
+		request.setAttribute( "nom", nom );
+		
 		RequestDispatcher view = request.getRequestDispatcher("annulationadmin.jsp");
 		view.forward(request, response);
 	}	
 
 }
+

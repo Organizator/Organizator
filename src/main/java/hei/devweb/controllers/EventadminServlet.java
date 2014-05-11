@@ -1,6 +1,10 @@
 package hei.devweb.controllers;
 
+import hei.devweb.metier.Manager;
+import hei.devweb.model.Event;
+
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -22,6 +26,12 @@ public class EventadminServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		Integer idEvent = Integer.parseInt(request.getParameter("id"));
+		
+		Event event = Manager.getInstance().getEvent(idEvent);
+		request.setAttribute("event", event);
+		
 		RequestDispatcher view = request.getRequestDispatcher("eventadmin.jsp");
 		view.forward(request, response);
 	}

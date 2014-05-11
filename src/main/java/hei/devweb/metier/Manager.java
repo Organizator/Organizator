@@ -99,6 +99,10 @@ public class Manager {
 		CommunicationDAO.supprimerCommunication(idCommunication);
 	}
 	
+	public void modifierCommunication(String idComm, String contact, String message) {
+		CommunicationDAO.modifierCommunication(idComm, contact, message);
+	}
+	
 	public List<Event> listerEvents() {
 		List<Event> listeevents = EventDAO.listerEvents();
 		return listeevents;
@@ -127,5 +131,46 @@ public class Manager {
 	public void ajouterMembre(Membre membre) {
 		membreDao.ajouterMembre(membre);
 	}
+
+
+
+	public Event getEvent(Integer idEvent) {
+		Event event = EventDAO.getEvent(idEvent);
+		return event;
+	}
+
+
+	public List<Membre> listerMembres() {
+		List<Membre> listemembres = MembreDao.listerMembres();
+		return listemembres;
+	}	
+	
+
+	public void UpdateEvent(String par, String etat, Integer idEvent) {
+		EventDAO.UpdateEvent(par, etat, idEvent);
+	}
+
+
+
+	public void UpdateGlobEvent(Integer idEvent, String date, String nom,
+			String type, String affluence, String hei, String batiment,
+			String debut, String fin) {
+		EventDAO.UpdateGlobEvent(idEvent, date, nom, type, affluence, hei, batiment, debut, fin);
+		
+	}
+
+
+
+	public void passerAdmin(String idMembre) {
+		MembreDao.PasserAdmin(idMembre);
+	}
+
+
+
+
+
+
+
+
 	
 }

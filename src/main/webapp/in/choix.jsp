@@ -13,8 +13,16 @@
 <%--   	<jsp:include page="menu.jsp">
 	    <jsp:param name="pageSelectionnee" value="jeu"/>
 	</jsp:include> --%>
-	
+<script type="text/javascript">
+
+					function validerEvent(id) {
+						document.location.href="choix?id="+id;
+					}
+
+					//]]>
+</script>
 	<div class="container">
+		<div class="alert alert-info">Voici la liste de vos évènements. Cliquez sur celui que vous souhaitez modifier. </div>
 		<div class="list-group">
 			
 		  <a href="#" class="list-group-item active">
@@ -22,13 +30,16 @@
 		  </a>
 		  
 		  <c:forEach var="event" items="${events}">
-				<a href="gestion" class="list-group-item">
-		    		<h4 class="list-group-item-heading"><span class="label label-default" style="margin-right:10px;">${event.date}</span>${event.typeevent} par ${event.asso}</h4>
+				<a href="#" class="list-group-item" onclick="return validerEvent(${event.id})">
+		    		<h4 class="list-group-item-heading">${event.typeevent} - ${event.nom}<span class="label label-default" style="margin-right:10px; float:right">${event.date}</span></h4>
 		  		</a>
 			</c:forEach>
 			
 		</div>
-    </div>
+		<div class="form-signin" style="padding-top:10px;">
+			<a href="../deconnexion"><button class="btn btn-lg btn-danger btn-block" style="margin-top:5px;">Déconnexion</button></a>
+		</div>
+		 </div>
 	<%-- <%@include file="footer.jsp" %> --%>
   </body>
 </html> 

@@ -83,5 +83,26 @@ public class CommunicationDAO {
 			e.printStackTrace();
 		}
 	}
-	
+
+	public static void modifierCommunication(String idComm, String contact,
+			String message) {
+		try {
+			Connection connection = DataSourceProvider.getDataSource()
+					.getConnection();
+
+			// Utiliser la connexion
+			PreparedStatement stmt = connection
+					.prepareStatement("UPDATE communications SET contact = ? , message = ? WHERE idComm = "+idComm);
+			stmt.setString(1,contact);
+			stmt.setString(2,message);
+			stmt.executeUpdate();
+
+			// Fermer la connexion
+			stmt.close();
+			connection.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }

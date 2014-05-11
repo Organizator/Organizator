@@ -30,6 +30,7 @@ public class ChoixServlet extends HttpServlet {
 		
 		Utilisateur utilisateur = (Utilisateur) request.getSession().getAttribute(ATT_SESSION_USER);
 		System.out.println(utilisateur.getMail());
+		
 		List<Event> events = Manager.getInstance().listerEventsUtilisateur(utilisateur.getMail());
 		request.setAttribute("events", events);
 		
@@ -42,13 +43,30 @@ public class ChoixServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		Utilisateur utilisateur = (Utilisateur) request.getSession().getAttribute(ATT_SESSION_USER);
-		System.out.println(utilisateur.getMail());
-		List<Event> events = Manager.getInstance().listerEventsUtilisateur(utilisateur.getMail());
-		request.setAttribute("events", events);
+		HttpSession session = request.getSession();
 		
-		RequestDispatcher view = request.getRequestDispatcher("choix.jsp");
-		view.forward(request, response);
+		if (request.getParameter("id") != null)
+		{
+			session.setAttribute( "Event", Integer.parseInt(request.getParameter("id")) );
+			
+			System.out.println(request.getSession().getAttribute("Event"));
+			
+			response.sendRedirect( "gestion" );
+		}
+		
+		else
+		{
+			Utilisateur utilisateur = (Utilisateur) request.getSession().getAttribute(ATT_SESSION_USER);
+			
+			System.out.println(request.getSession().getAttribute("Event"));
+			
+			List<Event> events = Manager.getInstance().listerEventsUtilisateur(utilisateur.getMail());
+			request.setAttribute("events", events);
+			
+			RequestDispatcher view = request.getRequestDispatcher("choix.jsp");
+			view.forward(request, response);
+		}
+		
 	}
 
 }

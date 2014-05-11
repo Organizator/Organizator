@@ -1,6 +1,7 @@
 package hei.devweb.controllers;
 
 import hei.devweb.metier.Manager;
+import hei.devweb.model.Association;
 import hei.devweb.model.Membre;
 import hei.devweb.model.Pole;
 
@@ -27,6 +28,9 @@ public class InscriptionServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		List<Pole> poles = Manager.getInstance().listerPoles();
+		request.setAttribute("poles", poles);
 		
 		String resultat;
         Map<String, String> erreurs = new HashMap<String, String>();
@@ -57,7 +61,7 @@ public class InscriptionServlet extends HttpServlet {
         /* Initialisation du résultat global de la validation. */
         if ( erreurs.isEmpty() ) {
             resultat = "Succès de l'inscription";
-            Membre nouvelMembre = new Membre(null, mail, motDePasse, pole, asso, resp);
+            Membre nouvelMembre = new Membre(null, mail, motDePasse, pole, asso, resp, null);
     		Manager.getInstance().ajouterMembre(nouvelMembre);
         } else {
             resultat = "Échec de l'inscription :";
@@ -74,9 +78,10 @@ public class InscriptionServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
 		List<Pole> poles = Manager.getInstance().listerPoles();
 		request.setAttribute("poles", poles);
-		
+				
 		request.getRequestDispatcher( "WEB-INF/pages/inscription.jsp" ).forward( request, response );
 	}
 		

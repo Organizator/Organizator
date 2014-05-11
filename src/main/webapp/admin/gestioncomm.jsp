@@ -64,29 +64,36 @@
 						%>
   	
   <TR> 
-
-<td><%=communication.getNom()%></td> 
-<td><%=communication.getContact()%></td>
-<td><%=communication.getMessage()%></td>
-<TD>
-	<a href="#" title="Supprimer ce moyen de communication" onclick="return validerSupp(<%= communication.getId() %>)" name="SupprimerCommunication">
-	<span class="glyphicon glyphicon-remove"></span></a>
-</TD> 
+		<form class="form-inline" method="post" action="gestioncomm" onsubmit="return valider()" name="AjoutCommunication">
+			<label class="sr-only" for="pole">Moyen de communication</label>
+			<input type="hidden" id="id" name="id" value="<%=communication.getId()%>">
+			<td><input type="text" class="form-control" value="<%=communication.getNom()%>" disabled="disabled"></td>
+			<td><input type="email" class="form-control" id="contact" name="contact" value="<%=communication.getContact()%>"></td>
+			<td><input type="text" class="form-control" id="message" name="message" value="<%=communication.getMessage()%>"></td>
+			<td><button type="submit" class="btn btn-primary">Modifier infos <%=communication.getNom()%></button></td>
+		</form>
+<%-- <td><%=communication.getNom()%></td>  --%>
+<%-- <td><%=communication.getContact()%></td> --%>
+<%-- <td><%=communication.getMessage()%></td> --%>
+<!-- <TD> -->
+<%-- 	<a href="#" title="Supprimer ce moyen de communication" onclick="return validerSupp(<%= communication.getId() %>)" name="SupprimerCommunication"> --%>
+<!-- 	<span class="glyphicon glyphicon-remove"></span></a> -->
+<!-- </TD>  -->
 
   </TR>
   						<%
 							}
 						%>
 						
-		<TR>
-		<form class="form-inline" method="post" action="gestioncomm" onsubmit="return valider()" name="AjoutCommunication">
-			<label class="sr-only" for="pole">Moyen de communication</label>
-			<td><input type="text" class="form-control" id="nom" name="nom" placeholder="nom"></td>
-			<td><input type="email" class="form-control" id="contact" name="contact" placeholder="contact"></td>
-			<td><input type="text" class="form-control" id="message" name="message" placeholder="message"></td>
-			<td><button type="submit" class="btn btn-primary">Ajouter moyen de communication</button></td>
-		</form>
-	</TR>					
+<!-- 		<TR> -->
+<!-- 		<form class="form-inline" method="post" action="gestioncomm" onsubmit="return valider()" name="AjoutCommunication"> -->
+<!-- 			<label class="sr-only" for="pole">Moyen de communication</label> -->
+<!-- 			<td><input type="text" class="form-control" id="nom" name="nom" placeholder="nom"></td> -->
+<!-- 			<td><input type="email" class="form-control" id="contact" name="contact" placeholder="contact"></td> -->
+<!-- 			<td><input type="text" class="form-control" id="message" name="message" placeholder="message"></td> -->
+<!-- 			<td><button type="submit" class="btn btn-primary">Ajouter moyen de communication</button></td> -->
+<!-- 		</form> -->
+<!-- 	</TR>					 -->
 						
   </table>
   
@@ -94,7 +101,7 @@
 
        	<div class="form-signin" style="padding-top:10px;">
 			<a href="gestionadmin"><button class="btn btn-lg btn-info btn-block" style="margin-top:5px;">Retour page d'administration</button></a>
-	        <a href="index"><button class="btn btn-lg btn-danger btn-block" style="margin-top:25px;">Déconnexion</button></a>
+	        <a href="../deconnexion"><button class="btn btn-lg btn-danger btn-block" style="margin-top:5px;">Déconnexion</button></a>
 		</div>
     </div>
 	<%-- <%@include file="footer.jsp" %> --%>

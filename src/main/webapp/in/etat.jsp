@@ -66,7 +66,7 @@
 
 		
 		
-		<div class="panel panel-default">
+	<div class="panel panel-default">
   <!-- Default panel contents -->
   <div class="panel-heading">Suivi des accords relatifs à la mise en place de votre évènement</div>
   <div class="panel-body">
@@ -85,34 +85,28 @@
  <TD> Accord administration </TD> 
  <TD> <span class="glyphicon glyphicon-ok"></span> </TD> 
  <TD><span class="label label-success">Non</span></TD> 
- <TD><span class="glyphicon glyphicon-floppy-saved"></span> <span class="glyphicon glyphicon-floppy-remove"></span>	</TD> 
+ <TD><a href=""><span class="glyphicon glyphicon-floppy-saved"></span></a> <a href=""><span class="glyphicon glyphicon-floppy-remove"></span></a>	<a href=""><span class="glyphicon glyphicon-envelope"></span></a> <a href=""><span class="label label-danger">Ignorer ?</span></a></TD> 
   </TR>
   <TR> 
  <TD> Accord pôle </TD> 
  <TD> <span class="glyphicon glyphicon-ok"></span> </TD> 
  <TD><span class="label label-warning">Oui</span></TD> 
- <TD><span class="glyphicon glyphicon-floppy-saved"></span> <span class="glyphicon glyphicon-floppy-remove"></span></TD> 
+ <TD><a href=""><span class="glyphicon glyphicon-floppy-saved"></span></a> <a href=""><span class="glyphicon glyphicon-floppy-remove"></span></a>	<a href=""><span class="glyphicon glyphicon-envelope"></span></a> <a href=""><span class="label label-danger">Ignorer ?</span></a></TD> 
   </TR>
    <TR> 
  <TD> Accord lieu </TD> 
  <TD> <span class="glyphicon glyphicon-ok"></span> </TD> 
  <TD><span class="label label-warning">Oui</span></TD> 
- <TD><span class="glyphicon glyphicon-floppy-saved"></span> <span class="glyphicon glyphicon-floppy-remove"></span></TD> 
+ <TD><a href=""><span class="glyphicon glyphicon-floppy-saved"></span></a> <a href=""><span class="glyphicon glyphicon-floppy-remove"></span></a>	<a href=""><span class="glyphicon glyphicon-envelope"></span></a> <a href=""><span class="label label-danger">Ignorer ?</span></a></TD> 
   </TR>  
   </table>
   
 </div>
 
        	<div class="form-signin" style="padding-top:10px;">
-       		<a href="papiers"><button class="btn btn-lg btn-success btn-block" style="margin-top:5px;">Demande logistique HEI</button></a>
-       		<a href=""><button class="btn btn-lg btn-warning btn-block" style="margin-top:5px;">Ignorer / Ne pas ignorer Administration</button></a>
-       		<a href="papiers"><button class="btn btn-lg btn-success btn-block" style="margin-top:5px;">Déclaration d'évènement</button></a>
-       		<a href=""><button class="btn btn-lg btn-warning btn-block" style="margin-top:5px;">Ignorer / Ne pas ignorer Pôle</button></a>
-       		<a href="papiers"><button class="btn btn-lg btn-success btn-block" style="margin-top:5px;">Demande autorisation du pôle</button></a>
-       		<a href=""><button class="btn btn-lg btn-warning btn-block" style="margin-top:5px;">Ignorer / Ne pas ignorer Logistique HEI</button></a>       		
        		<a href="annulation"><button class="btn btn-lg btn-danger btn-block" style="margin-top:5px;">Annuler l'évènement</button></a>
 			<a href="gestion"><button class="btn btn-lg btn-info btn-block" style="margin-top:5px;">Retour panneau de gestion</button></a>
-	        <a href="index"><button class="btn btn-lg btn-danger btn-block" style="margin-top:25px;">Déconnexion</button></a>
+			<a href="../deconnexion"><button class="btn btn-lg btn-danger btn-block" style="margin-top:5px;">Déconnexion</button></a>
 		</div>
     </div>
 	<%-- <%@include file="footer.jsp" %> --%>

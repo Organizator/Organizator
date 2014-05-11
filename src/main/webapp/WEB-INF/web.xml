@@ -109,6 +109,10 @@
 		<servlet-class>hei.devweb.controllers.GestionadminServlet</servlet-class>
 	</servlet>
 	<servlet>
+		<servlet-name>Admin</servlet-name>
+		<servlet-class>hei.devweb.controllers.AdminServlet</servlet-class>
+	</servlet>
+	<servlet>
 		<servlet-name>About</servlet-name>
 		<servlet-class>hei.devweb.controllers.AboutServlet</servlet-class>
 	</servlet>
@@ -117,7 +121,7 @@
 		<servlet-class>hei.devweb.controllers.CouvertureServlet</servlet-class>
 	</servlet>
 	<servlet>
-		<servlet-name>Admin</servlet-name>
+		<servlet-name>IndexAdmin</servlet-name>
 		<servlet-class>hei.devweb.controllers.IndexAdminServlet</servlet-class>
 	</servlet>
 	<servlet>
@@ -182,6 +186,10 @@
 		<url-pattern>/admin/gestionadmin</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
+		<servlet-name>Admin</servlet-name>
+		<url-pattern>/admin/admin</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
 		<servlet-name>About</servlet-name>
 		<url-pattern>/about</url-pattern>
 	</servlet-mapping>
@@ -194,7 +202,7 @@
 		<url-pattern>/admin/planningadmin</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
-		<servlet-name>Admin</servlet-name>
+		<servlet-name>IndexAdmin</servlet-name>
 		<url-pattern>/indexAdmin</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>

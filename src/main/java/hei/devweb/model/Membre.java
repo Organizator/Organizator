@@ -7,8 +7,9 @@ public class Membre {
 	private String pole;
 	private String asso;
 	private String resp;
+	private String admin;
 
-	public Membre(Integer id, String mail, String motDePasse, String pole, String asso, String resp) {
+	public Membre(Integer id, String mail, String motDePasse, String pole, String asso, String resp, String admin) {
 		super();
 		this.id = id;
 		this.mail = mail;
@@ -16,6 +17,15 @@ public class Membre {
 		this.pole = pole;
 		this.asso = asso;
 		this.resp = resp;
+		this.admin = admin;
+	}
+
+	public String getAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(String admin) {
+		this.admin = admin;
 	}
 
 	public String getAsso() {

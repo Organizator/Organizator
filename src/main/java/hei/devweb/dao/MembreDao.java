@@ -115,4 +115,56 @@ public class MembreDao {
 		}
 	}
 
+	public static List<Membre> listerMembres() {
+		List<Membre> liste = new ArrayList<Membre>();
+		try {
+			Connection connection = DataSourceProvider.getDataSource()
+					.getConnection();
+
+			Statement stmt = connection.createStatement();
+			ResultSet results = stmt.executeQuery("SELECT * FROM  `membre` WHERE admin = 'non' ");
+
+			while (results.next()) {
+				Membre membre = new Membre(results.getInt("idmembre"),
+						results.getString("mail"),
+						results.getString("mdp"), 
+						results.getString("association"),
+						results.getString("pole"),
+						results.getString("responsabilite"),
+						results.getString("admin"));
+				liste.add(membre);
+			}
+
+			// Fermer la connexion
+			results.close();
+			stmt.close();
+			connection.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return liste;
+	}
+
+	public static void PasserAdmin(String idMembre) {
+		try {
+			Connection connection = DataSourceProvider.getDataSource()
+					.getConnection();
+
+			// Utiliser la connexion
+			PreparedStatement stmt = connection
+					.prepareStatement("UPDATE membre SET admin = 'oui' WHERE idmembre = ?");
+			stmt.setString(1,idMembre);
+			stmt.executeUpdate();
+
+			// Fermer la connexion
+			stmt.close();
+			connection.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
 }

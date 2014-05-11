@@ -24,6 +24,7 @@ public class BatimentsheiServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
 				String Nom = request.getParameter("nom");
 
 				Batiment nouveauBatiment = new Batiment(null, Nom);

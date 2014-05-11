@@ -1,6 +1,8 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+	<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@page import="hei.devweb.model.Association"%>
+<%@page import="java.util.List"%>
 
 <!DOCTYPE html>
 <html>
@@ -18,8 +20,8 @@
 	  	<div class="alert alert-${empty erreurs ? 'success' : 'warning'}">
         	<strong>${resultat}</strong> ${erreurs['mail']} ${erreurs['motDePasse']} ${erreurs['confirmation']} ${empty erreurs ? '<a href="new3"><button type="button" class="btn btn-xs btn-success" style="float:right;">Organiser un évènement</button></a>' : ''}
       	</div>
-      	<form class="form-signin1" role="form" method=post action="inscription">
-	        <h2 class="form-signin1-heading">Nouveau projet - 1/? </h2>
+      	<form class="form-signin1" role="form" method=post action="inscription" id="pilepapier" style="margin-top:25px;margin-bottom:25px;">
+	        <h2 class="form-signin1-heading" align="center">Inscription </h2>
 	        <input type="email" class="form-control start" placeholder="Adresse e-mail HEI" id="mail" name="mail" value="<c:out value="${param.mail}"/>" required="" autofocus="">
 	        <input type="password" class="form-control mid" placeholder="Mot de passe" id="motDePasse" name="motDePasse" required="">
 	        <input type="password" class="form-control end" placeholder="Répétez le mot de passe" id="confirmation" name="confirmation" required="">
@@ -29,14 +31,7 @@
 					<option value="${pole.nom}">${pole.nom}</option>
 				</c:forEach>
 	        </select>
-	        <select class="form-control mid" required=""  id="asso" name="asso">
-	        	<option value="0">Association</option>
-				<option value="WhEI">Whei</option>
-				<option value="WhEI">Déclic HEI</option>
-				<option value="WhEI">Rock HEI</option>
-				<option value="WhEI">42</option>
-				<option value="WhEI">42</option>
-	        </select>	
+	        <input type="text" class="form-control mid" placeholder="Association" id="asso" name="asso" required="">
 	        <select class="form-control end" required=""  id="resp" name="resp">
 	        	<option value="0">Responsabilité</option>
 				<option value="Président">Président</option>

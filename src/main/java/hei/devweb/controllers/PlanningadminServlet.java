@@ -1,7 +1,9 @@
 package hei.devweb.controllers;
 
 import hei.devweb.metier.Manager;
+import hei.devweb.model.Event;
 import hei.devweb.model.Pole;
+import hei.devweb.model.Utilisateur;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -22,16 +24,9 @@ public class PlanningadminServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-//				String Nom = request.getParameter("nom");
-//
-//				
-//				Pole nouveauPole = new Pole(null, Nom);
-//				Manager.getInstance().ajouterPole(nouveauPole);
-//
-//				List<Pole>listepoles = new ArrayList<Pole>();
-//				listepoles = Manager.getInstance().listerPoles();
-//
-//				request.setAttribute("poles", listepoles);
+
+				List<Event> events = Manager.getInstance().listerEvents();
+				request.setAttribute("events", events);
 
 				RequestDispatcher view = request.getRequestDispatcher("planningadmin.jsp");
 				view.forward(request, response);	
@@ -44,11 +39,10 @@ public class PlanningadminServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 				
-//				List<Pole>listepoles = new ArrayList<Pole>();
-//				listepoles = Manager.getInstance().listerPoles();
-//
-//				request.setAttribute("poles", listepoles);
 
+				List<Event> events = Manager.getInstance().listerEvents();
+				request.setAttribute("events", events);
+				
 				RequestDispatcher view = request.getRequestDispatcher("planningadmin.jsp");
 				view.forward(request, response);	
 			}

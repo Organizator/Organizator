@@ -20,14 +20,14 @@ public class EtatServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/etat.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("etat.jsp");
 		view.forward(request, response);
 	}
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/etat.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("etat.jsp");
 		view.forward(request, response);
 	}
 

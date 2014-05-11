@@ -1,11 +1,14 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@page import="hei.devweb.model.Event"%>
+
+<%	Event event = (Event) request.getAttribute("event"); %>
 
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Organizator - Accueil</title>
+    <title>Organizator - Photo et video ${event.nom}</title>
     <%@include file="../include/links.jsp" %>
   </head>
   <body style="padding-top:0px;">
@@ -79,31 +82,72 @@
  <TH> Désignation </TH> 
  <TH> Statut </TH> 
  <TH> Ignorer ? </TH>
- <TH> Mise à jour du statut </TH> 
+ <TH> Actions </TH> 
   	</TR> 
   <TR> 
- <TD> Photographie </TD> 
- <TD> <span class="glyphicon glyphicon-ok"></span> </TD> 
- <TD><span class="label label-warning">Oui</span></TD> 
- <TD><span class="glyphicon glyphicon-floppy-saved"></span> <span class="glyphicon glyphicon-floppy-remove"></span>	</TD> 
-  </TR>
+  
+ <c:if test="${event.ignorePhoto == null || event.ignorePhoto == \"off\" }">
   <TR> 
- <TD> Couverture vidéo </TD> 
- <TD> <span class="glyphicon glyphicon-ok"></span> </TD> 
- <TD><span class="label label-warning">Oui</span></TD> 
- <TD><span class="glyphicon glyphicon-floppy-saved"></span> <span class="glyphicon glyphicon-floppy-remove"></span></TD> 
-  </TR> 
+ <TD> <span class="label label-default">Photo</span> </TD> 
+ <c:if test="${event.statutPhoto == null || event.statutPhoto == \"pasok\" }"><TD> <a href="couverture?par=statutPhoto&etat=encours"><span class="label label-danger"><span class="glyphicon glyphicon-remove"></span></span></a> </TD></c:if>
+ <c:if test="${event.statutPhoto == \"encours\"}"><TD> <a href="couverture?par=statutPhoto&etat=ok"><span class="label label-warning"><span class="glyphicon glyphicon-pencil"></span></span></a> </TD></c:if>
+ <c:if test="${event.statutPhoto == \"ok\"}"><TD> <a href="couverture?par=statutPhoto&etat=pasok"><span class="label label-success"><span class="glyphicon glyphicon-ok"></span></span></a> </TD></c:if>
+ <c:if test="${event.ignorePhoto == null || event.ignorePhoto == \"off\" }"><TD><a href="couverture?par=ignorePhoto&etat=on"><span class="label label-success"><span class="glyphicon glyphicon-remove"></span></span></a></TD></c:if>
+ <c:if test="${event.ignorePhoto == \"on\" }"><TD><a href="couverture?par=ignorePhoto&etat=off"><span class="label label-danger"><span class="glyphicon glyphicon-ok"></span></span></a></TD></c:if>  
+ <c:forEach var="communication" items="${communications}">
+ <c:if test="${communication.nom == \"Photo\"}"><TD><a href="mailto:${communication.contact}?subject=Notre évènement ${event.typeevent} pour ${event.asso}&body=${communication.message},"><span class="glyphicon glyphicon-envelope"></span></a> </TD> </c:if> 
+ </c:forEach>
+  </TR>
+  </c:if>
+  
+ <c:if test="${event.ignoreVideo == null || event.ignoreVideo == \"off\" }">
+  <TR> 
+ <TD> <span class="label label-default">Vidéo</span> </TD> 
+ <c:if test="${event.statutVideo == null || event.statutVideo == \"pasok\" }"><TD> <a href="couverture?par=statutVideo&etat=encours"><span class="label label-danger"><span class="glyphicon glyphicon-remove"></span></span></a> </TD></c:if>
+ <c:if test="${event.statutVideo == \"encours\"}"><TD> <a href="couverture?par=statutVideo&etat=ok"><span class="label label-warning"><span class="glyphicon glyphicon-pencil"></span></span></a> </TD></c:if>
+ <c:if test="${event.statutVideo == \"ok\"}"><TD> <a href="couverture?par=statutVideo&etat=pasok"><span class="label label-success"><span class="glyphicon glyphicon-ok"></span></span></a> </TD></c:if>
+ <c:if test="${event.ignoreVideo == null || event.ignoreVideo == \"off\" }"><TD><a href="couverture?par=ignoreVideo&etat=on"><span class="label label-success"><span class="glyphicon glyphicon-remove"></span></span></a></TD></c:if>
+ <c:if test="${event.ignoreVideo == \"on\" }"><TD><a href="couverture?par=ignoreVideo&etat=off"><span class="label label-danger"><span class="glyphicon glyphicon-ok"></span></span></a></TD></c:if>  
+ <c:forEach var="communication" items="${communications}">
+ <c:if test="${communication.nom == \"Video\"}"><TD><a href="mailto:${communication.contact}?subject=Notre évènement ${event.typeevent} pour ${event.asso}&body=${communication.message},"><span class="glyphicon glyphicon-envelope"></span></a> </TD> </c:if> 
+ </c:forEach>  </TR>
+  </c:if>
+  
+  </table>
+  
+  <div class="panel-body">
+    <p><center>Moyens de communication ignorés. Cliquez sur <span class="label label-danger"><span class="glyphicon glyphicon-ok"></span></span> si vous souhaitez finalement les prendre en compte</center></p>
+  </div>
+
+  <!-- Table -->
+  <table class="table">
+    <TR> 
+ <TH> Désignation </TH> 
+ <TH> Ignorer ? </TH>
+  	</TR> 
+ 
+ <c:if test="${event.ignorePhoto == \"on\" }">
+  <TR> 
+ <TD> <span class="label label-default">Photo</span> </TD> 
+ <c:if test="${event.ignorePhoto == null || event.ignorePhoto == \"off\" }"><TD><a href="couverture?par=ignorePhoto&etat=on"><span class="label label-success"><span class="glyphicon glyphicon-remove"></span></span></a></TD></c:if>
+ <c:if test="${event.ignorePhoto == \"on\" }"><TD><a href="couverture?par=ignorePhoto&etat=off"><span class="label label-danger"><span class="glyphicon glyphicon-ok"></span></span></a></TD></c:if>  
+  </TR>
+  </c:if>
+  
+  <c:if test="${event.ignoreVideo == \"on\" }">
+   <TR> 
+ <TD> <span class="label label-default">Video</span> </TD> 
+ <c:if test="${event.ignoreVideo == null || event.ignoreVideo == \"off\" }"><TD><a href="couverture?par=ignoreVideo&etat=on"><span class="label label-success"><span class="glyphicon glyphicon-remove"></span></span></a></TD></c:if>
+ <c:if test="${event.ignoreVideo == \"on\" }"><TD><a href="couverture?par=ignoreVideo&etat=off"><span class="label label-danger"><span class="glyphicon glyphicon-ok"></span></span></a></TD></c:if>  
+  </TR>
+  </c:if>
   </table>
   
 </div>
 
        	<div class="form-signin" style="padding-top:10px;">
-       		<a href="photo"><button class="btn btn-lg btn-success btn-block" style="margin-top:5px;">Rechercher photographe</button></a>
-       		<a href=""><button class="btn btn-lg btn-warning btn-block" style="margin-top:5px;">Ignorer / Ne pas ignorer Photo</button></a>
-       		<a href="video"><button class="btn btn-lg btn-success btn-block" style="margin-top:5px;">Rechercher couverture vidéo</button></a>
-       		<a href=""><button class="btn btn-lg btn-warning btn-block" style="margin-top:5px;">Ignorer / Ne pas ignorer Vidéo</button></a>
 			<a href="gestion"><button class="btn btn-lg btn-info btn-block" style="margin-top:5px;">Retour panneau de gestion</button></a>
-	        <a href="index"><button class="btn btn-lg btn-danger btn-block" style="margin-top:5px;">Déconnexion</button></a>
+			<a href="../deconnexion"><button class="btn btn-lg btn-danger btn-block" style="margin-top:5px;">Déconnexion</button></a>
 		</div>
     </div>
 	<%-- <%@include file="footer.jsp" %> --%>

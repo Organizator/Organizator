@@ -27,8 +27,8 @@
 	    </c:if>
 	    <c:if test="${empty sessionScope.sessionUtilisateur}">
 	        <%-- Si l'utilisateur n'existe en session, formulaire de connexion. --%>
-	        <form class="form-signin" role="form" method=post action="index">
-		        <h2 class="form-signin-heading" style="padding-bottom:15px;">Entrez vos identifiants</h2>
+	        <form class="form-signin" role="form" method=post action="index" id="pilepapier" style="margin-top:25px;margin-bottom:25px;">
+		        <h2 class="form-signin-heading" style="padding-bottom:15px;" align="center">Connexion</h2>
 		        <input type="email" class="form-control" placeholder="Adresse e-mail HEI" required="" autofocus="" id="mail" name="mail" >
 		        <input type="password" class="form-control" placeholder="Mot de passe" required="" id="motDePasse" name="motDePasse" >
 		        <!-- <label class="checkbox">
@@ -44,7 +44,7 @@
 	    </c:if>
       
         <c:if test="${!empty sessionScope.sessionUtilisateur}">
-        	<div class="form-signin" style="padding-top:5px;">
+        	<div class="form-signin" id="pilepapier" style="margin-top:25px;margin-bottom:25px;">
 	        	<a href="in/date"><button class="btn btn-lg btn-success btn-block">Nouvel évènement</button></a>
 	        	<a href="in/choix"><button class="btn btn-lg btn-primary btn-block" style="margin-top:5px;">Gérer vos évènements</button></a>
 	        	<a href="about"><button class="btn btn-lg btn-info btn-block" style="margin-top:5px;">A propos</button></a>

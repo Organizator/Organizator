@@ -2,6 +2,7 @@ package hei.devweb.model;
 
 public class Event {
 	private Integer id;
+	private String nom;
 	private String date;
 	private String affluence;
 	private String heuredebut;
@@ -40,7 +41,7 @@ public class Event {
 	private String ignorePhoto;
 	private String ignoreVideo;
 
-	public Event(Integer id, String asso, String date, String heuredebut, String heurefin, String typeevent, String danshei, String organisateur, String mailorganisateur, String batiment, String salle, String affluence,
+	public Event(Integer id, String nom, String asso, String date, String heuredebut, String heurefin, String typeevent, String danshei, String organisateur, String mailorganisateur, String batiment, String salle, String affluence,
 			String statutTV, String statutAffiche, String statutReseau, String statutRadio, String statutNewsletter, String statutDepeche, String statutFlyers, 
 			String ignoreTV, String ignoreAffiche, String ignoreReseau, String ignoreRadio, String ignoreNewsletter, String ignoreDepeche, String ignoreFlyers,
 			String statutSon, String statutLumiere, 
@@ -49,6 +50,7 @@ public class Event {
 			String ignorePhoto, String ignoreVideo) {
 		super();
 		this.id = id;
+		this.nom = nom;
 		this.asso = asso;
 		this.date = date;
 		this.heuredebut = heuredebut;
@@ -86,6 +88,14 @@ public class Event {
 		this.statutVideo = statutVideo;
 		this.ignorePhoto = ignorePhoto;
 		this.ignoreVideo = ignoreVideo;
+	}
+
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
 	}
 
 	public String getDate() {

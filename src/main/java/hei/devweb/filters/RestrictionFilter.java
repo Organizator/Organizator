@@ -41,7 +41,7 @@ public class RestrictionFilter implements Filter {
          */
         if ( session.getAttribute( ATT_SESSION_USER ) == null ) {
             /* Redirection vers la page publique */
-            request.getRequestDispatcher( ACCES_CONNEXION ).forward( request, response );
+        	response.sendRedirect( request.getContextPath() + ACCES_CONNEXION );
         } else {
             /* Affichage de la page restreinte */
             chain.doFilter( request, response );

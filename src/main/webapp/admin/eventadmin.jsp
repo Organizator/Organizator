@@ -1,6 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@page import="hei.devweb.model.Event"%>
 
 <!DOCTYPE html>
 <html>
@@ -22,7 +23,10 @@
   <!-- Default panel contents -->
   <div class="panel-heading">Retrouvez tous les détails relatif à l'évènement selectionné</div>
   <div class="panel-body">
-    <p><center><strong>RAID HEI</strong></center></p>
+  <%
+					Event event = (Event) request.getAttribute("event");
+%>
+    <p><center><strong>${event.typeevent}</strong></center></p>
   </div>
 
   <!-- Table -->
@@ -31,39 +35,48 @@
  <TH> Donnée </TH> 
  <TH> Valeur </TH> 
   	</TR> 
+
+  
+  <TR> 
+ <TD>Nom</TD> 
+ <TD>${event.nom}</TD> 
+  </TR>
+  <TR> 
+ <TD>Association</TD> 
+ <TD>${event.asso}</TD> 
+  </TR>
   <TR> 
  <TD>Organisateur</TD> 
- <TD>Albert LeClodo</TD> 
+ <TD>${event.organisateur}</TD> 
   </TR>
   <TR> 
  <TD>Date</TD> 
- <TD>23.12.2004</TD> 
+ <TD>${event.date}</TD> 
   </TR>
    <TR> 
  <TD>Heure de début</TD> 
- <TD>20h00</TD> 
+ <TD>${event.heuredebut}</TD> 
   </TR> 
      <TR> 
  <TD>Heure de fin</TD> 
- <TD>23h00</TD> 
+ <TD>${event.heurefin}</TD> 
   </TR> 
      <TR> 
  <TD>Lieu</TD> 
- <TD>DTC</TD> 
+ <TD>${event.batiment}</TD> 
   </TR> 
      <TR> 
  <TD>Affluence attendue</TD> 
- <TD>1000</TD>  
+ <TD>${event.affluence}</TD>  
   </TR> 
   </table>
   
 </div>
 
        	<div class="form-signin" style="padding-top:10px;">
-       		<a href="papiers"><button class="btn btn-lg btn-success btn-block" style="margin-top:5px;">Contacter l'organisateur</button></a>       		
-       		<a href="annulationadmin"><button class="btn btn-lg btn-danger btn-block" style="margin-top:5px;">Refuser l'évènement</button></a>
+			<a href="planningadmin"><button class="btn btn-lg btn-info btn-block" style="margin-top:5px;">Retour liste des évènements</button></a>
 			<a href="gestionadmin"><button class="btn btn-lg btn-info btn-block" style="margin-top:5px;">Retour panneau de gestion</button></a>
-	        <a href="index"><button class="btn btn-lg btn-danger btn-block" style="margin-top:25px;">Déconnexion</button></a>
+	        <a href="../deconnexion"><button class="btn btn-lg btn-danger btn-block" style="margin-top:5px;">Déconnexion</button></a>
 		</div>
     </div>
 	<%-- <%@include file="footer.jsp" %> --%>
