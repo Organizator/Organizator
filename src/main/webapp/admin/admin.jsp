@@ -31,7 +31,7 @@
 		
   <div class="panel panel-default" >
   <!-- Default panel contents -->
-  <div class="panel-heading">Liste des bâtiments proposés par HEI</div>
+  <div class="panel-heading">Liste des administrateurs du système</div>
   <div class="panel-body">
     <p><center>Passer un utilisateur en administrateur : <span class="glyphicon glyphicon-user"></span></center></center></p>
   </div>

@@ -41,6 +41,7 @@
                 </ul>
               </li>
               <li><a href="mailto:louis.sautelet@hei.fr">Contact</a></li>
+<!--               <li><a href="mailto:louis.sautelet@hei.fr">Contact administrateur</a></li> -->
             </ul>
           </div><!--/.nav-collapse -->
         </div>

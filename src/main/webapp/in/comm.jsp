@@ -18,20 +18,11 @@
 	<%@include file="../include/navbar.jsp" %>
 
 	<div class="container">
-				<h4>Progression globale de l'évènement: </h4>
-	     <div class="progress">
-	        <div class="progress-bar progress-bar-success" style="width: 35%"><span class="sr-only">35% Complete (success)</span></div>
-	        <div class="progress-bar progress-bar-warning" style="width: 20%"><span class="sr-only">20% Complete (warning)</span></div>
-	        <div class="progress-bar progress-bar-danger" style="width: 45%"><span class="sr-only">10% Complete (danger)</span></div>
-     	</div>
-	     <div class="alert alert-warning">
-	        <strong>Attention !</strong> Plus que 11 jours avant l'évènement. Avez-vous pensé à tout? <button type="button" class="btn btn-xs btn-warning" style="float:right;">Liste des tâches</button>
-	     </div>
 		<div style="padding-top:10px;">
 		<h2 class="form-signin1-heading" align="center">Communication liée à l'évènement</h2>
 		<div class="progress progress-striped active">
-  <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-    <span class="sr-only">40% Complete (success)</span>
+  <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+<!--     <span class="sr-only">40% Complete (success)</span> -->
   </div>
 </div>
      	</div>

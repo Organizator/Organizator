@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Organizator - Sono et lumière ${event.nom}</title>
+    <title>Organizator - Matériel ${event.nom}</title>
     <%@include file="../include/links.jsp" %>
   </head>
   <body style="padding-top:0px;">
@@ -16,20 +16,11 @@
 	<%@include file="../include/navbar.jsp" %>
 	
 	<div class="container">
-				<h4>Progression globale de l'évènement: </h4>
-	     <div class="progress">
-	        <div class="progress-bar progress-bar-success" style="width: 35%"><span class="sr-only">35% Complete (success)</span></div>
-	        <div class="progress-bar progress-bar-warning" style="width: 20%"><span class="sr-only">20% Complete (warning)</span></div>
-	        <div class="progress-bar progress-bar-danger" style="width: 45%"><span class="sr-only">10% Complete (danger)</span></div>
-     	</div>
-	     <div class="alert alert-warning">
-	        <strong>Attention !</strong> Plus que 11 jours avant l'évènement. Avez-vous pensé à tout? <button type="button" class="btn btn-xs btn-warning" style="float:right;">Liste des tâches</button>
-	     </div>
 		<div style="padding-top:30px;">
 		<h2 class="form-signin1-heading" align="center">Matériel</h2>
 		<div class="progress progress-striped active">
-  <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 70%">
-    <span class="sr-only">70% Complete (success)</span>
+  <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+<!--     <span class="sr-only">70% Complete (success)</span> -->
   </div>
 </div>
      	</div>
@@ -39,9 +30,9 @@
 		
 		<div class="panel panel-default">
   <!-- Default panel contents -->
-  <div class="panel-heading">Suivi des moyens de communication mis en place</div>
+  <div class="panel-heading">Suivi du matériel disponible</div>
   <div class="panel-body">
-    <p><center>Mettez ici à jour les statuts des différents moyen de communication disponibles : <span class="glyphicon glyphicon-ok"></span> ou <span class="glyphicon glyphicon-remove"></span></center></center></p>
+    <p><center>Mettez ici à jour les statuts des différents moyens matériels disponibles : <span class="glyphicon glyphicon-ok"></span> ou <span class="glyphicon glyphicon-remove"></span></center></center></p>
   </div>
 
   <!-- Table -->
@@ -109,6 +100,7 @@
  <c:if test="${event.ignoreLumiere == \"on\" }"><TD><a href="materiel?par=ignoreLumiere&etat=off"><span class="label label-danger"><span class="glyphicon glyphicon-ok"></span></span></a></TD></c:if>  
   </TR>
   </c:if>
+  
   </table>
   
 </div>

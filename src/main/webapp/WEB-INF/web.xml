@@ -113,6 +113,10 @@
 		<servlet-class>hei.devweb.controllers.CouvertureServlet</servlet-class>
 	</servlet>
 	<servlet>
+		<servlet-name>ListeTaches</servlet-name>
+		<servlet-class>hei.devweb.controllers.ListeTachesServlet</servlet-class>
+	</servlet>
+	<servlet>
 		<servlet-name>Inscription</servlet-name>
 		<servlet-class>hei.devweb.controllers.InscriptionServlet</servlet-class>
 	</servlet>
@@ -248,6 +252,10 @@
 	<servlet-mapping>
 		<servlet-name>Couverture</servlet-name>
 		<url-pattern>/in/couverture</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ListeTaches</servlet-name>
+		<url-pattern>/in/listetaches</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>Materiel</servlet-name>
