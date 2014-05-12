@@ -33,7 +33,6 @@ public final class ConnexionForm {
         String motDePasse = getValeurChamp( request, CHAMP_PASS );
 
         Utilisateur utilisateur = new Utilisateur();
-
         
         /* Validation du membre. */
         try {
@@ -44,7 +43,6 @@ public final class ConnexionForm {
             setErreur( CHAMP_PASS, e.getMessage() );
             setErreur( CHAMP_EMAIL, e.getMessage() );
         }
-
 
         /* Initialisation du résultat global de la validation. */
         if ( erreurs.isEmpty()) {

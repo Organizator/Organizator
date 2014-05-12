@@ -53,8 +53,8 @@ public class AccueilServlet extends HttpServlet {
         HttpSession session = request.getSession();
 
         /**
-         * Si aucune erreur de validation n'a eu lieu, alors ajout du bean
-         * Utilisateur à la session, sinon suppression du bean de la session.
+         * Si aucune erreur de validation n'a eu lieu, alors ajout de
+         * l'utilisateur à la session
          */
         if ( form.getErreurs().isEmpty() ) {
             session.setAttribute( ATT_SESSION_USER, utilisateur );

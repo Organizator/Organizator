@@ -25,7 +25,6 @@ public class NewServlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 		String date = request.getParameter("date");
-		
 		request.setAttribute( "date", date );
 		
 		List<Batiment> batiments = Manager.getInstance().listerBatiments();

@@ -15,12 +15,16 @@ public class PoleDAO {
 	public static List<Pole> listerPoles() {
 		List<Pole> listepoles = new ArrayList<Pole>();
 		try {
+			// Ouvre la connexion à la BDD
 			Connection connection = DataSourceProvider.getDataSource()
 					.getConnection();
 
+			// Utiliser la connexion
 			Statement stmt = connection.createStatement();
+			// Sélectionner tous les pôles
 			ResultSet results = stmt.executeQuery("SELECT * FROM poles");
-
+			
+			// Remplir notre liste
 			while (results.next()) {
 				Pole pole = new Pole(
 						results.getInt("idpole"),

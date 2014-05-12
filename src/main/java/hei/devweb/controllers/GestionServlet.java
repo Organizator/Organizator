@@ -23,7 +23,13 @@ import org.joda.time.format.DateTimeFormatter;
 public class GestionServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 3904379670853846520L;
-
+	
+	 int vert=0;
+	 int orange=0;
+	 int rouge=0;
+	 int pasignore=0;
+	
+	
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -47,6 +53,11 @@ public class GestionServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
+		int vert=0;
+		int orange=0;
+		int rouge=0;
+		int pasignore=0;
+		
 		HttpSession session = request.getSession();
 		Integer idEvent = (Integer) request.getSession().getAttribute("Event");
 		
@@ -60,6 +71,229 @@ public class GestionServlet extends HttpServlet {
 		Days d = Days.daysBetween(today, time);
 		int days = d.getDays();
 		request.setAttribute("days", days);
+		
+		//Ici on calcule la barre de progression !
+
+		
+		// PHOTO :
+		
+		if(event.getIgnorePhoto().equals("off") || event.getIgnorePhoto()==null){
+			pasignore++;
+			if(event.getStatutPhoto().equals("pasok") || event.getStatutPhoto()==null){
+				rouge++;
+			}
+			else if(event.getStatutPhoto().equals("encours")){
+				orange++;
+			} 
+			else{ 
+				vert++;
+			}
+		}
+		
+		// VIDEO :
+		
+		if(event.getIgnoreVideo().equals("off") || event.getIgnoreVideo()==null){
+			pasignore++;
+			if(event.getStatutVideo().equals("pasok") || event.getStatutVideo()==null){
+				rouge++;
+			}
+			else if(event.getStatutVideo().equals("encours")){
+				orange++;
+			} 
+			else{ 
+				vert++;
+			}
+		}
+		
+		// LIEU :
+		
+		if(event.getIgnoreLieu().equals("off") || event.getIgnoreLieu()==null){
+			pasignore++;
+			if(event.getStatutLieu().equals("ok")){
+				vert++;
+			}
+			else if(event.getStatutLieu().equals("encours")){
+				orange++;
+			} 
+			else{ 
+				rouge++;
+			}
+		}
+		
+		// POLE :
+		
+		if(event.getIgnorePole().equals("off") || event.getIgnorePole() ==null){
+			pasignore++;
+			if(event.getStatutPole().equals("ok")){
+				vert++;
+			}
+			else if(event.getStatutPole().equals("encours")){
+				orange++;
+			} 
+			else{ 
+				rouge++;
+			}
+		}
+		
+		// ADMIN :
+		
+		if(event.getIgnoreAdmin().equals("off") || event.getIgnoreAdmin()==null){
+			pasignore++;
+			if(event.getStatutAdmin().equals("ok")){
+				vert++;
+			}
+			else if(event.getStatutAdmin().equals("encours")){
+				orange++;
+			} 
+			else{ 
+				rouge++;
+			}
+		}
+		
+		// LUMIERE :
+		
+		if(event.getIgnoreLumiere().equals("off") || event.getIgnoreLumiere()==null){
+			pasignore++;
+			if(event.getStatutLumiere().equals("ok")){
+				vert++;
+			}
+			else if(event.getStatutLumiere().equals("encours")){
+				orange++;
+			} 
+			else{ 
+				rouge++;
+			}
+		}
+		
+		// SON :
+		
+		if(event.getIgnoreSon().equals("off") || event.getIgnoreSon()==null){
+			pasignore++;
+			if(event.getStatutSon().equals("ok")){
+				vert++;
+			}
+			else if(event.getStatutSon().equals("encours")){
+				orange++;
+			} 
+			else{ 
+				rouge++;
+			}
+		}
+		
+		// FLYERS :
+		
+		if(event.getIgnoreFlyers().equals("off") || event.getIgnoreFlyers()==null){
+			pasignore++;
+			if(event.getStatutFlyers().equals("ok")){
+				vert++;
+			}
+			else if(event.getStatutFlyers().equals("encours")){
+				orange++;
+			} 
+			else{ 
+				rouge++;
+			}
+		}
+		
+		// DEPECHE :
+		
+		if(event.getIgnoreDepeche().equals("off") || event.getIgnoreDepeche()==null){
+			pasignore++;
+			if(event.getStatutDepeche().equals("ok")){
+				vert++;
+			}
+			else if(event.getStatutDepeche().equals("encours")){
+				orange++;
+			} 
+			else{ 
+				rouge++;
+			}
+		}
+		
+		// NEWSLETTER :
+		
+		if(event.getIgnoreNewsletter().equals("off") || event.getIgnoreNewsletter()==null){
+			pasignore++;
+			if(event.getStatutNewsletter().equals("ok")){
+				vert++;
+			}
+			else if(event.getStatutNewsletter().equals("encours")){
+				orange++;
+			} 
+			else{ 
+				rouge++;
+			}
+		}
+		
+		// RADIO :
+		
+		if(event.getIgnoreRadio().equals("off") || event.getIgnoreRadio()==null){
+			pasignore++;
+			if(event.getStatutRadio().equals("ok")){
+				vert++;
+			}
+			else if(event.getStatutRadio().equals("encours")){
+				orange++;
+			} 
+			else{ 
+				rouge++;
+			}
+		}
+		
+		// RESEAU :
+		
+		if(event.getIgnoreReseau().equals("off") || event.getIgnoreReseau()==null){
+			pasignore++;
+			if(event.getStatutReseau().equals("ok")){
+				vert++;
+			}
+			else if(event.getStatutReseau().equals("encours")){
+				orange++;
+			} 
+			else{ 
+				rouge++;
+			}
+		}
+		
+		// AFFICHE :
+		
+		if(event.getIgnoreAffiche().equals("off") || event.getIgnoreAffiche()==null){
+			pasignore++;
+			System.out.println("Le vert vaut : "+vert);
+			if(event.getStatutAffiche().equals("ok")){
+				vert++;
+			}
+			else if(event.getStatutAffiche().equals("encours")){
+				orange++;
+			} 
+			else{ 
+				rouge++;
+			}
+		}
+		
+		// TV :
+		
+		if(event.getIgnoreTV().equals("off") || event.getIgnoreTV()==null){
+			pasignore++;
+			System.out.println("Le vert vaut : "+vert);
+			if(event.getStatutTV().equals("ok")){
+				vert++;
+			}
+			else if(event.getStatutTV().equals("encours")){
+				orange++;
+			} 
+			else{ 
+				rouge++;
+			}
+		}
+ 
+		System.out.println("c'est quoi"+event.getIgnoreTV()+"ce bordel");
+		System.out.println("Le vert vaut : "+vert);
+		System.out.println("Le orange vaut : "+orange);
+		System.out.println("Le rouge vaut : "+rouge);
+		System.out.println("Ignorés : "+(14-pasignore));
+		System.out.println("Pas Ignorés : "+pasignore);
+		
 
 		Utilisateur utilisateur = (Utilisateur) request.getSession().getAttribute("sessionUtilisateur");
 		//System.out.println(utilisateur.getMail());

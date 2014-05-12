@@ -29,18 +29,18 @@ public class ConfirmationServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		
+		String date = request.getParameter("date");
+		String type = request.getParameter("type");
+		String debut = request.getParameter("debut");
+		String fin = request.getParameter("fin");
+		String hei = request.getParameter("hei");
+		String batiment = request.getParameter("batiment");
+		String effectif = request.getParameter("effectif");
+		String nom = request.getParameter("nom");
+		
 		if (request.getParameter("etape") != null)
 		{
-			String date = request.getParameter("date");
-			String type = request.getParameter("type");
-			String debut = request.getParameter("debut");
-			String fin = request.getParameter("fin");
-			String hei = request.getParameter("hei");
-			String batiment = request.getParameter("batiment");
-			String effectif = request.getParameter("effectif");
-			String nom = request.getParameter("nom");
-			
 			request.setAttribute( "date", date );
 			request.setAttribute( "type", type );
 			request.setAttribute( "debut", debut );
@@ -56,15 +56,7 @@ public class ConfirmationServlet extends HttpServlet {
 		
 		else
 		{
-			String date = request.getParameter("date");
-			String type = request.getParameter("type");
-			String debut = request.getParameter("debut");
-			String fin = request.getParameter("fin");
-			String hei = request.getParameter("hei");
-			String batiment = request.getParameter("batiment");
-			String effectif = request.getParameter("effectif");
 			String organisateur = request.getParameter("organisateur");
-			String nom = request.getParameter("nom");
 			
 			Event nouvelEvent = new Event(null, nom, null, date, debut, fin, type, hei, organisateur, null, batiment, null, effectif, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
 			Manager.getInstance().ajouterEvent(nouvelEvent);
