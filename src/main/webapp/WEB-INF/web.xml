@@ -85,10 +85,6 @@
 		<servlet-class>hei.devweb.controllers.AnnulationadminServlet</servlet-class>
 	</servlet>
 	<servlet>
-		<servlet-name>Annulation</servlet-name>
-		<servlet-class>hei.devweb.controllers.AnnulationServlet</servlet-class>
-	</servlet>
-	<servlet>
 		<servlet-name>Eventadmin</servlet-name>
 		<servlet-class>hei.devweb.controllers.EventadminServlet</servlet-class>
 	</servlet>
@@ -127,10 +123,6 @@
 	<servlet>
 		<servlet-name>Time</servlet-name>
 		<servlet-class>hei.devweb.controllers.TimeServlet</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>Erreur</servlet-name>
-		<servlet-class>hei.devweb.controllers.ErreurServlet</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>New</servlet-name>
@@ -238,16 +230,8 @@
 		<url-pattern>/in/date</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
-	<servlet-name>Erreur</servlet-name>
-		<url-pattern>/in/erreur</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
 		<servlet-name>New</servlet-name>
 		<url-pattern>/in/new</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>Annulation</servlet-name>
-		<url-pattern>/in/annulation</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>Couverture</servlet-name>

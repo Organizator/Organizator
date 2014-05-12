@@ -49,7 +49,8 @@ public class Event {
 	private String ignoreAdmin;
 
 
-	public Event(Integer id, String nom, String asso, String date, String heuredebut, String heurefin, String typeevent, String danshei, String organisateur, String mailorganisateur, String batiment, String salle, String affluence,
+	public Event(Integer id, String nom, String asso, String date, String heuredebut, String heurefin, String typeevent, String danshei, String organisateur, 
+			String mailorganisateur, String batiment, String salle, String affluence,
 			String statutTV, String statutAffiche, String statutReseau, String statutRadio, String statutNewsletter, String statutDepeche, String statutFlyers, 
 			String ignoreTV, String ignoreAffiche, String ignoreReseau, String ignoreRadio, String ignoreNewsletter, String ignoreDepeche, String ignoreFlyers,
 			String statutSon, String statutLumiere, 

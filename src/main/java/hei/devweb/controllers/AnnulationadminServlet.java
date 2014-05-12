@@ -23,11 +23,9 @@ public class AnnulationadminServlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 		Integer idEvent = Integer.parseInt(request.getParameter("idEvent"));
-		
-		idEvent = Integer.parseInt(request.getParameter("idEvent"));
 		Manager.getInstance().supprimerEvent(idEvent);
 		
-		
+		// Après la suppression, redirection vers la page d'accueil admin
 		response.sendRedirect("gestionadmin.jsp");
 	}
 	

@@ -59,7 +59,7 @@
  <TH> Actions </TH> 
   	</TR> 
   <%
-							for (Association association : (List<Association>) request.getAttribute("associations")) {
+		for (Association association : (List<Association>) request.getAttribute("associations")) {
 	%>
   <TR> 
  <TD><%=association.getNom()%></TD> 
@@ -70,9 +70,7 @@
 	<span class="glyphicon glyphicon-remove"></span></a>
 </TD> 
   </TR>
-  <%
-							}
-	%>
+  <%	}	%>
   	<TR>
 		<form class="form-inline" method="post" action="gestionassos" onsubmit="return valider()" name="AjoutAssociation">
 			<label class="sr-only" for="association">Association</label>

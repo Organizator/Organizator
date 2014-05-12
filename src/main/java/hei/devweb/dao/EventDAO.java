@@ -194,12 +194,12 @@ public class EventDAO {
 						results.getString("statutVideo"),
 						results.getString("ignorePhoto"),
 						results.getString("ignoreVideo"),
-								results.getString("statutLieu"),
-								results.getString("statutPole"),
-								results.getString("statutAdmin"),
-								results.getString("ignoreLieu"),
-								results.getString("ignorePole"),
-								results.getString("ignoreAdmin"));
+						results.getString("statutLieu"),
+						results.getString("statutPole"),
+						results.getString("statutAdmin"),
+						results.getString("ignoreLieu"),
+						results.getString("ignorePole"),
+						results.getString("ignoreAdmin"));
 			}
 			// Fermer la connexion
 			stmt.close();

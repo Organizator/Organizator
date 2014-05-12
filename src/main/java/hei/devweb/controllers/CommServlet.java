@@ -55,7 +55,7 @@ public class CommServlet extends HttpServlet {
 		{
 			Manager.getInstance().UpdateEvent(request.getParameter("par"), request.getParameter("etat"), idEvent);;
 		}
-		
+				
 		Event event = Manager.getInstance().getEvent(idEvent);
 		request.setAttribute("event", event);
 		

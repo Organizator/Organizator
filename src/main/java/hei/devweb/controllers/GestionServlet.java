@@ -57,6 +57,10 @@ public class GestionServlet extends HttpServlet {
 		int orange=0;
 		int rouge=0;
 		int pasignore=0;
+		float tauxvert=0;
+		float tauxorange=0;
+		float tauxrouge=0;
+				
 		
 		HttpSession session = request.getSession();
 		Integer idEvent = (Integer) request.getSession().getAttribute("Event");
@@ -79,14 +83,14 @@ public class GestionServlet extends HttpServlet {
 		
 		if(event.getIgnorePhoto().equals("off") || event.getIgnorePhoto()==null){
 			pasignore++;
-			if(event.getStatutPhoto().equals("pasok") || event.getStatutPhoto()==null){
-				rouge++;
+			if(event.getStatutPhoto().equals("ok")){
+				vert++;
 			}
 			else if(event.getStatutPhoto().equals("encours")){
 				orange++;
 			} 
 			else{ 
-				vert++;
+				rouge++;
 			}
 		}
 		
@@ -94,14 +98,14 @@ public class GestionServlet extends HttpServlet {
 		
 		if(event.getIgnoreVideo().equals("off") || event.getIgnoreVideo()==null){
 			pasignore++;
-			if(event.getStatutVideo().equals("pasok") || event.getStatutVideo()==null){
-				rouge++;
+			if(event.getStatutVideo().equals("ok")){
+				vert++;
 			}
 			else if(event.getStatutVideo().equals("encours")){
 				orange++;
 			} 
 			else{ 
-				vert++;
+				rouge++;
 			}
 		}
 		
@@ -286,14 +290,16 @@ public class GestionServlet extends HttpServlet {
 				rouge++;
 			}
 		}
- 
-		System.out.println("c'est quoi"+event.getIgnoreTV()+"ce bordel");
-		System.out.println("Le vert vaut : "+vert);
-		System.out.println("Le orange vaut : "+orange);
-		System.out.println("Le rouge vaut : "+rouge);
-		System.out.println("Ignorés : "+(14-pasignore));
-		System.out.println("Pas Ignorés : "+pasignore);
 		
+		tauxvert=(vert*100)/pasignore;
+		tauxorange=(orange*100)/pasignore;
+		tauxrouge=(rouge*100)/pasignore;
+		
+		request.setAttribute("tauxvert", tauxvert);
+		request.setAttribute("tauxorange", tauxorange);
+		request.setAttribute("tauxrouge", tauxrouge);
+
+
 
 		Utilisateur utilisateur = (Utilisateur) request.getSession().getAttribute("sessionUtilisateur");
 		//System.out.println(utilisateur.getMail());

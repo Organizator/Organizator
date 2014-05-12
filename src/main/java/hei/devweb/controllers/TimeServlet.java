@@ -48,7 +48,6 @@ public class TimeServlet extends HttpServlet {
 		request.setAttribute("event", event);
 		
 		Utilisateur utilisateur = (Utilisateur) request.getSession().getAttribute("sessionUtilisateur");
-		System.out.println(utilisateur.getMail());
 		
 		List<Event> events = Manager.getInstance().listerEventsUtilisateur(utilisateur.getMail());
 		request.setAttribute("events", events);
@@ -60,6 +59,7 @@ public class TimeServlet extends HttpServlet {
 		{
 			Manager.getInstance().supprimerEvent(idEvent);
 			
+			// Redirection vers la page choix de l'évènement à gérer
 			RequestDispatcher view = request.getRequestDispatcher("choix.jsp");
 			view.forward(request, response);
 		}
@@ -79,7 +79,6 @@ public class TimeServlet extends HttpServlet {
 		Integer idEvent = (Integer) request.getSession().getAttribute("Event");
 		
 		Utilisateur utilisateur = (Utilisateur) request.getSession().getAttribute("sessionUtilisateur");
-		System.out.println(utilisateur.getMail());
 		
 		List<Event> events = Manager.getInstance().listerEventsUtilisateur(utilisateur.getMail());
 		request.setAttribute("events", events);
