@@ -10,9 +10,7 @@
   </head>
   <body>
 	<!-- Menu de navigation -->
-<%--   	<jsp:include page="menu.jsp">
-	    <jsp:param name="pageSelectionnee" value="jeu"/>
-	</jsp:include> --%>
+	<%@include file="../include/navbar.jsp" %>
 	
 	<div class="container">
 	  	<div class="alert alert-${empty erreurs ? 'success' : 'warning'}">

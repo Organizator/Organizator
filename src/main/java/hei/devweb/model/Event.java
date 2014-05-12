@@ -40,6 +40,14 @@ public class Event {
 	private String statutVideo;
 	private String ignorePhoto;
 	private String ignoreVideo;
+	
+	private String statutLieu;
+	private String statutPole;
+	private String statutAdmin;
+	private String ignoreLieu;
+	private String ignorePole;
+	private String ignoreAdmin;
+
 
 	public Event(Integer id, String nom, String asso, String date, String heuredebut, String heurefin, String typeevent, String danshei, String organisateur, String mailorganisateur, String batiment, String salle, String affluence,
 			String statutTV, String statutAffiche, String statutReseau, String statutRadio, String statutNewsletter, String statutDepeche, String statutFlyers, 
@@ -47,7 +55,8 @@ public class Event {
 			String statutSon, String statutLumiere, 
 			String ignoreSon, String ignoreLumiere,
 			String statutPhoto, String statutVideo, 
-			String ignorePhoto, String ignoreVideo) {
+			String ignorePhoto, String ignoreVideo,
+			String statutLieu, String statutPole,String statutAdmin, String ignoreLieu,String ignorePole, String ignoreAdmin) {
 		super();
 		this.id = id;
 		this.nom = nom;
@@ -88,6 +97,61 @@ public class Event {
 		this.statutVideo = statutVideo;
 		this.ignorePhoto = ignorePhoto;
 		this.ignoreVideo = ignoreVideo;
+		
+		this.statutLieu = statutLieu;
+		this.statutPole = statutPole;
+		this.statutAdmin = statutAdmin;
+		this.ignoreLieu = ignoreLieu;
+		this.ignorePole = ignorePole;
+		this.ignoreAdmin = ignoreAdmin;
+			}
+
+	public String getStatutLieu() {
+		return statutLieu;
+	}
+
+	public void setStatutLieu(String statutLieu) {
+		this.statutLieu = statutLieu;
+	}
+
+	public String getStatutPole() {
+		return statutPole;
+	}
+
+	public void setStatutPole(String statutPole) {
+		this.statutPole = statutPole;
+	}
+
+	public String getStatutAdmin() {
+		return statutAdmin;
+	}
+
+	public void setStatutAdmin(String statutAdmin) {
+		this.statutAdmin = statutAdmin;
+	}
+
+	public String getIgnoreLieu() {
+		return ignoreLieu;
+	}
+
+	public void setIgnoreLieu(String ignoreLieu) {
+		this.ignoreLieu = ignoreLieu;
+	}
+
+	public String getIgnorePole() {
+		return ignorePole;
+	}
+
+	public void setIgnorePole(String ignorePole) {
+		this.ignorePole = ignorePole;
+	}
+
+	public String getIgnoreAdmin() {
+		return ignoreAdmin;
+	}
+
+	public void setIgnoreAdmin(String ignoreAdmin) {
+		this.ignoreAdmin = ignoreAdmin;
 	}
 
 	public String getNom() {

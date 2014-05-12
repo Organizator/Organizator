@@ -33,14 +33,14 @@
   <!-- Default panel contents -->
   <div class="panel-heading">Liste des bâtiments proposés par HEI</div>
   <div class="panel-body">
-    <p><center>Supprimez un bâtiment en cliquant sur : <span class="glyphicon glyphicon-remove"></span></center></center></p>
+    <p><center>Passer un utilisateur en administrateur : <span class="glyphicon glyphicon-user"></span></center></center></p>
   </div>
 
   <!-- Table -->
   <table class="table">
     <TR> 
- <TH> Mail membre </TH> 
- <TH> Rendre administrateur </TH> 
+ <TH> Mail Membre </TH> 
+ <TH> Action </TH> 
 
 <% for (Membre membre : (List<Membre>) request.getAttribute("membres")) {	%>
   	

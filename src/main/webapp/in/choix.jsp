@@ -19,7 +19,6 @@
 						document.location.href="choix?id="+id;
 					}
 
-					//]]>
 </script>
 	<div class="container">
 		<div class="alert alert-info">Voici la liste de vos évènements. Cliquez sur celui que vous souhaitez modifier. </div>
@@ -37,6 +36,7 @@
 			
 		</div>
 		<div class="form-signin" style="padding-top:10px;">
+			<a href="../index"><button class="btn btn-lg btn-success btn-block" style="margin-top:5px;">Retour</button></a>
 			<a href="../deconnexion"><button class="btn btn-lg btn-danger btn-block" style="margin-top:5px;">Déconnexion</button></a>
 		</div>
 		 </div>

@@ -13,40 +13,8 @@
   </head>
   <body style="padding-top:0px;">
 	<!-- Menu de navigation -->
-<%--   	<jsp:include page="menu.jsp">
-	    <jsp:param name="pageSelectionnee" value="jeu"/>
-	</jsp:include> --%>
-	<div class="navbar navbar-inverse">
-        <div class="container">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Organizator</a>
-          </div>
-          <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="index">Accueil</a></li>
-              <li><a href="about">A propos</a></li>
-              <li><a href="#contact">Contact</a></li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Evènements <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Petit déjeuner le 28/04</a></li>
-                  <li><a href="#">Afterwork le 38/14</a></li>
-                  <li class="divider"></li>
-                  <li class="dropdown-header">Nav header</li>
-                  <li><a href="#">Separated link</a></li>
-                  <li><a href="#">One more separated link</a></li>
-                </ul>
-              </li>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
+	<%@include file="../include/navbar.jsp" %>
+	
 	<div class="container">
 				<h4>Progression globale de l'évènement: </h4>
 	     <div class="progress">
@@ -102,7 +70,7 @@
   
  <c:if test="${event.ignoreLumiere == null || event.ignoreLumiere == \"off\" }">
   <TR> 
- <TD> <span class="label label-default">Vidéo</span> </TD> 
+ <TD> <span class="label label-default">Lumière</span> </TD> 
  <c:if test="${event.statutLumiere == null || event.statutLumiere == \"pasok\" }"><TD> <a href="materiel?par=statutLumiere&etat=encours"><span class="label label-danger"><span class="glyphicon glyphicon-remove"></span></span></a> </TD></c:if>
  <c:if test="${event.statutLumiere == \"encours\"}"><TD> <a href="materiel?par=statutLumiere&etat=ok"><span class="label label-warning"><span class="glyphicon glyphicon-pencil"></span></span></a> </TD></c:if>
  <c:if test="${event.statutLumiere == \"ok\"}"><TD> <a href="materiel?par=statutLumiere&etat=pasok"><span class="label label-success"><span class="glyphicon glyphicon-ok"></span></span></a> </TD></c:if>

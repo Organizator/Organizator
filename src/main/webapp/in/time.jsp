@@ -2,6 +2,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@page import="hei.devweb.model.Event"%>
+<%@page import="hei.devweb.model.Communication"%>
+<%@page import="java.util.List"%>
 
 <%	Event event = (Event) request.getAttribute("event"); %>
 
@@ -11,12 +13,10 @@
     <title>Organizator - Modification ${event.nom}</title>
     <%@include file="../include/links.jsp" %>
   </head>
-  <body>
+  <body style="padding-top:0px;">
 	<!-- Menu de navigation -->
-<%--   	<jsp:include page="menu.jsp">
-	    <jsp:param name="pageSelectionnee" value="jeu"/>
-	</jsp:include> --%>
-	
+	<%@include file="../include/navbar.jsp" %>
+
 	<div class="container">
       <form class="form-signin1" role="form" method=post action="time" id="pilepapier" style="margin-top:25px;margin-bottom:25px;">
 	        <h2 class="form-signin1-heading" align="center">Modifier projet </h2>
@@ -57,8 +57,28 @@
 			</div>
 	        <button class="btn btn-lg btn-success btn-block" type="submit" style="margin-top:10px;">Valider les modifications</button>
       </form>
-      <form class="form-signin1" role="form" method=post action="gestion">
-      <button type="post" class="btn btn-lg btn-warning btn-block">Retour panneau de gestion</button>
+
+<script type="text/javascript">
+
+					function valider() {
+							if (confirm("Etes-vous sur de vouloir supprimer cet évènement ? Cette action est définitive")) {
+								// sinon on affiche un message
+								// et on indique de ne pas envoyer le formulaire
+								return true;
+							}
+							else {return false;}
+
+					}
+					
+</script>      
+      
+      <form class="form-signin1" role="form" method=post action="time" onsubmit="return valider()">		
+       		<button class="btn btn-lg btn-danger btn-block" type="submit" style="margin-top:5px;">Annuler l'évènement</button>
+      </form>
+      <div class="form-signin1" style="padding-top:10px;">
+			<a href="gestion"><button class="btn btn-lg btn-info btn-block" style="margin-top:5px;">Retour panneau de gestion</button></a>
+			<a href="../deconnexion"><button class="btn btn-lg btn-danger btn-block" style="margin-top:5px;">Déconnexion</button></a>
+      </div>
       </form>
     </div>
 	<%-- <%@include file="footer.jsp" %> --%>

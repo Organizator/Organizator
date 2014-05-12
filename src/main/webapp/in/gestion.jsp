@@ -10,40 +10,8 @@
   </head>
   <body style="padding-top:0px;">
 	<!-- Menu de navigation -->
-<%--   	<jsp:include page="menu.jsp">
-	    <jsp:param name="pageSelectionnee" value="jeu"/>
-	</jsp:include> --%>
-	<div class="navbar navbar-inverse">
-        <div class="container">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Organizator</a>
-          </div>
-          <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="index">Accueil</a></li>
-              <li><a href="about">A propos</a></li>
-              <li><a href="#contact">Contact</a></li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Evènements <span class="badge">2</span> <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Petit déjeuner le 28/04</a></li>
-                  <li><a href="#">Afterwork le 38/14</a></li>
-                  <li class="divider"></li>
-                  <li class="dropdown-header">Nav header</li>
-                  <li><a href="#">Separated link</a></li>
-                  <li><a href="#">One more separated link</a></li>
-                </ul>
-              </li>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
+   	<%@include file="../include/navbar.jsp" %>
+
 	<div class="container" id="pilepapier">
 		<h4><span class="glyphicon glyphicon-stats"></span> Progression globale de l'évènement: </h4>
 	     <div class="progress">
@@ -52,7 +20,7 @@
 	        <div class="progress-bar progress-bar-danger" style="width: 45%"><span class="sr-only">10% Complete (danger)</span></div>
      	</div>
 	     <div class="alert alert-warning">
-	        <strong>Attention !</strong> Plus que 11 jours avant l'évènement. Avez-vous pensé à tout? <button type="button" class="btn btn-xs btn-warning" style="float:right;">Liste des tâches</button>
+	        <strong>Attention !</strong> Plus que ${days} jours avant l'évènement. Avez-vous pensé à tout? <button type="button" class="btn btn-xs btn-warning" style="float:right;">Liste des tâches</button>
 	     </div>
 	     		<h2 class="form-signin1-heading" align="center"><span class="glyphicon glyphicon-home"></span> - Panneau de gestion</h2>
 	     
@@ -65,8 +33,10 @@
 		</div>
 
      	<div class="form-signin" style="padding-top:5px;">
-
+			
+			<a href="choix"><button class="btn btn-lg btn-success btn-block" style="margin-top:5px;">Retour</button></a>
 			<a href="../deconnexion"><button class="btn btn-lg btn-danger btn-block" style="margin-top:5px;">Déconnexion</button></a>
+			
 		</div>
     </div>
 	<%-- <%@include file="footer.jsp" %> --%>

@@ -167,6 +167,13 @@ public class Manager {
 
 
 
+	public Membre getMembre(String mail) {
+		Membre membre = MembreDao.getMembre(mail);
+		return membre;
+	}
+
+
+
 
 
 

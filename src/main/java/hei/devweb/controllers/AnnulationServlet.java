@@ -1,6 +1,11 @@
 package hei.devweb.controllers;
 
+import hei.devweb.metier.Manager;
+import hei.devweb.model.Event;
+import hei.devweb.model.Utilisateur;
+
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -20,6 +25,12 @@ public class AnnulationServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
+		Utilisateur utilisateur = (Utilisateur) request.getSession().getAttribute("sessionUtilisateur");
+		System.out.println(utilisateur.getMail());
+		
+		List<Event> events = Manager.getInstance().listerEventsUtilisateur(utilisateur.getMail());
+		request.setAttribute("events", events);
+		
 		RequestDispatcher view = request.getRequestDispatcher("annulation.jsp");
 		view.forward(request, response);
 	}
@@ -27,6 +38,13 @@ public class AnnulationServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		Utilisateur utilisateur = (Utilisateur) request.getSession().getAttribute("sessionUtilisateur");
+		System.out.println(utilisateur.getMail());
+		
+		List<Event> events = Manager.getInstance().listerEventsUtilisateur(utilisateur.getMail());
+		request.setAttribute("events", events);
+		
 		RequestDispatcher view = request.getRequestDispatcher("annulation.jsp");
 		view.forward(request, response);
 	}

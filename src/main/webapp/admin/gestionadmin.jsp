@@ -8,7 +8,7 @@
 <html>
 
   <head>
-    <title>Organizator - Accueil</title>
+    <title>Organizator - Administration</title>
     <%@include file="../include/links.jsp" %>
   </head>
   <body style="padding-top:0px;">
@@ -23,9 +23,10 @@
 						
 						
 			<div class="form-signin1" id="pilepapier" style="margin-top:25px;margin-bottom:25px;">			
-			<h2 class="form-signin1-heading" align="center">Page d'administration : Accueil</h2>
+			<h2 class="form-signin1-heading" align="center">Administration</h2>
+			<h3 class="form-signin1-heading" align="center">Accueil</h3>
 	     
-	     	<a href="planningadmin"><button class="btn btn-lg btn-success btn-block">Planning</button></a>
+	     	<a href="planningadmin"><button class="btn btn-lg btn-success btn-block" style="margin-top:15px;">Planning</button></a>
 	        <a href="batimentshei"><button class="btn btn-lg btn-info btn-block" style="margin-top:10px;">Bâtiments</button></a>
 	        <a href="gestionassos"><button class="btn btn-lg btn-info btn-block" style="margin-top:5px;">Associations</button></a>
 	        <a href="gestioncomm"><button class="btn btn-lg btn-info btn-block" style="margin-top:5px;">Communication</button></a>

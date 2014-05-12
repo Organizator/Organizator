@@ -3,6 +3,7 @@ package hei.devweb.controllers;
 import hei.devweb.metier.Manager;
 import hei.devweb.model.Communication;
 import hei.devweb.model.Event;
+import hei.devweb.model.Utilisateur;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -27,6 +28,12 @@ public class MaterielServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
+		Utilisateur utilisateur = (Utilisateur) request.getSession().getAttribute("sessionUtilisateur");
+		System.out.println(utilisateur.getMail());
+		
+		List<Event> events = Manager.getInstance().listerEventsUtilisateur(utilisateur.getMail());
+		request.setAttribute("events", events);
+		
 		RequestDispatcher view = request.getRequestDispatcher("materiel.jsp");
 		view.forward(request, response);
 	}
@@ -34,6 +41,12 @@ public class MaterielServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		Utilisateur utilisateur = (Utilisateur) request.getSession().getAttribute("sessionUtilisateur");
+		System.out.println(utilisateur.getMail());
+		
+		List<Event> events = Manager.getInstance().listerEventsUtilisateur(utilisateur.getMail());
+		request.setAttribute("events", events);
 		
 		HttpSession session = request.getSession();
 		Integer idEvent = (Integer) request.getSession().getAttribute("Event");

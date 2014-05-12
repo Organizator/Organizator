@@ -47,7 +47,7 @@
   <!-- Default panel contents -->
   <div class="panel-heading">Liste des associations</div>
   <div class="panel-body">
-    <p><center>Supprimez une association en cliquant sur : <span class="glyphicon glyphicon-remove"></span></center></center></p>
+    <p><center>Supprimer une association : <span class="glyphicon glyphicon-remove"></span></center></center></p>
   </div>
 
   <!-- Table -->

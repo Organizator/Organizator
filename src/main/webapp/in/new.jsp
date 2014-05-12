@@ -20,7 +20,7 @@
       </div>
       <form class="form-signin1" role="form" method=post action="confirmation" id="pilepapier" style="margin-top:25px;margin-bottom:25px;">
 	        <h2 class="form-signin1-heading" align="center">Nouveau projet </h2>
-	        <h3 class="form-signin1-heading" align="center">Détails évènement</h2>
+	        <h3 class="form-signin1-heading" align="center">Détails évènement</h3>
 	        <input type="email" class="form-control start" value="${sessionScope.sessionUtilisateur.mail}" required="" autofocus="" disabled="disabled">
 	        <input type="text" class="form-control end" value="${date}" required="" autofocus="" disabled="disabled">
 	        <input type="hidden" id="date" name="date" value="${date}">
@@ -45,6 +45,7 @@
 					<option value="${batiment.nom}">${batiment.nom}</option>
 				</c:forEach>
 	        </select>
+	        <p align="center"> Heures de début/fin prévues :</p>
 	        <input type="time" class="form-control start" placeholder="Time" id="debut" name="debut" required="">
 	        <input type="time" class="form-control end" placeholder="Time" id="fin" name="fin">
 	        <button class="btn btn-lg btn-success btn-block" type="submit">Etape suivante</button>

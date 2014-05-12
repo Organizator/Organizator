@@ -18,7 +18,7 @@
 	
 	<div class="container">
 	  	<div class="alert alert-${empty erreurs ? 'success' : 'warning'}">
-        	<strong>${resultat}</strong> ${erreurs['mail']} ${erreurs['motDePasse']} ${erreurs['confirmation']} ${empty erreurs ? '<a href="new3"><button type="button" class="btn btn-xs btn-success" style="float:right;">Organiser un évènement</button></a>' : ''}
+        	<strong>${resultat}</strong> ${erreurs['mail']} ${erreurs['motDePasse']} ${erreurs['confirmation']} ${empty erreurs ? '<a href="index"><button type="button" class="btn btn-xs btn-success" style="float:right;">Organiser un évènement (Reconnexion nécessaire)</button></a>' : ''}
       	</div>
       	<form class="form-signin1" role="form" method=post action="inscription" id="pilepapier" style="margin-top:25px;margin-bottom:25px;">
 	        <h2 class="form-signin1-heading" align="center">Inscription </h2>
@@ -31,7 +31,12 @@
 					<option value="${pole.nom}">${pole.nom}</option>
 				</c:forEach>
 	        </select>
-	        <input type="text" class="form-control mid" placeholder="Association" id="asso" name="asso" required="">
+	        <select class="form-control mid" required=""  id="asso" name="asso">
+	        	<option value="0">Association</option>
+				<c:forEach var="association" items="${associations}">
+					<option value="${association.nom}">${association.nom}</option>
+				</c:forEach>
+	        </select>
 	        <select class="form-control end" required=""  id="resp" name="resp">
 	        	<option value="0">Responsabilité</option>
 				<option value="Président">Président</option>

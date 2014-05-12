@@ -22,6 +22,7 @@
 	        <p>Organizator s'adresse aux étudiants de l'école d'ingénieurs HEI (Hautes Etudes d'Ingénieur).</p>
 	        <p>C'est un projet indépendant, réalisé par des étudiants de l'école, dans le but de fournir aux élèves un outil d'assistance dans la création d'évènements pour leur association.</p>
      		<p>Organizator guide l'utilisateur dans sa démarche, de l'idée de la création de son évènement jusqu'à sa réalisation.</p>
+     		<p>Il permet également au BDE de gérer l'emploi du temps de la vie associative.</p>
      	</div>
     </div>
     

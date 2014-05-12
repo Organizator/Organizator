@@ -18,10 +18,11 @@
 	  <div class="alert alert-warning">
         <strong>Attention !</strong> Ne quittez pas cette page ou vous devrez recommencer du début !
       </div>
-      	<form class="form-signin1" role="form" method=post action="confirmation">
-		   <h2 class="form-signin1-heading">Nouveau projet - Confirmation </h2>
+      	<form class="form-signin1" role="form" method=post action="confirmation" id="pilepapier" style="margin-top:25px;margin-bottom:25px;">
+		   <h2 class="form-signin1-heading" align="center">Nouveau projet</h2>
+		   <h3 class="form-signin1-heading" align="center">Confirmation</h3>
 		   <div class="alert alert-danger">
-	        <center><strong>Vérifiez les informations</strong> avant de valider la création de l'évènement !</center>
+	        <center>Merci de <strong>vérifier les informations</strong> avant de valider la création de l'évènement !</center>
 	       </div>
 		        <input type="email" class="form-control start" value="${sessionScope.sessionUtilisateur.mail}" disabled="disabled">
 		        <input type="hidden" id="organisateur" name="organisateur" value="${sessionScope.sessionUtilisateur.mail}">

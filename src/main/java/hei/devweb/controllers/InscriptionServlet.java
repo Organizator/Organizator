@@ -32,6 +32,9 @@ public class InscriptionServlet extends HttpServlet {
 		List<Pole> poles = Manager.getInstance().listerPoles();
 		request.setAttribute("poles", poles);
 		
+		List<Association> associations = Manager.getInstance().listerAssociations();
+		request.setAttribute("associations", associations);
+		
 		String resultat;
         Map<String, String> erreurs = new HashMap<String, String>();
 
@@ -81,6 +84,9 @@ public class InscriptionServlet extends HttpServlet {
 		
 		List<Pole> poles = Manager.getInstance().listerPoles();
 		request.setAttribute("poles", poles);
+		
+		List<Association> associations = Manager.getInstance().listerAssociations();
+		request.setAttribute("associations", associations);
 				
 		request.getRequestDispatcher( "WEB-INF/pages/inscription.jsp" ).forward( request, response );
 	}

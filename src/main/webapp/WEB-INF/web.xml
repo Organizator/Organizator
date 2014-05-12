@@ -57,10 +57,6 @@
 		<servlet-class>hei.devweb.controllers.SupprimerAssociationServlet</servlet-class>
 	</servlet>
 	<servlet>
-		<servlet-name>Gestionresp</servlet-name>
-		<servlet-class>hei.devweb.controllers.GestionrespServlet</servlet-class>
-	</servlet>
-	<servlet>
 		<servlet-name>Gestionpoles</servlet-name>
 		<servlet-class>hei.devweb.controllers.GestionpolesServlet</servlet-class>
 	</servlet>
@@ -83,10 +79,6 @@
 	<servlet>
 		<servlet-name>SupprimerBatiment</servlet-name>
 		<servlet-class>hei.devweb.controllers.SupprimerBatimentServlet</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>Lieuxhei</servlet-name>
-		<servlet-class>hei.devweb.controllers.LieuxheiServlet</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>Annulationadmin</servlet-name>
@@ -119,10 +111,6 @@
 	<servlet>
 		<servlet-name>Couverture</servlet-name>
 		<servlet-class>hei.devweb.controllers.CouvertureServlet</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>IndexAdmin</servlet-name>
-		<servlet-class>hei.devweb.controllers.IndexAdminServlet</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>Inscription</servlet-name>
@@ -202,10 +190,6 @@
 		<url-pattern>/admin/planningadmin</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
-		<servlet-name>IndexAdmin</servlet-name>
-		<url-pattern>/indexAdmin</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
 		<servlet-name>Gestionassos</servlet-name>
 		<url-pattern>/admin/gestionassos</url-pattern>
 	</servlet-mapping>
@@ -230,10 +214,6 @@
 		<url-pattern>/admin/supprimerpole</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
-		<servlet-name>Gestionresp</servlet-name>
-		<url-pattern>/admin/gestionresp</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
 		<servlet-name>Eventadmin</servlet-name>
 		<url-pattern>/admin/eventadmin</url-pattern>
 	</servlet-mapping>
@@ -244,10 +224,6 @@
 	<servlet-mapping>
 		<servlet-name>SupprimerBatiment</servlet-name>
 		<url-pattern>/admin/supprimerbatiment</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>Lieuxhei</servlet-name>
-		<url-pattern>/admin/lieuxhei</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>Inscription</servlet-name>

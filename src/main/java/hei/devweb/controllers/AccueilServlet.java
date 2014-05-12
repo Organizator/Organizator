@@ -1,9 +1,13 @@
 package hei.devweb.controllers;
 
 import hei.devweb.dao.ConnexionForm;
+import hei.devweb.metier.Manager;
+import hei.devweb.model.Event;
+import hei.devweb.model.Membre;
 import hei.devweb.model.Utilisateur;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -24,6 +28,15 @@ public class AccueilServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		HttpSession session = request.getSession();
+		if ( session.getAttribute( ATT_SESSION_USER ) != null ) {
+			Utilisateur utilisateur2 = (Utilisateur) request.getSession().getAttribute(ATT_SESSION_USER);
+			
+			Membre membre = Manager.getInstance().getMembre(utilisateur2.getMail());
+			request.setAttribute("membre", membre);
+		}
+		
 		this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
 	}
 	
@@ -53,6 +66,13 @@ public class AccueilServlet extends HttpServlet {
         /* Stockage du formulaire et du bean dans l'objet request */
         request.setAttribute( ATT_FORM, form );
         request.setAttribute( ATT_USER, utilisateur );
+        
+		if ( session.getAttribute( ATT_SESSION_USER ) != null ) {
+			Utilisateur utilisateur2 = (Utilisateur) request.getSession().getAttribute(ATT_SESSION_USER);
+			
+			Membre membre = Manager.getInstance().getMembre(utilisateur2.getMail());
+			request.setAttribute("membre", membre);
+		}
 
         this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
 	}

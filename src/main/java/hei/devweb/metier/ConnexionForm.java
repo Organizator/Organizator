@@ -30,7 +30,7 @@ public final class ConnexionForm {
         String email = getValeurChamp( request, CHAMP_EMAIL );
         String motDePasse = getValeurChamp( request, CHAMP_PASS );
 
-        Membre membre = new Membre(null, null, null, null, null, null);
+        Membre membre = new Membre(null, null, null, null, null, null, null);
 
         /* Validation du champ email. */
         try {

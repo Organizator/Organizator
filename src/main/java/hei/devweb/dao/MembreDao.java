@@ -43,34 +43,35 @@ public class MembreDao {
 //		return liste;
 //	}
 	
-//	public Membre getMembre(Integer idMembre) {
-//		Membre membre = null;
-//		try {
-//			Connection connection = DataSourceProvider.getDataSource()
-//					.getConnection();
-//
-//			// Utiliser la connexion
-//			PreparedStatement stmt = connection
-//					.prepareStatement("SELECT * FROM membre WHERE idmembre = ?");
-//			stmt.setInt(1, idMembre);
-//			ResultSet result = stmt.executeQuery();
-//			if (result.next()) {
-//				membre = new Membre(result.getInt("idmembre"),
-//						result.getInt("classement"), 
-//						result.getString("prenom"),
-//						result.getString("nom"),
-//						result.getString("pays"));
-//			}
-//			System.out.println("RETOUR:"+result.getString("resume"));
-//			// Fermer la connexion
-//			stmt.close();
-//			connection.close();
-//
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-//		return membre;
-//	}
+	public static Membre getMembre(String mail) {
+		Membre membre = null;
+		try {
+			Connection connection = DataSourceProvider.getDataSource()
+					.getConnection();
+			
+			// Utiliser la connexion
+			PreparedStatement stmt = connection
+					.prepareStatement("SELECT * FROM membre WHERE mail = ?");
+			stmt.setString(1, mail);
+			ResultSet results = stmt.executeQuery();
+			if (results.next()) {
+				membre = new Membre(results.getInt("idmembre"),
+						results.getString("mail"),
+						results.getString("mdp"), 
+						results.getString("association"),
+						results.getString("pole"),
+						results.getString("responsabilite"),
+						results.getString("admin"));
+			}
+			// Fermer la connexion
+			stmt.close();
+			connection.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return membre;
+	}
 
 	public void ajouterMembre(Membre membre) {
 		try {
