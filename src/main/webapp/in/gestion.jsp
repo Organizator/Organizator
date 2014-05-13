@@ -18,7 +18,7 @@
 		     <div class="progress">
 		        <div class="progress-bar progress-bar-success" style="width: ${tauxvert}%">${tauxvert}%</div>
 		        <div class="progress-bar progress-bar-warning" style="width: ${tauxorange}%">${tauxorange}%</span></div>
-		        <div class="progress-bar progress-bar-danger" style="width: ${tauxrouge}%">${tauxrouge}%</span></div>
+		        <div class="progress-bar progress-bar-danger" style="width: ${100-tauxvert-tauxorange}%">${100-tauxvert-tauxorange}%</span></div>
 	     	</div>
 		     <div class="alert alert-warning">
 		        <strong>Attention !</strong> Plus que ${days} jours avant l'évènement. Avez-vous pensé à tout? <a href="listetaches"><button type="button" class="btn btn-xs btn-warning" style="float:right;">Liste des tâches</button></a>
