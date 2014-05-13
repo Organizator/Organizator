@@ -42,6 +42,10 @@
 					//]]>
 </script>
 		
+		<div class="alert alert-warning">
+		 <strong>Pour modifier une association vous devez la supprimer puis la re-créer</strong>
+		</div>
+		
 		
   <div class="panel panel-default" >
   <!-- Default panel contents -->

@@ -44,7 +44,9 @@
 					//]]>
 </script>
 		
-		
+	<div class="alert alert-warning">
+		 <strong>Pour modifier un bâtiment vous devez le supprimer puis le re-créer</strong>
+		</div>	
   <div class="panel panel-default" >
   <!-- Default panel contents -->
   <div class="panel-heading">Liste des bâtiments proposés par HEI</div>

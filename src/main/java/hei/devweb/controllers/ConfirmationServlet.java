@@ -3,6 +3,7 @@ package hei.devweb.controllers;
 import hei.devweb.metier.Manager;
 import hei.devweb.model.Association;
 import hei.devweb.model.Event;
+import hei.devweb.model.Membre;
 import hei.devweb.model.Pole;
 import hei.devweb.model.Utilisateur;
 
@@ -17,6 +18,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class ConfirmationServlet extends HttpServlet {
 	public static final String ATT_USER         = "utilisateur";
@@ -58,7 +60,13 @@ public class ConfirmationServlet extends HttpServlet {
 		{
 			String organisateur = request.getParameter("organisateur");
 			
-			Event nouvelEvent = new Event(null, nom, null, date, debut, fin, type, hei, organisateur, null, batiment, null, effectif, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+			Membre membre = Manager.getInstance().getMembre(organisateur);
+			
+			System.out.println(membre.getAsso());
+			
+			String asso = membre.getAsso();
+			
+			Event nouvelEvent = new Event(null, nom, asso, date, debut, fin, type, hei, organisateur, null, batiment, null, effectif, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
 			Manager.getInstance().ajouterEvent(nouvelEvent);
 			
 			Utilisateur utilisateur = (Utilisateur) request.getSession().getAttribute(ATT_SESSION_USER);

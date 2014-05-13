@@ -10,9 +10,6 @@
   </head>
   <body>
 	<!-- Menu de navigation -->
-<%--   	<jsp:include page="menu.jsp">
-	    <jsp:param name="pageSelectionnee" value="jeu"/>
-	</jsp:include> --%>
 	
 	<div class="container">
 	  <div class="alert alert-warning">
@@ -31,6 +28,14 @@
 				<option value="0">Type d'évènement :</option>
 	        	<option value="Petit déjeuner">Petit déjeuner</option>
 				<option value="Afterwork">Afterwork</option>
+				<option value="Sportif">Sportif</option>
+				<option value="Challenge">Challenge</option>
+				<option value="Emission">Emission</option>
+				<option value="Vente">Vente</option>
+				<option value="Repas">Repas</option>
+				<option value="Soirée">Soirée</option>
+				<option value="Distribution">Distribution</option>
+				<option value="Concert">Concert</option>
 				<option value="Autre">Autre</option>
 	        </select>
 	        <input type="number" class="form-control end" placeholder="Nombre de personnes attendues" id="effectif" name="effectif">

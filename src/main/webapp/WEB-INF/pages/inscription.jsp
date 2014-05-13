@@ -40,7 +40,12 @@
 	        <select class="form-control end" required=""  id="resp" name="resp">
 	        	<option value="0">Responsabilité</option>
 				<option value="Président">Président</option>
+				<option value="Vice Président">Vice Président</option>
 				<option value="Communication">Communication</option>
+				<option value="Trésorier">Projet</option>
+				<option value="Evènementiel">Projet</option>
+				<option value="Projet">Projet</option>
+				<option value="Secrétaire">Secrétaire</option>
 				<option value="Autre">Autre</option>
 	        </select>
 	        <button class="btn btn-lg btn-success btn-block" type="submit">Valider</button>

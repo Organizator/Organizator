@@ -42,7 +42,9 @@
 
 					//]]>
 </script>
-		
+	<div class="alert alert-warning">
+		 <strong>Pour modifier un pôle vous devez le supprimer puis le re-créer</strong>
+		</div>	
 		
   <div class="panel panel-default" >
   <!-- Default panel contents -->

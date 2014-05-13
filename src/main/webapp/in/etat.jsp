@@ -54,7 +54,7 @@
  <c:if test="${event.ignoreLieu == null || event.ignoreLieu == \"off\" }"><TD><a href="etat?par=ignoreLieu&etat=on"><span class="label label-success"><span class="glyphicon glyphicon-remove"></span></span></a></TD></c:if>
  <c:if test="${event.ignoreLieu == \"on\" }"><TD><a href="etat?par=ignoreLieu&etat=off"><span class="label label-danger"><span class="glyphicon glyphicon-ok"></span></span></a></TD></c:if>  
  <c:forEach var="communication" items="${communications}">
- <c:if test="${communication.nom == \"Logistique HEI\"}"><TD> Informer la logistique : <a href="mailto:${communication.contact}?subject=Notre évènement ${event.typeevent} pour ${event.asso}&body=${communication.message},"><span class="glyphicon glyphicon-envelope"></span></a> Demander une salle :</TD> </c:if> 
+ <c:if test="${communication.nom == \"Logistique HEI\"}"><TD> Informer la logistique : <a href="mailto:${communication.contact}?subject=Notre évènement ${event.typeevent} pour ${event.asso}&body=${communication.message},"><span class="glyphicon glyphicon-envelope"></span></a></TD> </c:if> 
  </c:forEach>
   </TR>
   </c:if>
@@ -68,7 +68,7 @@
  <c:if test="${event.ignorePole == null || event.ignorePole == \"off\" }"><TD><a href="etat?par=ignorePole&etat=on"><span class="label label-success"><span class="glyphicon glyphicon-remove"></span></span></a></TD></c:if>
  <c:if test="${event.ignorePole == \"on\" }"><TD><a href="etat?par=ignorePole&etat=off"><span class="label label-danger"><span class="glyphicon glyphicon-ok"></span></span></a></TD></c:if>  
  <c:forEach var="communication" items="${communications}">
- <c:if test="${communication.nom == \"Pole\"}"><TD> TEST <a href="mailto:${communication.contact}?subject=Notre évènement ${event.typeevent} pour ${event.asso}&body=${communication.message},"><span class="glyphicon glyphicon-envelope"></span></a> </TD> </c:if> 
+ <c:if test="${communication.nom == \"Pole\"}"><TD><a href="mailto:${communication.contact}?subject=Notre évènement ${event.typeevent} pour ${event.asso}&body=${communication.message},"><span class="glyphicon glyphicon-envelope"></span></a> </TD> </c:if> 
  </c:forEach>
   </TR>
   </c:if>
