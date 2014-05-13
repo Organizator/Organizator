@@ -214,9 +214,6 @@ INSERT INTO `membre` (`idmembre`, `mail`, `mdp`, `association`, `pole`, `respons
 (8, 'test@pou.fr', 'aze', 'test', 'PES', 'Président', 'oui'),
 (10, 'dfgfdg@gssg.fr', 'pos', 'dfgdf', 'PES', 'Communication', 'non'),
 (11, 'essai@essai.fr', 'loli', 'DECLIC', 'BDA', 'Président', 'non'),
-(12, 'test@hei.fr', 'lol', 'test', 'PET', 'Communication', 'non'),
-(13, 'test@hei.fr', 'lol', 'rest', 'PET', 'Communication', 'oui'),
-(14, 'test@hei.fr', 'lol', 'lol', '0', '0', 'oui'),
 (15, 'walou@test.fr', 'poiu', 'Declic', 'PET', 'Président', 'non'),
 (16, 'test2@hei.fr', 'mpm', 'DECLIC HEI', 'Cap''so', 'Communication', 'non');
 
