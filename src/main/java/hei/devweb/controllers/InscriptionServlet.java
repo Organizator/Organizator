@@ -45,8 +45,14 @@ public class InscriptionServlet extends HttpServlet {
         String pole = request.getParameter("pole");
         String asso = request.getParameter("asso");
         String resp = request.getParameter("resp");
-
-
+        
+        /* Vérification absence utilisateur dans BDD */
+        try {
+        	if (Manager.getInstance().getMembre(mail).getMail().equals(mail)) {
+        		erreurs.put( CHAMP_EMAIL, "Un compte avec cette adresse mail existe déjà dans la BDD." );
+        	}     	
+        } catch ( Exception e ) {}
+        
         /* Validation du champ email. */
         try {
             validationEmail( mail );

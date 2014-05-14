@@ -156,10 +156,6 @@
 		<servlet-name>Deconnexion</servlet-name>
 		<servlet-class>hei.devweb.controllers.DeconnexionServlet</servlet-class>
 	</servlet>
-	<servlet>
-		<servlet-name>AccueilMembre</servlet-name>
-		<servlet-class>hei.devweb.controllers.AccueilMembreServlet</servlet-class>
-	</servlet>
 	
 	<servlet-mapping>
 		<servlet-name>Accueil</servlet-name>
@@ -272,10 +268,6 @@
 	<servlet-mapping>
 		<servlet-name>Deconnexion</servlet-name>
 		<url-pattern>/deconnexion</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>AccueilMembre</servlet-name>
-		<url-pattern>/in/membre</url-pattern>
 	</servlet-mapping>
 	
 	<welcome-file-list>
