@@ -56,13 +56,8 @@ public class TimeServlet extends HttpServlet {
 		{
 			Manager.getInstance().supprimerEvent(idEvent);
 			
-			// Lister les events après avoir supprimé le précédent ou il sera pris en compte
-			List<Event> events = Manager.getInstance().listerEventsUtilisateur(utilisateur.getMail());
-			request.setAttribute("events", events);
-			
 			// Redirection vers la page choix de l'évènement à gérer
-			RequestDispatcher view = request.getRequestDispatcher("choix.jsp");
-			view.forward(request, response);
+			response.sendRedirect( "choix" );
 		}
 		if (date != null)
 		{

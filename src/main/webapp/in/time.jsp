@@ -5,8 +5,6 @@
 <%@page import="hei.devweb.model.Communication"%>
 <%@page import="java.util.List"%>
 
-<%	Event event = (Event) request.getAttribute("event"); %>
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -23,7 +21,7 @@
 	    </c:if>
       <form class="form-signin1" role="form" method=post action="time" id="pilepapier" style="margin-top:25px;margin-bottom:25px;">
 	        <h2 class="form-signin1-heading" align="center">Modifier projet </h2>
-	        <h3 class="form-signin1-heading" align="center">Détails évènement</h2>
+	        <h3 class="form-signin1-heading" align="center">Détails évènement</h3>
 	        <input type="email" class="form-control start" value="${event.organisateur}" required="" autofocus="" disabled="disabled">
 	        <input type="date" id="date" name="date" class="form-control end" value="${event.date}" required="" autofocus="">
 	        <h4 class="form-signin1-heading" align="center">Champs à remplir</h4>

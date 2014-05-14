@@ -9,7 +9,7 @@ public class Membre {
 	private String resp;
 	private String admin;
 
-	public Membre(Integer id, String mail, String motDePasse, String pole, String asso, String resp, String admin) {
+	public Membre(Integer id, String mail, String motDePasse, String asso, String pole, String resp, String admin) {
 		super();
 		this.id = id;
 		this.mail = mail;

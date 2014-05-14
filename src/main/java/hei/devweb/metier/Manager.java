@@ -180,6 +180,19 @@ public class Manager {
 
 
 
+	public void UpdateMembre(String mail, String pole, String asso, String resp) {
+		MembreDao.UpdateMembre(mail, pole, asso, resp);
+	}
+
+
+
+	public void supprimerCompte(String mail) {
+		System.out.println("Dans Manager 'SupprimerCompte' avec mail="+mail);
+		MembreDao.supprimerCompte(mail);
+	}
+
+
+
 
 
 

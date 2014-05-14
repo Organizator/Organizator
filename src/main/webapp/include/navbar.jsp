@@ -40,8 +40,8 @@
                   <li><a href="choix">Revenir à la liste pleine page</a></li>
                 </ul>
               </li>
+              <li><a href="compte">Mon Compte</a></li>
               <li><a href="mailto:louis.sautelet@hei.fr">Contact</a></li>
-<!--               <li><a href="mailto:louis.sautelet@hei.fr">Contact administrateur</a></li> -->
             </ul>
           </div><!--/.nav-collapse -->
         </div>

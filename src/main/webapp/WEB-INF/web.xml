@@ -153,6 +153,10 @@
 		<servlet-class>hei.devweb.controllers.GestionServlet</servlet-class>
 	</servlet>
 	<servlet>
+		<servlet-name>Compte</servlet-name>
+		<servlet-class>hei.devweb.controllers.CompteServlet</servlet-class>
+	</servlet>
+	<servlet>
 		<servlet-name>Deconnexion</servlet-name>
 		<servlet-class>hei.devweb.controllers.DeconnexionServlet</servlet-class>
 	</servlet>
@@ -264,6 +268,10 @@
 	<servlet-mapping>
 		<servlet-name>Comm</servlet-name>
 		<url-pattern>/in/comm</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Compte</servlet-name>
+		<url-pattern>/in/compte</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>Deconnexion</servlet-name>

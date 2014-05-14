@@ -35,7 +35,7 @@
   </div>
 
   <!-- Table -->
-  <table class="table">
+  <table class="table table-striped">
     <TR> 
  <TH> Désignation </TH> 
  <TH> Statut </TH> 
@@ -78,7 +78,7 @@
   </div>
 
   <!-- Table -->
-  <table class="table">
+  <table class="table table-striped">
     <TR> 
  <TH> Désignation </TH> 
  <TH> Ignorer ? </TH>

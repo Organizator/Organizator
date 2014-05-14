@@ -196,4 +196,48 @@ public class MembreDao {
 		return -1;
 	}
 
+	public static void UpdateMembre(String mail, String pole, String asso,
+			String resp) {
+		try {
+			Connection connection = DataSourceProvider.getDataSource()
+					.getConnection();
+
+			// Utiliser la connexion
+			PreparedStatement stmt = connection
+					.prepareStatement("UPDATE membre SET pole = ? , association = ? , responsabilite = ? WHERE mail = ?");
+			stmt.setString(1,pole);
+			stmt.setString(2,asso);
+			stmt.setString(3,resp);
+			stmt.setString(4,mail);
+			stmt.executeUpdate();
+
+			// Fermer la connexion
+			stmt.close();
+			connection.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static void supprimerCompte(String mail) {
+		try {
+			Connection connection = DataSourceProvider.getDataSource()
+					.getConnection();
+
+			// Utiliser la connexion
+			PreparedStatement stmt = connection
+					.prepareStatement("DELETE FROM membre WHERE mail = ?");
+			stmt.setString(1,mail);
+			stmt.executeUpdate();
+
+			// Fermer la connexion
+			stmt.close();
+			connection.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
 }
