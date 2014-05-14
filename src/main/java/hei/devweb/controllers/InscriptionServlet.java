@@ -46,13 +46,6 @@ public class InscriptionServlet extends HttpServlet {
         String asso = request.getParameter("asso");
         String resp = request.getParameter("resp");
         
-        /* Vérification absence utilisateur dans BDD */
-        try {
-        	if (Manager.getInstance().getMembre(mail).getMail().equals(mail)) {
-        		erreurs.put( CHAMP_EMAIL, "Un compte avec cette adresse mail existe déjà dans la BDD." );
-        	}     	
-        } catch ( Exception e ) {}
-        
         /* Validation du champ email. */
         try {
             validationEmail( mail );
@@ -105,6 +98,12 @@ public class InscriptionServlet extends HttpServlet {
 	        if ( !email.matches( "([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)" ) ) {
 	            throw new Exception( "Merci de saisir une adresse mail valide." );
 	        }
+	        else {
+				Integer nbMail = Manager.getInstance().countUsersMailUsed(email);
+				if(nbMail != 0){
+					throw new Exception( "L'adresse mail est déjà utilisée." );
+				}
+			}
 	    } else {
 	        throw new Exception( "Merci de saisir une adresse mail." );
 	    }

@@ -291,10 +291,14 @@ public class GestionServlet extends HttpServlet {
 			}
 		}
 		
-		tauxvert=(vert*100)/pasignore;
-		tauxorange=(orange*100)/pasignore;
-		tauxrouge=(rouge*100)/pasignore;
-		
+		if (pasignore!=0){
+			tauxvert=(vert*100)/pasignore;
+			tauxorange=(orange*100)/pasignore;
+			tauxrouge=(rouge*100)/pasignore;
+		}
+		else{
+			tauxvert=tauxorange=tauxrouge=0;
+		}
 		request.setAttribute("tauxvert", tauxvert);
 		request.setAttribute("tauxorange", tauxorange);
 		request.setAttribute("tauxrouge", tauxrouge);

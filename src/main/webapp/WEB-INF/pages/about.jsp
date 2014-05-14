@@ -14,6 +14,12 @@
 	    <jsp:param name="pageSelectionnee" value="jeu"/>
 	</jsp:include> --%>
 	
+	<script type="text/javascript">
+					function precedent() {
+						window.history.back(-1);
+					}
+	</script>
+	
 	<div class="container">
 		<div class="page-header">
 	        <h1>A propos</h1>
@@ -29,7 +35,7 @@
     
     <div class="container">
           <div class="form-signin" style="padding-top:5px;">
-        <a href="index"><button class="btn btn-lg btn-primary btn-block">Retour Accueil</button></a>
+        <a onclick="return precedent()"><button class="btn btn-lg btn-primary btn-block">Retour</button></a>
         <c:if test="${!empty sessionScope.sessionMembre}">
 	        <a href="deconnexion"><button class="btn btn-lg btn-danger btn-block" style="margin-top:5px;">Déconnexion</button></a>
 	    </c:if>

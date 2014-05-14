@@ -174,6 +174,10 @@ public class Manager {
 
 
 
+	public Integer countUsersMailUsed(String email) {
+		return MembreDao.countUsersMailUsed(email);
+	}
+
 
 
 

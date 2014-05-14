@@ -10,7 +10,7 @@ body {
   padding-top: 40px;
   padding-bottom: 40px;
   background-color: #;
-  background-image: url('http://colorlib.com/travelify/wp-content/themes/travelify/images/background.png')
+  background-image: url('../img/background.png')
 /*   background-size:100% 100%; */
 /*   background-repeat:no-repeat; */
 }

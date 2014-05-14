@@ -17,9 +17,11 @@
 	</jsp:include> --%>
 	
 	<div class="container">
-	  	<div class="alert alert-${empty erreurs ? 'success' : 'warning'}">
-        	<strong>${resultat}</strong> ${erreurs['mail']} ${erreurs['motDePasse']} ${erreurs['confirmation']} ${empty erreurs ? '<a href="index"><button type="button" class="btn btn-xs btn-success" style="float:right;">Organiser un évènement (Reconnexion nécessaire)</button></a>' : ''}
-      	</div>
+		<c:if test="${!empty erreurs}">
+		  	<div class="alert alert-${empty erreurs ? 'success' : 'warning'}">
+	        	<strong>${resultat}</strong> ${erreurs['mail']} ${erreurs['motDePasse']} ${erreurs['confirmation']} ${empty erreurs ? '<a href="index"><button type="button" class="btn btn-xs btn-success" style="float:right;">Organiser un évènement (Reconnexion nécessaire)</button></a>' : ''}
+	      	</div>
+	    </c:if>
       	<form class="form-signin1" role="form" method=post action="inscription" id="pilepapier" style="margin-top:25px;margin-bottom:25px;">
 	        <h2 class="form-signin1-heading" align="center">Inscription </h2>
 	        <input type="email" class="form-control start" placeholder="Adresse e-mail HEI" id="mail" name="mail" value="<c:out value="${param.mail}"/>" required="" autofocus="">

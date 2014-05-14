@@ -168,4 +168,32 @@ public class MembreDao {
 		}
 	}
 
+	public static Integer countUsersMailUsed(String email) {
+		try {
+			Connection connection = DataSourceProvider.getDataSource()
+					.getConnection();
+
+			PreparedStatement stmt = connection.prepareStatement("SELECT COUNT(*) FROM membre WHERE mail = ?");
+			stmt.setString(1, email);
+
+			ResultSet results = null;
+			try {
+				results = stmt.executeQuery();
+
+				if(results.next()){
+					return results.getInt(1);
+				}
+
+			} catch (SQLException e1) {
+				System.out.println("Erreur lors de l'exécution de la requête comptant le nombre de mail présent dans la bdd");
+				e1.printStackTrace();
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		//retourne une erreur
+		return -1;
+	}
+
 }

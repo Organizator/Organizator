@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Organizator - Interface de gestion de votre évènement</title>
+    <title>Organizator - Interface de gestion de votre évènement ${event.nom}</title>
     <%@include file="../include/links.jsp" %>
   </head>
   <body style="padding-top:0px;">
@@ -14,19 +14,19 @@
 
 	<div class="container" id="pilepapier">
 		<c:if test="${days > -1}">
-			<h4><span class="glyphicon glyphicon-stats"></span> Progression globale de l'évènement: </h4>
+			<h4><span class="glyphicon glyphicon-stats"></span> Progression globale de l'évènement <strong>${event.nom}</strong> : </h4>
 		     <div class="progress">
 		        <div class="progress-bar progress-bar-success" style="width: ${tauxvert}%">${tauxvert}%</div>
 		        <div class="progress-bar progress-bar-warning" style="width: ${tauxorange}%">${tauxorange}%</span></div>
 		        <div class="progress-bar progress-bar-danger" style="width: ${100-tauxvert-tauxorange}%">${100-tauxvert-tauxorange}%</span></div>
 	     	</div>
 		     <div class="alert alert-warning">
-		        <strong>Attention !</strong> Plus que ${days} jours avant l'évènement. Avez-vous pensé à tout? <a href="listetaches"><button type="button" class="btn btn-xs btn-warning" style="float:right;">Liste des tâches</button></a>
+		        <strong>J-${days}</strong> avant l'évènement. Avez-vous pensé à tout? <a href="listetaches"><button type="button" class="btn btn-xs btn-warning" style="float:right;">Liste des tâches</button></a>
 		     </div>
 		 </c:if>
 		 <c:if test="${days < 0}">
 		     <div class="alert alert-info">
-		        Votre évènement est passé
+		        Votre évènement est passé depuis ${-days} jours
 		     </div>
 		 </c:if>
 	     		<h2 class="form-signin1-heading" align="center"><span class="glyphicon glyphicon-home"></span> - Panneau de gestion</h2>

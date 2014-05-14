@@ -7,11 +7,11 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Organizator</a>
+            <a class="navbar-brand" href="../">Organizator</a>
           </div>
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li><a href="../index"><span class="glyphicon glyphicon-home"></span></a></li>
+              <li><a href="gestion"><span class="glyphicon glyphicon-home"></span></a></li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestion <b class="caret"></b></a>
                 <ul class="dropdown-menu">
