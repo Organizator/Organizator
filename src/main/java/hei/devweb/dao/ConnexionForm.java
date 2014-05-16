@@ -36,7 +36,7 @@ public final class ConnexionForm {
         
         /* Validation du membre. */
         try {
-            validationMembre(mail, motDePasse);
+        	utilisateur.setAdmin(validationMembre(mail, motDePasse));
             utilisateur.setMail( mail );
         	utilisateur.setMotDePasse( motDePasse );
         } catch ( Exception e ) {
@@ -54,7 +54,7 @@ public final class ConnexionForm {
         return utilisateur;
     }
     
-    
+    // A utiliser si formulaire de connexion admin était séparé (autre page)
     public Utilisateur connecterAdmin( HttpServletRequest request ) {
         /* Récupération des champs du formulaire */
         String mail = getValeurChamp( request, CHAMP_EMAIL );
@@ -92,7 +92,7 @@ public final class ConnexionForm {
 			Connection connection = DataSourceProvider.getDataSource()
 					.getConnection();
 			// Utiliser la connexion
-			PreparedStatement stmt = connection.prepareStatement( "SELECT * FROM `membre` WHERE `mail`=? AND `mdp`=? AND `role`='admin'"); 
+			PreparedStatement stmt = connection.prepareStatement( "SELECT * FROM `membre` WHERE `mail`=? AND `mdp`=? AND `admin`='oui'"); 
 			stmt.setString(1,mail); 
 			stmt.setString(2,motDePasse); 
 			ResultSet results = stmt.executeQuery();
@@ -140,18 +140,20 @@ public final class ConnexionForm {
      * Méthode permettant de savoir si le membre est enregistré ou non, et 
      * renvoie une exception qui fait echouer la connexion
      */
-    public void validationMembre(String mail, String motDePasse) throws Exception{
+    public String validationMembre(String mail, String motDePasse) throws Exception{
 		boolean validation = false;
-    	
+		String admin = "non";
+		
     	try {
 			Connection connection = DataSourceProvider.getDataSource()
 					.getConnection();
 			// Utiliser la connexion
-			PreparedStatement stmt = connection.prepareStatement( "SELECT * FROM `membre` WHERE `mail`=? AND `mdp`=?"); 
+			PreparedStatement stmt = connection.prepareStatement( "SELECT admin FROM `membre` WHERE `mail`=? AND `mdp`=?"); 
 			stmt.setString(1,mail); 
 			stmt.setString(2,motDePasse); 
 			ResultSet results = stmt.executeQuery();
 			if(results.next()){
+				admin = results.getString( "admin" );
 				validation=true;
 			}
 
@@ -167,5 +169,6 @@ public final class ConnexionForm {
     	if (!validation) {
 			throw new Exception();
     	}
+    	return admin;
     }
 }

@@ -23,8 +23,12 @@
 		<filter-name>RestrictionFilter</filter-name>
 		<url-pattern>/in/*</url-pattern>
 	</filter-mapping>
+	<filter>
+		<filter-name>RestrictionAdminFilter</filter-name>
+		<filter-class>hei.devweb.filters.RestrictionAdminFilter</filter-class>
+	</filter>
 	<filter-mapping>
-		<filter-name>RestrictionFilter</filter-name>
+		<filter-name>RestrictionAdminFilter</filter-name>
 		<url-pattern>/admin/*</url-pattern>
 	</filter-mapping>
 	

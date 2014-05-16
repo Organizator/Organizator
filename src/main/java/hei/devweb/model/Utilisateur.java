@@ -5,6 +5,7 @@ public class Utilisateur {
     private String mail;
     private String motDePasse;
     private String nom;
+	private String admin;
 
     public void setMail(String mail) {
 	this.mail = mail;
@@ -26,4 +27,11 @@ public class Utilisateur {
     public String getNom() {
 	return nom;
     }
+    
+    public String getAdmin() {
+		return admin;
+	}
+	public void setAdmin(String admin) {
+		this.admin = admin;
+	}
 }
