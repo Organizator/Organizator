@@ -121,6 +121,12 @@ public class Manager {
 		System.out.println("Dans Manager 'SupprimerEvent' avec id="+idEvent);
 		EventDAO.supprimerEvent(idEvent);
 	}
+
+	public void supprimerEventsMembre(String mail) {
+		System.out.println("Dans Manager 'supprimerEventsMembre' de "+mail);
+		EventDAO.supprimerEventsMembre(mail);
+	}
+
 	
 
 //	public List<Membre> listerMembres() {
@@ -192,9 +198,4 @@ public class Manager {
 	}
 
 
-
-
-
-
-	
 }

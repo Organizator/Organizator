@@ -24,7 +24,6 @@
 	        <h3 class="form-signin1-heading" align="center">Paramètres utilisateur</h3>
 	        <input type="email" class="form-control start" value="${membre.mail}" required="" disabled="disabled">
 	        <input type="password" class="form-control end" value="${membre.motDePasse}" required="" disabled="disabled">
-	        <h4 class="form-signin1-heading" align="center">Champs à remplir</h4>
 			<select class="form-control start" required=""  id="pole" name="pole">
 				<option value="${membre.pole}">${membre.pole}</option>
 	        	<c:forEach var="pole" items="${poles}">
@@ -54,7 +53,7 @@
 <script type="text/javascript">
 
 					function valider() {
-							if (confirm("Etes-vous sur de vouloir supprimer votre compte ? Cette action est définitive")) {
+							if (confirm("Etes-vous sur de vouloir supprimer votre compte ? Tous les évènements liés à ce compte seront également supprimés !!! Cette action est définitive")) {
 								// sinon on affiche un message
 								// et on indique de ne pas envoyer le formulaire
 								return true;
@@ -66,6 +65,7 @@
 </script>      
       
       <form class="form-signin1" role="form" method=post action="compte" onsubmit="return valider()">		
+      		<input type="hidden" class="form-control start" value="oui" id="supprimer" name="supprimercompte">
        		<button class="btn btn-lg btn-danger btn-block" type="submit" style="margin-top:5px;">Supprimer le compte</button>
       </form>
       <div class="form-signin1" style="padding-top:10px;">

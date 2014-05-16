@@ -33,6 +33,7 @@ public class CompteServlet extends HttpServlet {
 		String pole = request.getParameter("pole");
 		String asso = request.getParameter("asso");
 		String resp = request.getParameter("resp");
+		String supprimercompte = request.getParameter("supprimercompte");
 		
 		Utilisateur utilisateur = (Utilisateur) request.getSession().getAttribute("sessionUtilisateur");
 		
@@ -55,9 +56,10 @@ public class CompteServlet extends HttpServlet {
 		List<Event> events = Manager.getInstance().listerEventsUtilisateur(utilisateur.getMail());
 		request.setAttribute("events", events);
 		
-		if (pole == null && asso == null && resp == null)
+		if (supprimercompte != null)
 		{
 			Manager.getInstance().supprimerCompte(utilisateur.getMail());
+			Manager.getInstance().supprimerEventsMembre(utilisateur.getMail());
 
 	        /* Redirection vers la page de déconnexion ! */
 	        response.sendRedirect( "../deconnexion" );

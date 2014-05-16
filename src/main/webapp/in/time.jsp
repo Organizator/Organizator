@@ -74,7 +74,8 @@
 </script>      
       
       <form class="form-signin1" role="form" method=post action="time" onsubmit="return valider()">		
-       		<button class="btn btn-lg btn-danger btn-block" type="submit" style="margin-top:5px;">Annuler l'évènement</button>
+      		<input type="hidden" class="form-control start" value="oui" id="supprimer" name="supprimerevent">
+      		<button class="btn btn-lg btn-danger btn-block" type="submit" style="margin-top:5px;">Annuler l'évènement</button>
       </form>
       <div class="form-signin1" style="padding-top:10px;">
 			<a href="gestion"><button class="btn btn-lg btn-info btn-block" style="margin-top:5px;">Retour panneau de gestion</button></a>

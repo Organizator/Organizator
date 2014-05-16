@@ -38,6 +38,7 @@ public class TimeServlet extends HttpServlet {
 		String batiment = request.getParameter("batiment");
 		String debut = request.getParameter("debut");
 		String fin = request.getParameter("fin");
+		String supprimerevent = request.getParameter("supprimerevent");
 		
 		if (date != null)
 		{
@@ -52,7 +53,7 @@ public class TimeServlet extends HttpServlet {
 		List<Batiment> batiments = Manager.getInstance().listerBatiments();
 		request.setAttribute("batiments", batiments);
 		
-		if (date == null && nom == null && type == null)
+		if (supprimerevent != null)
 		{
 			Manager.getInstance().supprimerEvent(idEvent);
 			

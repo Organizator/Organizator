@@ -259,6 +259,26 @@ public class EventDAO {
 			e.printStackTrace();
 		}
 	}
+	
+	public static void supprimerEventsMembre(String mail) {
+		try {
+			Connection connection = DataSourceProvider.getDataSource()
+					.getConnection();
+
+			// Utiliser la connexion
+			PreparedStatement stmt = connection
+					.prepareStatement("DELETE FROM events WHERE organisateur = ?");
+			stmt.setString(1,mail);
+			stmt.executeUpdate();
+
+			// Fermer la connexion
+			stmt.close();
+			connection.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 
 	public static void UpdateEvent(String par, String etat, Integer idEvent) {
 		try {
@@ -310,4 +330,6 @@ public class EventDAO {
 			e.printStackTrace();
 		}
 	}
+
+
 }

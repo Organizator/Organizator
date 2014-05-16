@@ -19,7 +19,7 @@ public class AssociationDAO {
 					.getConnection();
 
 			Statement stmt = connection.createStatement();
-			ResultSet results = stmt.executeQuery("SELECT * FROM associations");
+			ResultSet results = stmt.executeQuery("SELECT * FROM associations ORDER BY `nom` ASC ");
 
 			while (results.next()) {
 				Association association = new Association(
