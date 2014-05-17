@@ -37,6 +37,10 @@
 		<servlet-class>hei.devweb.controllers.AccueilServlet</servlet-class>
 	</servlet>
 	<servlet>
+		<servlet-name>Planning</servlet-name>
+		<servlet-class>hei.devweb.controllers.PlanningServlet</servlet-class>
+	</servlet>
+	<servlet>
 		<servlet-name>SupprimerCommunication</servlet-name>
 		<servlet-class>hei.devweb.controllers.SupprimerCommunicationServlet</servlet-class>
 	</servlet>
@@ -168,6 +172,10 @@
 	<servlet-mapping>
 		<servlet-name>Accueil</servlet-name>
 		<url-pattern>/index</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Planning</servlet-name>
+		<url-pattern>/planning</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>Gestionadmin</servlet-name>
