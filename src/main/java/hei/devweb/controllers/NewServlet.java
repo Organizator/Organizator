@@ -37,7 +37,7 @@ public class NewServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		request.getRequestDispatcher( "date.jsp" ).forward( request, response );
+		response.sendRedirect( "date" );
 	}
 
 }

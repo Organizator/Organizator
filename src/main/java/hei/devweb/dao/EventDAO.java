@@ -80,6 +80,32 @@ public class EventDAO {
 		return listeevents;
 	}
 	
+	public static Integer compterEvents(String param, String valeur) {
+		Integer nbEvents = 0;
+		try {
+			Connection connection = DataSourceProvider.getDataSource()
+					.getConnection();
+
+			// Utiliser la connexion
+			PreparedStatement stmt = connection
+					.prepareStatement("SELECT COUNT(*) AS nbre_entrees FROM `events` WHERE "+param+" = ?");
+			stmt.setString(1, valeur);
+			ResultSet results = stmt.executeQuery();
+			if (results.next()) {
+				nbEvents = results.getInt("nbre_entrees");
+			}
+
+			// Fermer la connexion
+			stmt.close();
+			connection.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return nbEvents;
+	}
+	
+	//SELECT COUNT(*) AS nbre_entrees FROM `events` WHERE (date = '2014-05-23')
 	public static List<Event> listerEventsUtilisateur(String organisateur) {
 		List<Event> listeevents = new ArrayList<Event>();
 		try {
@@ -90,6 +116,72 @@ public class EventDAO {
 			PreparedStatement stmt = connection
 					.prepareStatement("SELECT * FROM events WHERE organisateur = ? ORDER BY  `date` DESC ");
 			stmt.setString(1, organisateur);
+			ResultSet results = stmt.executeQuery();
+			while (results.next()) {
+				Event event = new Event(
+						results.getInt("idEvent"),
+						results.getString("nom"),
+						results.getString("asso"), 
+						results.getString("date"),
+						results.getString("heuredebut"), 
+						results.getString("heurefin"),
+						results.getString("type"),
+						results.getString("danshei"),
+						results.getString("organisateur"),
+						results.getString("mailorganisateur"),
+						results.getString("batiment"),
+						results.getString("salle"),
+						results.getString("affluence"),
+						results.getString("statutTV"),
+						results.getString("statutAffiche"),
+						results.getString("statutReseau"),
+						results.getString("statutRadio"),
+						results.getString("statutNewsletter"),
+						results.getString("statutDepeche"),
+						results.getString("statutFlyers"),
+						results.getString("ignoreTV"),
+						results.getString("ignoreAffiche"),
+						results.getString("ignoreReseau"),
+						results.getString("ignoreRadio"),
+						results.getString("ignoreNewsletter"),
+						results.getString("ignoreDepeche"),
+						results.getString("ignoreFlyers"),
+						results.getString("statutSon"),
+						results.getString("statutLumiere"),
+						results.getString("ignoreSon"),
+						results.getString("ignoreLumiere"),
+						results.getString("statutPhoto"),
+						results.getString("statutVideo"),
+						results.getString("ignorePhoto"),
+						results.getString("ignoreVideo"),
+						results.getString("statutLieu"),
+						results.getString("statutPole"),
+						results.getString("statutAdmin"),
+						results.getString("ignoreLieu"),
+						results.getString("ignorePole"),
+						results.getString("ignoreAdmin"));
+				listeevents.add(event);
+			}
+			// Fermer la connexion
+			stmt.close();
+			connection.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return listeevents;
+	}
+	
+	public static List<Event> listerEventsDate(String date) {
+		List<Event> listeevents = new ArrayList<Event>();
+		try {
+			Connection connection = DataSourceProvider.getDataSource()
+					.getConnection();
+
+			// Utiliser la connexion
+			PreparedStatement stmt = connection
+					.prepareStatement("SELECT * FROM events WHERE date = ? ORDER BY  `date` DESC ");
+			stmt.setString(1, date);
 			ResultSet results = stmt.executeQuery();
 			while (results.next()) {
 				Event event = new Event(

@@ -85,14 +85,7 @@ public class ConfirmationServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		Utilisateur utilisateur = (Utilisateur) request.getSession().getAttribute("sessionUtilisateur");
-		System.out.println(utilisateur.getMail());
-		
-		List<Event> events = Manager.getInstance().listerEventsUtilisateur(utilisateur.getMail());
-		request.setAttribute("events", events);
-		
-		RequestDispatcher view = request.getRequestDispatcher("date.jsp");
-		view.forward(request, response);
+		response.sendRedirect( "date" );
 	}
 
 }

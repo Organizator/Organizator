@@ -113,6 +113,16 @@ public class Manager {
 		return listeevents;
 	}
 	
+	public Integer compterEvents(String param, String valeur) {
+		Integer nbEvents = EventDAO.compterEvents(param, valeur);
+		return nbEvents;
+	}
+	
+	public List<Event> listerEventsDate(String date) {
+		List<Event> listeevents = EventDAO.listerEventsDate(date);
+		return listeevents;
+	}
+	
 	public void ajouterEvent(Event event) {
 		EventDAO.ajouterEvent(event);
 	}
@@ -196,6 +206,9 @@ public class Manager {
 		System.out.println("Dans Manager 'SupprimerCompte' avec mail="+mail);
 		MembreDao.supprimerCompte(mail);
 	}
+
+
+
 
 
 }

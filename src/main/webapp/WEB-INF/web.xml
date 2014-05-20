@@ -45,14 +45,6 @@
 		<servlet-class>hei.devweb.controllers.SupprimerCommunicationServlet</servlet-class>
 	</servlet>
 	<servlet>
-		<servlet-name>Ajoutassoadmin</servlet-name>
-		<servlet-class>hei.devweb.controllers.AjoutassoadminServlet</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>Ajoutcommadmin</servlet-name>
-		<servlet-class>hei.devweb.controllers.AjoutcommadminServlet</servlet-class>
-	</servlet>
-	<servlet>
 		<servlet-name>Planningadmin</servlet-name>
 		<servlet-class>hei.devweb.controllers.PlanningadminServlet</servlet-class>
 	</servlet>
@@ -75,10 +67,6 @@
 	<servlet>
 		<servlet-name>Gestioncomm</servlet-name>
 		<servlet-class>hei.devweb.controllers.GestioncommServlet</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>Ajoutlieuxadmin</servlet-name>
-		<servlet-class>hei.devweb.controllers.AjoutlieuxadminServlet</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>Batimentshei</servlet-name>
@@ -135,10 +123,6 @@
 	<servlet>
 		<servlet-name>New</servlet-name>
 		<servlet-class>hei.devweb.controllers.NewServlet</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>Ajoutrespadmin</servlet-name>
-		<servlet-class>hei.devweb.controllers.AjoutrespadminServlet</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>Comm</servlet-name>
