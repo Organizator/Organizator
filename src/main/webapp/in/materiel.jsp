@@ -14,26 +14,35 @@
   <body style="padding-top:0px;">
 	<!-- Menu de navigation -->
 	<%@include file="../include/navbar.jsp" %>
-	
+
+	<script>
+		$(function() {
+			$('a').tooltip();
+		});
+	</script>
+
 	<div class="container">
-		<div style="padding-top:30px;">
+		<div style="padding-top:10px;">
 		<h2 class="form-signin1-heading" align="center">Matériel</h2>
 		<div class="progress progress-striped active">
   <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
-<!--     <span class="sr-only">70% Complete (success)</span> -->
   </div>
 </div>
      	</div>
 
 
-		
-		
-		<div class="panel panel-default">
+	<div class="panel panel-default">
   <!-- Default panel contents -->
-  <div class="panel-heading">Suivi du matériel disponible</div>
-  <div class="panel-body">
-    <p><center>Mettez ici à jour les statuts des différents moyens matériels disponibles : <span class="glyphicon glyphicon-ok"></span> ou <span class="glyphicon glyphicon-remove"></span></center></center></p>
+  <div class="panel-heading">
+  <h3 class="panel-title">
+          <a class="accordion-toggle" href="#item3" data-toggle="collapse"> Suivi des demandes de matériel </a> 
+        </h3>
   </div>
+  <div id="item3" class="panel-collapse collapse in">
+	  <div class="panel-body">
+	    <p><center>Modifiez les statuts des différents paramètres en cliquant sur : <span class="label label-success"><span class="glyphicon glyphicon-ok"></span></span> ok | <span class="label label-warning"><span class="glyphicon glyphicon-pencil"></span></span> en cours | <span class="label label-danger"><span class="glyphicon glyphicon-remove"></span></span> A faire</center><br/>
+	    <center>Ou ignorez un paramètre en cliquant sur <span class="label label-success"><span class="glyphicon glyphicon-remove"></span></span></center></p>
+	  </div>
 
   <!-- Table -->
   <table class="table table-striped">
@@ -47,28 +56,26 @@
   
  <c:if test="${event.ignoreSon == null || event.ignoreSon == \"off\" }">
   <TR> 
- <TD> <span class="label label-default">Son</span> </TD> 
- <c:if test="${event.statutSon == null || event.statutSon == \"pasok\" }"><TD> <a href="materiel?par=statutSon&etat=encours"><span class="label label-danger"><span class="glyphicon glyphicon-remove"></span></span></a> </TD></c:if>
- <c:if test="${event.statutSon == \"encours\"}"><TD> <a href="materiel?par=statutSon&etat=ok"><span class="label label-warning"><span class="glyphicon glyphicon-pencil"></span></span></a> </TD></c:if>
- <c:if test="${event.statutSon == \"ok\"}"><TD> <a href="materiel?par=statutSon&etat=pasok"><span class="label label-success"><span class="glyphicon glyphicon-ok"></span></span></a> </TD></c:if>
- <c:if test="${event.ignoreSon == null || event.ignoreSon == \"off\" }"><TD><a href="materiel?par=ignoreSon&etat=on"><span class="label label-success"><span class="glyphicon glyphicon-remove"></span></span></a></TD></c:if>
- <c:if test="${event.ignoreSon == \"on\" }"><TD><a href="materiel?par=ignoreSon&etat=off"><span class="label label-danger"><span class="glyphicon glyphicon-ok"></span></span></a></TD></c:if>  
+ <TD> Son</TD> 
+ <c:if test="${event.statutSon == null || event.statutSon == \"pasok\" }"><TD> <a data-toggle="tooltip" title="A faire -> En cours" href="materiel?par=statutSon&etat=encours"><span class="label label-danger"><span class="glyphicon glyphicon-remove"></span></span></a> </TD></c:if>
+ <c:if test="${event.statutSon == \"encours\"}"><TD> <a data-toggle="tooltip" title="En cours -> OK" href="materiel?par=statutSon&etat=ok"><span class="label label-warning"><span class="glyphicon glyphicon-pencil"></span></span></a> </TD></c:if>
+ <c:if test="${event.statutSon == \"ok\"}"><TD> <a data-toggle="tooltip" title="OK -> A faire" href="materiel?par=statutSon&etat=pasok"><span class="label label-success"><span class="glyphicon glyphicon-ok"></span></span></a> </TD></c:if>
+ <TD><a data-toggle="tooltip" title="Ignorer ce paramètre" href="materiel?par=ignoreSon&etat=on"><span class="label label-success"><span class="glyphicon glyphicon-remove"></span></span></a></TD>
  <c:forEach var="communication" items="${communications}">
- <c:if test="${communication.nom == \"Son\"}"><TD><a href="mailto:${communication.contact}?subject=Notre évènement ${event.typeevent} pour ${event.asso}&body=${communication.message},"><span class="glyphicon glyphicon-envelope"></span></a> </TD> </c:if> 
+ <c:if test="${communication.nom == \"Son\"}"><TD><a data-toggle="tooltip" title="Envoyer un mail" href="mailto:${communication.contact}?subject=Notre évènement ${event.typeevent} pour ${event.asso}&body=${communication.message},"><span class="glyphicon glyphicon-envelope"></span></a> </TD> </c:if> 
  </c:forEach>
   </TR>
   </c:if>
   
  <c:if test="${event.ignoreLumiere == null || event.ignoreLumiere == \"off\" }">
   <TR> 
- <TD> <span class="label label-default">Lumière</span> </TD> 
- <c:if test="${event.statutLumiere == null || event.statutLumiere == \"pasok\" }"><TD> <a href="materiel?par=statutLumiere&etat=encours"><span class="label label-danger"><span class="glyphicon glyphicon-remove"></span></span></a> </TD></c:if>
- <c:if test="${event.statutLumiere == \"encours\"}"><TD> <a href="materiel?par=statutLumiere&etat=ok"><span class="label label-warning"><span class="glyphicon glyphicon-pencil"></span></span></a> </TD></c:if>
- <c:if test="${event.statutLumiere == \"ok\"}"><TD> <a href="materiel?par=statutLumiere&etat=pasok"><span class="label label-success"><span class="glyphicon glyphicon-ok"></span></span></a> </TD></c:if>
- <c:if test="${event.ignoreLumiere == null || event.ignoreLumiere == \"off\" }"><TD><a href="materiel?par=ignoreLumiere&etat=on"><span class="label label-success"><span class="glyphicon glyphicon-remove"></span></span></a></TD></c:if>
- <c:if test="${event.ignoreLumiere == \"on\" }"><TD><a href="materiel?par=ignoreLumiere&etat=off"><span class="label label-danger"><span class="glyphicon glyphicon-ok"></span></span></a></TD></c:if>  
+ <TD> Lumière</TD> 
+ <c:if test="${event.statutLumiere == null || event.statutLumiere == \"pasok\" }"><TD> <a data-toggle="tooltip" title="A faire -> En cours" href="materiel?par=statutLumiere&etat=encours"><span class="label label-danger"><span class="glyphicon glyphicon-remove"></span></span></a> </TD></c:if>
+ <c:if test="${event.statutLumiere == \"encours\"}"><TD> <a data-toggle="tooltip" title="En cours -> OK" href="materiel?par=statutLumiere&etat=ok"><span class="label label-warning"><span class="glyphicon glyphicon-pencil"></span></span></a> </TD></c:if>
+ <c:if test="${event.statutLumiere == \"ok\"}"><TD> <a data-toggle="tooltip" title="OK -> A faire" href="materiel?par=statutLumiere&etat=pasok"><span class="label label-success"><span class="glyphicon glyphicon-ok"></span></span></a> </TD></c:if>
+ <TD><a data-toggle="tooltip" title="Ignorer ce paramètre" href="materiel?par=ignoreLumiere&etat=on"><span class="label label-success"><span class="glyphicon glyphicon-remove"></span></span></a></TD>
  <c:forEach var="communication" items="${communications}">
- <c:if test="${communication.nom == \"Lumiere\"}"><TD><a href="mailto:${communication.contact}?subject=Notre évènement ${event.typeevent} pour ${event.asso}&body=${communication.message},"><span class="glyphicon glyphicon-envelope"></span></a> </TD> </c:if> 
+ <c:if test="${communication.nom == \"Lumiere\"}"><TD><a data-toggle="tooltip" title="Envoyer un mail" href="mailto:${communication.contact}?subject=Notre évènement ${event.typeevent} pour ${event.asso}&body=${communication.message},"><span class="glyphicon glyphicon-envelope"></span></a> </TD> </c:if> 
  </c:forEach>  </TR>
   </c:if>
   
@@ -87,21 +94,20 @@
  
  <c:if test="${event.ignoreSon == \"on\" }">
   <TR> 
- <TD> <span class="label label-default">Son</span> </TD> 
- <c:if test="${event.ignoreSon == null || event.ignoreSon == \"off\" }"><TD><a href="materiel?par=ignoreSon&etat=on"><span class="label label-success"><span class="glyphicon glyphicon-remove"></span></span></a></TD></c:if>
- <c:if test="${event.ignoreSon == \"on\" }"><TD><a href="materiel?par=ignoreSon&etat=off"><span class="label label-danger"><span class="glyphicon glyphicon-ok"></span></span></a></TD></c:if>  
+ <TD> Son</TD> 
+ <TD><a data-toggle="tooltip" title="Prendre en compte ce paramètre" href="materiel?par=ignoreSon&etat=off"><span class="label label-danger"><span class="glyphicon glyphicon-ok"></span></span></a></TD> 
   </TR>
   </c:if>
   
   <c:if test="${event.ignoreLumiere == \"on\" }">
    <TR> 
- <TD> <span class="label label-default">Lumiere</span> </TD> 
- <c:if test="${event.ignoreLumiere == null || event.ignoreLumiere == \"off\" }"><TD><a href="materiel?par=ignoreLumiere&etat=on"><span class="label label-success"><span class="glyphicon glyphicon-remove"></span></span></a></TD></c:if>
- <c:if test="${event.ignoreLumiere == \"on\" }"><TD><a href="materiel?par=ignoreLumiere&etat=off"><span class="label label-danger"><span class="glyphicon glyphicon-ok"></span></span></a></TD></c:if>  
+ <TD> Lumiere</TD> 
+ <TD><a data-toggle="tooltip" title="Prendre en compte ce paramètre" href="materiel?par=ignoreLumiere&etat=off"><span class="label label-danger"><span class="glyphicon glyphicon-ok"></span></span></a></TD>
   </TR>
   </c:if>
   
   </table>
+  </div>
   
 </div>
 

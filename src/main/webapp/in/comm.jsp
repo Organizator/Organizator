@@ -16,26 +16,35 @@
   <body style="padding-top:0px;">
 	<!-- Menu de navigation -->
 	<%@include file="../include/navbar.jsp" %>
+	
+	<script>
+		$(function() {
+			$('a').tooltip();
+		});
+	</script>
 
 	<div class="container">
 		<div style="padding-top:10px;">
 		<h2 class="form-signin1-heading" align="center">Communication liée à l'évènement</h2>
 		<div class="progress progress-striped active">
   <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
-<!--     <span class="sr-only">40% Complete (success)</span> -->
   </div>
 </div>
      	</div>
 
 
-		
-		
-		<div class="panel panel-default">
+	<div class="panel panel-default">
   <!-- Default panel contents -->
-  <div class="panel-heading">Suivi des moyens de communication mis en place</div>
-  <div class="panel-body">
-    <p><center>Mettez ici à jour les statuts des différents moyen de communication disponibles : <span class="glyphicon glyphicon-ok"></span> ou <span class="glyphicon glyphicon-remove"></span></center></p>
+  <div class="panel-heading">
+  <h3 class="panel-title">
+          <a class="accordion-toggle" href="#item4" data-toggle="collapse"> Suivi des moyens de communication </a> 
+        </h3>
   </div>
+  <div id="item4" class="panel-collapse collapse in">
+	  <div class="panel-body">
+	    <p><center>Modifiez les statuts des différents paramètres en cliquant sur : <span class="label label-success"><span class="glyphicon glyphicon-ok"></span></span> ok | <span class="label label-warning"><span class="glyphicon glyphicon-pencil"></span></span> en cours | <span class="label label-danger"><span class="glyphicon glyphicon-remove"></span></span> A faire</center><br/>
+	    <center>Ou ignorez un paramètre en cliquant sur <span class="label label-success"><span class="glyphicon glyphicon-remove"></span></span></center></p>
+	  </div>
 
   <!-- Table -->
   <table class="table table-striped">
@@ -48,98 +57,91 @@
  
  <c:if test="${event.ignoreTV == null || event.ignoreTV == \"off\" }">
   <TR> 
- <TD> <span class="label label-default">Télévisions</span> </TD> 
- <c:if test="${event.statutTV == null || event.statutTV == \"pasok\" }"><TD> <a href="comm?par=statutTV&etat=encours"><span class="label label-danger"><span class="glyphicon glyphicon-remove"></span></span></a> </TD></c:if>
- <c:if test="${event.statutTV == \"encours\"}"><TD> <a href="comm?par=statutTV&etat=ok"><span class="label label-warning"><span class="glyphicon glyphicon-pencil"></span></span></a> </TD></c:if>
- <c:if test="${event.statutTV == \"ok\"}"><TD> <a href="comm?par=statutTV&etat=pasok"><span class="label label-success"><span class="glyphicon glyphicon-ok"></span></span></a> </TD></c:if>
- <c:if test="${event.ignoreTV == null || event.ignoreTV == \"off\" }"><TD><a href="comm?par=ignoreTV&etat=on"><span class="label label-success"><span class="glyphicon glyphicon-remove"></span></span></a></TD></c:if>
- <c:if test="${event.ignoreTV == \"on\" }"><TD><a href="comm?par=ignoreTV&etat=off"><span class="label label-danger"><span class="glyphicon glyphicon-ok"></span></span></a></TD></c:if>  
+ <TD> Télévisions </TD> 
+ <c:if test="${event.statutTV == null || event.statutTV == \"pasok\" }"><TD> <a data-toggle="tooltip" title="A faire -> En cours" href="comm?par=statutTV&etat=encours"><span class="label label-danger"><span class="glyphicon glyphicon-remove"></span></span></a> </TD></c:if>
+ <c:if test="${event.statutTV == \"encours\"}"><TD> <a data-toggle="tooltip" title="En cours -> OK" href="comm?par=statutTV&etat=ok"><span class="label label-warning"><span class="glyphicon glyphicon-pencil"></span></span></a> </TD></c:if>
+ <c:if test="${event.statutTV == \"ok\"}"><TD> <a data-toggle="tooltip" title="OK -> A faire" href="comm?par=statutTV&etat=pasok"><span class="label label-success"><span class="glyphicon glyphicon-ok"></span></span></a> </TD></c:if>
+ <TD><a data-toggle="tooltip" title="Ignorer ce paramètre" href="comm?par=ignoreTV&etat=on"><span class="label label-success"><span class="glyphicon glyphicon-remove"></span></span></a></TD>
  <c:forEach var="communication" items="${communications}">
- <c:if test="${communication.nom == \"TV\"}"><TD><a href="mailto:${communication.contact}?subject=Notre évènement ${event.typeevent} pour ${event.asso}&body=${communication.message},"><span class="glyphicon glyphicon-envelope"></span></a> </TD> </c:if> 
+ <c:if test="${communication.nom == \"TV\"}"><TD><a data-toggle="tooltip" title="Envoyer un mail" href="mailto:${communication.contact}?subject=Notre évènement ${event.typeevent} pour ${event.asso}&body=${communication.message},"><span class="glyphicon glyphicon-envelope"></span></a> </TD> </c:if> 
  </c:forEach>
   </TR>
   </c:if>
   
   <c:if test="${event.ignoreAffiche == null || event.ignoreAffiche == \"off\" }">
   <TR> 
- <TD> <span class="label label-default">Affiches</span> </TD> 
- <c:if test="${event.statutAffiche == null || event.statutAffiche == \"pasok\" }"><TD> <a href="comm?par=statutAffiche&etat=encours"><span class="label label-danger"><span class="glyphicon glyphicon-remove"></span></span></a> </TD></c:if>
- <c:if test="${event.statutAffiche == \"encours\"}"><TD> <a href="comm?par=statutAffiche&etat=ok"><span class="label label-warning"><span class="glyphicon glyphicon-pencil"></span></span></a> </TD></c:if>
- <c:if test="${event.statutAffiche == \"ok\"}"><TD> <a href="comm?par=statutAffiche&etat=pasok"><span class="label label-success"><span class="glyphicon glyphicon-ok"></span></span></a> </TD></c:if>
- <c:if test="${event.ignoreAffiche == null || event.ignoreAffiche == \"off\" }"><TD><a href="comm?par=ignoreAffiche&etat=on"><span class="label label-success"><span class="glyphicon glyphicon-remove"></span></span></a></TD></c:if>
- <c:if test="${event.ignoreAffiche == \"on\" }"><TD><a href="comm?par=ignoreAffiche&etat=off"><span class="label label-danger"><span class="glyphicon glyphicon-ok"></span></span></a></TD></c:if>  
+ <TD> Affiches </TD> 
+ <c:if test="${event.statutAffiche == null || event.statutAffiche == \"pasok\" }"><TD> <a data-toggle="tooltip" title="A faire -> En cours" href="comm?par=statutAffiche&etat=encours"><span class="label label-danger"><span class="glyphicon glyphicon-remove"></span></span></a> </TD></c:if>
+ <c:if test="${event.statutAffiche == \"encours\"}"><TD> <a data-toggle="tooltip" title="En cours -> OK" href="comm?par=statutAffiche&etat=ok"><span class="label label-warning"><span class="glyphicon glyphicon-pencil"></span></span></a> </TD></c:if>
+ <c:if test="${event.statutAffiche == \"ok\"}"><TD> <a data-toggle="tooltip" title="OK -> A faire" href="comm?par=statutAffiche&etat=pasok"><span class="label label-success"><span class="glyphicon glyphicon-ok"></span></span></a> </TD></c:if>
+ <TD><a data-toggle="tooltip" title="Ignorer ce paramètre" href="comm?par=ignoreAffiche&etat=on"><span class="label label-success"><span class="glyphicon glyphicon-remove"></span></span></a></TD>
  <c:forEach var="communication" items="${communications}">
- <c:if test="${communication.nom == \"Affiche\"}"><TD><a href="mailto:${communication.contact}?subject=Notre évènement ${event.typeevent} pour ${event.asso}&body=${communication.message},"><span class="glyphicon glyphicon-envelope"></span></a> </TD> </c:if> 
+ <c:if test="${communication.nom == \"Affiche\"}"><TD><a data-toggle="tooltip" title="Envoyer un mail" href="mailto:${communication.contact}?subject=Notre évènement ${event.typeevent} pour ${event.asso}&body=${communication.message},"><span class="glyphicon glyphicon-envelope"></span></a> </TD> </c:if> 
  </c:forEach>
   </TR> 
   </c:if>
   
   <c:if test="${event.ignoreReseau == null || event.ignoreReseau == \"off\" }">
   <TR> 
- <TD> <span class="label label-default">Réseaux sociaux</span> </TD> 
- <c:if test="${event.statutReseau == null || event.statutReseau == \"pasok\" }"><TD> <a href="comm?par=statutReseau&etat=encours"><span class="label label-danger"><span class="glyphicon glyphicon-remove"></span></span></a> </TD></c:if>
- <c:if test="${event.statutReseau == \"encours\"}"><TD> <a href="comm?par=statutReseau&etat=ok"><span class="label label-warning"><span class="glyphicon glyphicon-pencil"></span></span></a> </TD></c:if>
- <c:if test="${event.statutReseau == \"ok\"}"><TD> <a href="comm?par=statutReseau&etat=pasok"><span class="label label-success"><span class="glyphicon glyphicon-ok"></span></span></a> </TD></c:if>
- <c:if test="${event.ignoreReseau == null || event.ignoreReseau == \"off\" }"><TD><a href="comm?par=ignoreReseau&etat=on"><span class="label label-success"><span class="glyphicon glyphicon-remove"></span></span></a></TD></c:if>
- <c:if test="${event.ignoreReseau == \"on\" }"><TD><a href="comm?par=ignoreReseau&etat=off"><span class="label label-danger"><span class="glyphicon glyphicon-ok"></span></span></a></TD></c:if>  
+ <TD> Réseaux sociaux </TD> 
+ <c:if test="${event.statutReseau == null || event.statutReseau == \"pasok\" }"><TD> <a data-toggle="tooltip" title="A faire -> En cours" href="comm?par=statutReseau&etat=encours"><span class="label label-danger"><span class="glyphicon glyphicon-remove"></span></span></a> </TD></c:if>
+ <c:if test="${event.statutReseau == \"encours\"}"><TD> <a data-toggle="tooltip" title="En cours -> OK" href="comm?par=statutReseau&etat=ok"><span class="label label-warning"><span class="glyphicon glyphicon-pencil"></span></span></a> </TD></c:if>
+ <c:if test="${event.statutReseau == \"ok\"}"><TD> <a data-toggle="tooltip" title="OK -> A faire" href="comm?par=statutReseau&etat=pasok"><span class="label label-success"><span class="glyphicon glyphicon-ok"></span></span></a> </TD></c:if>
+ <TD><a data-toggle="tooltip" title="Ignorer ce paramètre" href="comm?par=ignoreReseau&etat=on"><span class="label label-success"><span class="glyphicon glyphicon-remove"></span></span></a></TD>
  <c:forEach var="communication" items="${communications}">
- <c:if test="${communication.nom == \"Reseau\"}"><TD><a href="mailto:${communication.contact}?subject=Notre évènement ${event.typeevent} pour ${event.asso}&body=${communication.message},"><span class="glyphicon glyphicon-envelope"></span></a> </TD> </c:if> 
+ <c:if test="${communication.nom == \"Reseau\"}"><TD><a data-toggle="tooltip" title="Envoyer un mail" href="mailto:${communication.contact}?subject=Notre évènement ${event.typeevent} pour ${event.asso}&body=${communication.message},"><span class="glyphicon glyphicon-envelope"></span></a> </TD> </c:if> 
  </c:forEach>
   </TR>
    </c:if>
   
   <c:if test="${event.ignoreRadio == null || event.ignoreRadio == \"off\" }">
   <TR> 
- <TD> <span class="label label-default">Radio HEI</span> </TD> 
- <c:if test="${event.statutRadio == null || event.statutRadio == \"pasok\" }"><TD> <a href="comm?par=statutRadio&etat=encours"><span class="label label-danger"><span class="glyphicon glyphicon-remove"></span></span></a> </TD></c:if>
- <c:if test="${event.statutRadio == \"encours\"}"><TD> <a href="comm?par=statutRadio&etat=ok"><span class="label label-warning"><span class="glyphicon glyphicon-pencil"></span></span></a> </TD></c:if>
- <c:if test="${event.statutRadio == \"ok\"}"><TD> <a href="comm?par=statutRadio&etat=pasok"><span class="label label-success"><span class="glyphicon glyphicon-ok"></span></span></a> </TD></c:if>
- <c:if test="${event.ignoreRadio == null || event.ignoreRadio == \"off\" }"><TD><a href="comm?par=ignoreRadio&etat=on"><span class="label label-success"><span class="glyphicon glyphicon-remove"></span></span></a></TD></c:if>
- <c:if test="${event.ignoreRadio == \"on\" }"><TD><a href="comm?par=ignoreRadio&etat=off"><span class="label label-danger"><span class="glyphicon glyphicon-ok"></span></span></a></TD></c:if>  
+ <TD> Radio HEI </TD> 
+ <c:if test="${event.statutRadio == null || event.statutRadio == \"pasok\" }"><TD> <a data-toggle="tooltip" title="A faire -> En cours" href="comm?par=statutRadio&etat=encours"><span class="label label-danger"><span class="glyphicon glyphicon-remove"></span></span></a> </TD></c:if>
+ <c:if test="${event.statutRadio == \"encours\"}"><TD> <a data-toggle="tooltip" title="En cours -> OK" href="comm?par=statutRadio&etat=ok"><span class="label label-warning"><span class="glyphicon glyphicon-pencil"></span></span></a> </TD></c:if>
+ <c:if test="${event.statutRadio == \"ok\"}"><TD> <a data-toggle="tooltip" title="OK -> A faire" href="comm?par=statutRadio&etat=pasok"><span class="label label-success"><span class="glyphicon glyphicon-ok"></span></span></a> </TD></c:if>
+ <TD><a data-toggle="tooltip" title="Ignorer ce paramètre" href="comm?par=ignoreRadio&etat=on"><span class="label label-success"><span class="glyphicon glyphicon-remove"></span></span></a></TD>
  <c:forEach var="communication" items="${communications}">
- <c:if test="${communication.nom == \"Radio\"}"><TD><a href="mailto:${communication.contact}?subject=Notre évènement ${event.typeevent} pour ${event.asso}&body=${communication.message},"><span class="glyphicon glyphicon-envelope"></span></a> </TD> </c:if> 
+ <c:if test="${communication.nom == \"Radio\"}"><TD><a data-toggle="tooltip" title="Envoyer un mail" href="mailto:${communication.contact}?subject=Notre évènement ${event.typeevent} pour ${event.asso}&body=${communication.message},"><span class="glyphicon glyphicon-envelope"></span></a> </TD> </c:if> 
  </c:forEach>
   </TR>
    </c:if>
   
   <c:if test="${event.ignoreNewsletter == null || event.ignoreNewsletter == \"off\" }">
   <TR> 
- <TD> <span class="label label-default">Newsletter</span> </TD> 
- <c:if test="${event.statutNewsletter == null || event.statutNewsletter == \"pasok\" }"><TD> <a href="comm?par=statutNewsletter&etat=encours"><span class="label label-danger"><span class="glyphicon glyphicon-remove"></span></span></a> </TD></c:if>
- <c:if test="${event.statutNewsletter == \"encours\"}"><TD> <a href="comm?par=statutNewsletter&etat=ok"><span class="label label-warning"><span class="glyphicon glyphicon-pencil"></span></span></a> </TD></c:if>
- <c:if test="${event.statutNewsletter == \"ok\"}"><TD> <a href="comm?par=statutNewsletter&etat=pasok"><span class="label label-success"><span class="glyphicon glyphicon-ok"></span></span></a> </TD></c:if>
- <c:if test="${event.ignoreNewsletter == null || event.ignoreNewsletter == \"off\" }"><TD><a href="comm?par=ignoreNewsletter&etat=on"><span class="label label-success"><span class="glyphicon glyphicon-remove"></span></span></a></TD></c:if>
- <c:if test="${event.ignoreNewsletter == \"on\" }"><TD><a href="comm?par=ignoreNewsletter&etat=off"><span class="label label-danger"><span class="glyphicon glyphicon-ok"></span></span></a></TD></c:if>  
+ <TD> Newsletter </TD> 
+ <c:if test="${event.statutNewsletter == null || event.statutNewsletter == \"pasok\" }"><TD> <a data-toggle="tooltip" title="A faire -> En cours" href="comm?par=statutNewsletter&etat=encours"><span class="label label-danger"><span class="glyphicon glyphicon-remove"></span></span></a> </TD></c:if>
+ <c:if test="${event.statutNewsletter == \"encours\"}"><TD> <a data-toggle="tooltip" title="En cours -> OK" href="comm?par=statutNewsletter&etat=ok"><span class="label label-warning"><span class="glyphicon glyphicon-pencil"></span></span></a> </TD></c:if>
+ <c:if test="${event.statutNewsletter == \"ok\"}"><TD> <a data-toggle="tooltip" title="OK -> A faire" href="comm?par=statutNewsletter&etat=pasok"><span class="label label-success"><span class="glyphicon glyphicon-ok"></span></span></a> </TD></c:if>
+ <TD><a data-toggle="tooltip" title="Ignorer ce paramètre" href="comm?par=ignoreNewsletter&etat=on"><span class="label label-success"><span class="glyphicon glyphicon-remove"></span></span></a></TD>
  <c:forEach var="communication" items="${communications}">
- <c:if test="${communication.nom == \"Newsletter\"}"><TD><a href="mailto:${communication.contact}?subject=Notre évènement ${event.typeevent} pour ${event.asso}&body=${communication.message},"><span class="glyphicon glyphicon-envelope"></span></a> </TD> </c:if> 
+ <c:if test="${communication.nom == \"Newsletter\"}"><TD><a data-toggle="tooltip" title="Envoyer un mail" href="mailto:${communication.contact}?subject=Notre évènement ${event.typeevent} pour ${event.asso}&body=${communication.message},"><span class="glyphicon glyphicon-envelope"></span></a> </TD> </c:if> 
  </c:forEach>
   </TR>
    </c:if>
   
   <c:if test="${event.ignoreDepeche == null || event.ignoreDepeche == \"off\" }">  
   <TR> 
- <TD> <span class="label label-default">Dépêche HEI</span>	 </TD> 
- <c:if test="${event.statutDepeche == null || event.statutDepeche == \"pasok\" }"><TD> <a href="comm?par=statutDepeche&etat=encours"><span class="label label-danger"><span class="glyphicon glyphicon-remove"></span></span></a> </TD></c:if>
- <c:if test="${event.statutDepeche == \"encours\"}"><TD> <a href="comm?par=statutDepeche&etat=ok"><span class="label label-warning"><span class="glyphicon glyphicon-pencil"></span></span></a> </TD></c:if>
- <c:if test="${event.statutDepeche == \"ok\"}"><TD> <a href="comm?par=statutDepeche&etat=pasok"><span class="label label-success"><span class="glyphicon glyphicon-ok"></span></span></a> </TD></c:if>
- <c:if test="${event.ignoreDepeche == null || event.ignoreDepeche == \"off\" }"><TD><a href="comm?par=ignoreDepeche&etat=on"><span class="label label-success"><span class="glyphicon glyphicon-remove"></span></span></a></TD></c:if>
- <c:if test="${event.ignoreDepeche == \"on\" }"><TD><a href="comm?par=ignoreDepeche&etat=off"><span class="label label-danger"><span class="glyphicon glyphicon-ok"></span></span></a></TD></c:if>  
+ <TD> Dépêche HEI </TD> 
+ <c:if test="${event.statutDepeche == null || event.statutDepeche == \"pasok\" }"><TD> <a data-toggle="tooltip" title="A faire -> En cours" href="comm?par=statutDepeche&etat=encours"><span class="label label-danger"><span class="glyphicon glyphicon-remove"></span></span></a> </TD></c:if>
+ <c:if test="${event.statutDepeche == \"encours\"}"><TD> <a data-toggle="tooltip" title="En cours -> OK" href="comm?par=statutDepeche&etat=ok"><span class="label label-warning"><span class="glyphicon glyphicon-pencil"></span></span></a> </TD></c:if>
+ <c:if test="${event.statutDepeche == \"ok\"}"><TD> <a data-toggle="tooltip" title="OK -> A faire" href="comm?par=statutDepeche&etat=pasok"><span class="label label-success"><span class="glyphicon glyphicon-ok"></span></span></a> </TD></c:if>
+ <TD><a data-toggle="tooltip" title="Ignorer ce paramètre" href="comm?par=ignoreDepeche&etat=on"><span class="label label-success"><span class="glyphicon glyphicon-remove"></span></span></a></TD>
  <c:forEach var="communication" items="${communications}">
- <c:if test="${communication.nom == \"Depeche\"}"><TD><a href="mailto:${communication.contact}?subject=Notre évènement ${event.typeevent} pour ${event.asso}&body=${communication.message},"><span class="glyphicon glyphicon-envelope"></span></a> </TD> </c:if> 
+ <c:if test="${communication.nom == \"Depeche\"}"><TD><a data-toggle="tooltip" title="Envoyer un mail" href="mailto:${communication.contact}?subject=Notre évènement ${event.typeevent} pour ${event.asso}&body=${communication.message},"><span class="glyphicon glyphicon-envelope"></span></a> </TD> </c:if> 
  </c:forEach>
   </TR>
    </c:if>
   
   <c:if test="${event.ignoreFlyers == null || event.ignoreFlyers == \"off\" }">
    <TR> 
- <TD> <span class="label label-default">Flyers</span> </TD> 
- <c:if test="${event.statutFlyers == null || event.statutFlyers == \"pasok\" }"><TD> <a href="comm?par=statutFlyers&etat=encours"><span class="label label-danger"><span class="glyphicon glyphicon-remove"></span></span></a> </TD></c:if>
- <c:if test="${event.statutFlyers == \"encours\"}"><TD> <a href="comm?par=statutFlyers&etat=ok"><span class="label label-warning"><span class="glyphicon glyphicon-pencil"></span></span></a> </TD></c:if>
- <c:if test="${event.statutFlyers == \"ok\"}"><TD> <a href="comm?par=statutFlyers&etat=pasok"><span class="label label-success"><span class="glyphicon glyphicon-ok"></span></span></a> </TD></c:if>
- <c:if test="${event.ignoreFlyers == null || event.ignoreFlyers == \"off\" }"><TD><a href="comm?par=ignoreFlyers&etat=on"><span class="label label-success"><span class="glyphicon glyphicon-remove"></span></span></a></TD></c:if>
- <c:if test="${event.ignoreFlyers == \"on\" }"><TD><a href="comm?par=ignoreFlyers&etat=off"><span class="label label-danger"><span class="glyphicon glyphicon-ok"></span></span></a></TD></c:if>  
+ <TD> Flyers </TD> 
+ <c:if test="${event.statutFlyers == null || event.statutFlyers == \"pasok\" }"><TD> <a data-toggle="tooltip" title="A faire -> En cours" href="comm?par=statutFlyers&etat=encours"><span class="label label-danger"><span class="glyphicon glyphicon-remove"></span></span></a> </TD></c:if>
+ <c:if test="${event.statutFlyers == \"encours\"}"><TD> <a data-toggle="tooltip" title="En cours -> OK" href="comm?par=statutFlyers&etat=ok"><span class="label label-warning"><span class="glyphicon glyphicon-pencil"></span></span></a> </TD></c:if>
+ <c:if test="${event.statutFlyers == \"ok\"}"><TD> <a data-toggle="tooltip" title="OK -> A faire" href="comm?par=statutFlyers&etat=pasok"><span class="label label-success"><span class="glyphicon glyphicon-ok"></span></span></a> </TD></c:if>
+ <TD><a data-toggle="tooltip" title="Ignorer ce paramètre" href="comm?par=ignoreFlyers&etat=on"><span class="label label-success"><span class="glyphicon glyphicon-remove"></span></span></a></TD>
  <c:forEach var="communication" items="${communications}">
- <c:if test="${communication.nom == \"Flyers\"}"><TD><a href="mailto:${communication.contact}?subject=Notre évènement ${event.typeevent} pour ${event.asso}&body=${communication.message},"><span class="glyphicon glyphicon-envelope"></span></a> </TD> </c:if> 
+ <c:if test="${communication.nom == \"Flyers\"}"><TD><a data-toggle="tooltip" title="Envoyer un mail" href="mailto:${communication.contact}?subject=Notre évènement ${event.typeevent} pour ${event.asso}&body=${communication.message},"><span class="glyphicon glyphicon-envelope"></span></a> </TD> </c:if> 
  </c:forEach>
   </TR>
   </c:if>
@@ -157,60 +159,54 @@
  
  <c:if test="${event.ignoreTV == \"on\" }">
   <TR> 
- <TD> <span class="label label-default">Télévisions</span> </TD> 
- <c:if test="${event.ignoreTV == null || event.ignoreTV == \"off\" }"><TD><a href="comm?par=ignoreTV&etat=on"><span class="label label-success"><span class="glyphicon glyphicon-remove"></span></span></a></TD></c:if>
- <c:if test="${event.ignoreTV == \"on\" }"><TD><a href="comm?par=ignoreTV&etat=off"><span class="label label-danger"><span class="glyphicon glyphicon-ok"></span></span></a></TD></c:if>  
+ <TD> Télévisions </TD> 
+ <TD><a data-toggle="tooltip" title="Prendre en compte ce paramètre" href="comm?par=ignoreTV&etat=off"><span class="label label-danger"><span class="glyphicon glyphicon-ok"></span></span></a></TD> 
   </TR>
   </c:if>
   
   <c:if test="${event.ignoreAffiche == \"on\" }">
   <TR> 
- <TD> <span class="label label-default">Affiches</span> </TD> 
- <c:if test="${event.ignoreAffiche == null || event.ignoreAffiche == \"off\" }"><TD><a href="comm?par=ignoreAffiche&etat=on"><span class="label label-success"><span class="glyphicon glyphicon-remove"></span></span></a></TD></c:if>
- <c:if test="${event.ignoreAffiche == \"on\" }"><TD><a href="comm?par=ignoreAffiche&etat=off"><span class="label label-danger"><span class="glyphicon glyphicon-ok"></span></span></a></TD></c:if>  
+ <TD> Affiches </TD> 
+ <TD><a data-toggle="tooltip" title="Prendre en compte ce paramètre" href="comm?par=ignoreAffiche&etat=off"><span class="label label-danger"><span class="glyphicon glyphicon-ok"></span></span></a></TD>
   </TR> 
   </c:if>
   
   <c:if test="${event.ignoreReseau == \"on\" }">
   <TR> 
- <TD> <span class="label label-default">Réseaux sociaux</span> </TD> 
- <c:if test="${event.ignoreReseau == null || event.ignoreReseau == \"off\" }"><TD><a href="comm?par=ignoreReseau&etat=on"><span class="label label-success"><span class="glyphicon glyphicon-remove"></span></span></a></TD></c:if>
- <c:if test="${event.ignoreReseau == \"on\" }"><TD><a href="comm?par=ignoreReseau&etat=off"><span class="label label-danger"><span class="glyphicon glyphicon-ok"></span></span></a></TD></c:if>  
+ <TD> Réseaux sociaux </TD> 
+ <TD><a data-toggle="tooltip" title="Prendre en compte ce paramètre" href="comm?par=ignoreReseau&etat=off"><span class="label label-danger"><span class="glyphicon glyphicon-ok"></span></span></a></TD> 
   </TR>
    </c:if>
   
   <c:if test="${event.ignoreRadio == \"on\" }">
   <TR> 
- <TD> <span class="label label-default">Radio HEI</span> </TD> 
- <c:if test="${event.ignoreRadio == null || event.ignoreRadio == \"off\" }"><TD><a href="comm?par=ignoreRadio&etat=on"><span class="label label-success"><span class="glyphicon glyphicon-remove"></span></span></a></TD></c:if>
- <c:if test="${event.ignoreRadio == \"on\" }"><TD><a href="comm?par=ignoreRadio&etat=off"><span class="label label-danger"><span class="glyphicon glyphicon-ok"></span></span></a></TD></c:if>  
+ <TD> Radio HEI </TD> 
+ <TD><a data-toggle="tooltip" title="Prendre en compte ce paramètre" href="comm?par=ignoreRadio&etat=off"><span class="label label-danger"><span class="glyphicon glyphicon-ok"></span></span></a></TD> 
   </TR>
    </c:if>
   
   <c:if test="${event.ignoreNewsletter == \"on\" }">
   <TR> 
- <TD> <span class="label label-default">Newsletter</span> </TD> 
- <c:if test="${event.ignoreNewsletter == null || event.ignoreNewsletter == \"off\" }"><TD><a href="comm?par=ignoreNewsletter&etat=on"><span class="label label-success"><span class="glyphicon glyphicon-remove"></span></span></a></TD></c:if>
- <c:if test="${event.ignoreNewsletter == \"on\" }"><TD><a href="comm?par=ignoreNewsletter&etat=off"><span class="label label-danger"><span class="glyphicon glyphicon-ok"></span></span></a></TD></c:if>  
+ <TD> Newsletter </TD> 
+ <TD><a data-toggle="tooltip" title="Prendre en compte ce paramètre" href="comm?par=ignoreNewsletter&etat=off"><span class="label label-danger"><span class="glyphicon glyphicon-ok"></span></span></a></TD>
   </TR>
    </c:if>
   
   <c:if test="${event.ignoreDepeche == \"on\" }">  
   <TR> 
- <TD> <span class="label label-default">Dépêche HEI</span>	 </TD> 
- <c:if test="${event.ignoreDepeche == null || event.ignoreDepeche == \"off\" }"><TD><a href="comm?par=ignoreDepeche&etat=on"><span class="label label-success"><span class="glyphicon glyphicon-remove"></span></span></a></TD></c:if>
- <c:if test="${event.ignoreDepeche == \"on\" }"><TD><a href="comm?par=ignoreDepeche&etat=off"><span class="label label-danger"><span class="glyphicon glyphicon-ok"></span></span></a></TD></c:if>  
+ <TD> Dépêche HEI </TD> 
+ <TD><a data-toggle="tooltip" title="Prendre en compte ce paramètre" href="comm?par=ignoreDepeche&etat=off"><span class="label label-danger"><span class="glyphicon glyphicon-ok"></span></span></a></TD>  
   </TR>
    </c:if>
   
   <c:if test="${event.ignoreFlyers == \"on\" }">
    <TR> 
- <TD> <span class="label label-default">Flyers</span> </TD> 
- <c:if test="${event.ignoreFlyers == null || event.ignoreFlyers == \"off\" }"><TD><a href="comm?par=ignoreFlyers&etat=on"><span class="label label-success"><span class="glyphicon glyphicon-remove"></span></span></a></TD></c:if>
- <c:if test="${event.ignoreFlyers == \"on\" }"><TD><a href="comm?par=ignoreFlyers&etat=off"><span class="label label-danger"><span class="glyphicon glyphicon-ok"></span></span></a></TD></c:if>  
+ <TD> Flyers </TD> 
+ <TD><a data-toggle="tooltip" title="Prendre en compte ce paramètre" href="comm?par=ignoreFlyers&etat=off"><span class="label label-danger"><span class="glyphicon glyphicon-ok"></span></span></a></TD> 
   </TR>
   </c:if>
   </table>
+  </div>
   
 </div>
 

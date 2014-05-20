@@ -15,8 +15,14 @@
 	<!-- Menu de navigation -->
 	<%@include file="../include/navbar.jsp" %>
 
+	<script>
+		$(function() {
+			$('a').tooltip();
+		});
+	</script>
+
 	<div class="container">
-		<div style="padding-top:30px;">
+		<div style="padding-top:10px;">
 		<h2 class="form-signin1-heading" align="center">Couverture photo - vidéo</h2>
 		<div class="progress progress-striped active">
   <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
@@ -29,10 +35,16 @@
 		
 		<div class="panel panel-default">
   <!-- Default panel contents -->
-  <div class="panel-heading">Suivi des moyens de communication mis en place</div>
-  <div class="panel-body">
-    <p><center>Mettez ici à jour les statuts des différents moyen de communication disponibles : <span class="glyphicon glyphicon-ok"></span> ou <span class="glyphicon glyphicon-remove"></span></center></center></p>
+    <div class="panel-heading">
+  <h3 class="panel-title">
+          <a class="accordion-toggle" href="#item2" data-toggle="collapse">Suivi des moyens de communication mis en place </a> 
+        </h3>
   </div>
+  <div id="item2" class="panel-collapse collapse in">
+	  <div class="panel-body">
+	    <p><center>Modifiez les statuts des différents paramètres en cliquant sur : <span class="label label-success"><span class="glyphicon glyphicon-ok"></span></span> ok | <span class="label label-warning"><span class="glyphicon glyphicon-pencil"></span></span> en cours | <span class="label label-danger"><span class="glyphicon glyphicon-remove"></span></span> A faire</center><br/>
+	    <center>Ou ignorez un paramètre en cliquant sur <span class="label label-success"><span class="glyphicon glyphicon-remove"></span></span></center></p>
+	  </div>
 
   <!-- Table -->
   <table class="table table-striped">
@@ -46,28 +58,26 @@
   
  <c:if test="${event.ignorePhoto == null || event.ignorePhoto == \"off\" }">
   <TR> 
- <TD> <span class="label label-default">Photo</span> </TD> 
- <c:if test="${event.statutPhoto == null || event.statutPhoto == \"pasok\" }"><TD> <a href="couverture?par=statutPhoto&etat=encours"><span class="label label-danger"><span class="glyphicon glyphicon-remove"></span></span></a> </TD></c:if>
- <c:if test="${event.statutPhoto == \"encours\"}"><TD> <a href="couverture?par=statutPhoto&etat=ok"><span class="label label-warning"><span class="glyphicon glyphicon-pencil"></span></span></a> </TD></c:if>
- <c:if test="${event.statutPhoto == \"ok\"}"><TD> <a href="couverture?par=statutPhoto&etat=pasok"><span class="label label-success"><span class="glyphicon glyphicon-ok"></span></span></a> </TD></c:if>
- <c:if test="${event.ignorePhoto == null || event.ignorePhoto == \"off\" }"><TD><a href="couverture?par=ignorePhoto&etat=on"><span class="label label-success"><span class="glyphicon glyphicon-remove"></span></span></a></TD></c:if>
- <c:if test="${event.ignorePhoto == \"on\" }"><TD><a href="couverture?par=ignorePhoto&etat=off"><span class="label label-danger"><span class="glyphicon glyphicon-ok"></span></span></a></TD></c:if>  
+ <TD> Photo</TD> 
+ <c:if test="${event.statutPhoto == null || event.statutPhoto == \"pasok\" }"><TD> <a data-toggle="tooltip" title="A faire -> En cours" href="couverture?par=statutPhoto&etat=encours"><span class="label label-danger"><span class="glyphicon glyphicon-remove"></span></span></a> </TD></c:if>
+ <c:if test="${event.statutPhoto == \"encours\"}"><TD> <a data-toggle="tooltip" title="En cours -> OK" href="couverture?par=statutPhoto&etat=ok"><span class="label label-warning"><span class="glyphicon glyphicon-pencil"></span></span></a> </TD></c:if>
+ <c:if test="${event.statutPhoto == \"ok\"}"><TD> <a data-toggle="tooltip" title="OK -> A Faire" href="couverture?par=statutPhoto&etat=pasok"><span class="label label-success"><span class="glyphicon glyphicon-ok"></span></span></a> </TD></c:if>
+ <TD><a data-toggle="tooltip" title="Ignorer ce paramètre" href="couverture?par=ignorePhoto&etat=on"><span class="label label-success"><span class="glyphicon glyphicon-remove"></span></span></a></TD>
  <c:forEach var="communication" items="${communications}">
- <c:if test="${communication.nom == \"Photo\"}"><TD><a href="mailto:${communication.contact}?subject=Notre évènement ${event.typeevent} pour ${event.asso}&body=${communication.message},"><span class="glyphicon glyphicon-envelope"></span></a> </TD> </c:if> 
+ <c:if test="${communication.nom == \"Photo\"}"><TD><a data-toggle="tooltip" title="Envoyer un mail" href="mailto:${communication.contact}?subject=Notre évènement ${event.typeevent} pour ${event.asso}&body=${communication.message},"><span class="glyphicon glyphicon-envelope"></span></a> </TD> </c:if> 
  </c:forEach>
   </TR>
   </c:if>
   
  <c:if test="${event.ignoreVideo == null || event.ignoreVideo == \"off\" }">
   <TR> 
- <TD> <span class="label label-default">Vidéo</span> </TD> 
- <c:if test="${event.statutVideo == null || event.statutVideo == \"pasok\" }"><TD> <a href="couverture?par=statutVideo&etat=encours"><span class="label label-danger"><span class="glyphicon glyphicon-remove"></span></span></a> </TD></c:if>
- <c:if test="${event.statutVideo == \"encours\"}"><TD> <a href="couverture?par=statutVideo&etat=ok"><span class="label label-warning"><span class="glyphicon glyphicon-pencil"></span></span></a> </TD></c:if>
- <c:if test="${event.statutVideo == \"ok\"}"><TD> <a href="couverture?par=statutVideo&etat=pasok"><span class="label label-success"><span class="glyphicon glyphicon-ok"></span></span></a> </TD></c:if>
- <c:if test="${event.ignoreVideo == null || event.ignoreVideo == \"off\" }"><TD><a href="couverture?par=ignoreVideo&etat=on"><span class="label label-success"><span class="glyphicon glyphicon-remove"></span></span></a></TD></c:if>
- <c:if test="${event.ignoreVideo == \"on\" }"><TD><a href="couverture?par=ignoreVideo&etat=off"><span class="label label-danger"><span class="glyphicon glyphicon-ok"></span></span></a></TD></c:if>  
+ <TD> Vidéo</TD> 
+ <c:if test="${event.statutVideo == null || event.statutVideo == \"pasok\" }"><TD> <a data-toggle="tooltip" title="A Faire -> En cours" href="couverture?par=statutVideo&etat=encours"><span class="label label-danger"><span class="glyphicon glyphicon-remove"></span></span></a> </TD></c:if>
+ <c:if test="${event.statutVideo == \"encours\"}"><TD> <a data-toggle="tooltip" title="En cours -> OK" href="couverture?par=statutVideo&etat=ok"><span class="label label-warning"><span class="glyphicon glyphicon-pencil"></span></span></a> </TD></c:if>
+ <c:if test="${event.statutVideo == \"ok\"}"><TD> <a data-toggle="tooltip" title="OK -> A Faire" href="couverture?par=statutVideo&etat=pasok"><span class="label label-success"><span class="glyphicon glyphicon-ok"></span></span></a> </TD></c:if>
+ <TD><a data-toggle="tooltip" title="Ignorer ce paramètre" href="couverture?par=ignoreVideo&etat=on"><span class="label label-success"><span class="glyphicon glyphicon-remove"></span></span></a></TD>
  <c:forEach var="communication" items="${communications}">
- <c:if test="${communication.nom == \"Video\"}"><TD><a href="mailto:${communication.contact}?subject=Notre évènement ${event.typeevent} pour ${event.asso}&body=${communication.message},"><span class="glyphicon glyphicon-envelope"></span></a> </TD> </c:if> 
+ <c:if test="${communication.nom == \"Video\"}"><TD><a data-toggle="tooltip" title="Envoyer un mail" href="mailto:${communication.contact}?subject=Notre évènement ${event.typeevent} pour ${event.asso}&body=${communication.message},"><span class="glyphicon glyphicon-envelope"></span></a> </TD> </c:if> 
  </c:forEach>  </TR>
   </c:if>
   
@@ -86,21 +96,20 @@
  
  <c:if test="${event.ignorePhoto == \"on\" }">
   <TR> 
- <TD> <span class="label label-default">Photo</span> </TD> 
- <c:if test="${event.ignorePhoto == null || event.ignorePhoto == \"off\" }"><TD><a href="couverture?par=ignorePhoto&etat=on"><span class="label label-success"><span class="glyphicon glyphicon-remove"></span></span></a></TD></c:if>
- <c:if test="${event.ignorePhoto == \"on\" }"><TD><a href="couverture?par=ignorePhoto&etat=off"><span class="label label-danger"><span class="glyphicon glyphicon-ok"></span></span></a></TD></c:if>  
+ <TD> Photo </TD> 
+ <TD><a data-toggle="tooltip" title="Prendre en compte ce paramètre" href="couverture?par=ignorePhoto&etat=off"><span class="label label-danger"><span class="glyphicon glyphicon-ok"></span></span></a></TD>
   </TR>
   </c:if>
   
   <c:if test="${event.ignoreVideo == \"on\" }">
    <TR> 
- <TD> <span class="label label-default">Video</span> </TD> 
- <c:if test="${event.ignoreVideo == null || event.ignoreVideo == \"off\" }"><TD><a href="couverture?par=ignoreVideo&etat=on"><span class="label label-success"><span class="glyphicon glyphicon-remove"></span></span></a></TD></c:if>
- <c:if test="${event.ignoreVideo == \"on\" }"><TD><a href="couverture?par=ignoreVideo&etat=off"><span class="label label-danger"><span class="glyphicon glyphicon-ok"></span></span></a></TD></c:if>  
+ <TD> Video </TD> 
+ <TD><a data-toggle="tooltip" title="Prendre en compte ce paramètre" href="couverture?par=ignoreVideo&etat=off"><span class="label label-danger"><span class="glyphicon glyphicon-ok"></span></span></a></TD> 
   </TR>
   </c:if>
   
   </table>
+  </div>
   
 </div>
 

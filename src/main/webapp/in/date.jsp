@@ -27,7 +27,7 @@
       	</c:when>
       	
       	<c:otherwise>
-      		<div class="alert alert-warning"><strong>${nbEvents} événement(s)</strong> est déjà prévu ce jour-là (voir liste ci-dessous). Après consultation, vous devez donc confirmer ou <a href="date"><button type="button" class="btn btn-xs btn-warning">changer la date</button></a></div>
+      		<div class="alert alert-warning"><strong><span class="label label-default">${nbEvents}</span> événement(s)</strong> est/sont déjà prévu(s) ce jour-là (voir liste ci-dessous). Après consultation, vous devez donc confirmer ou <a href="date"><button type="button" class="btn btn-xs btn-warning">changer la date</button></a></div>
       		  <div class="panel panel-default" >
 			  <!-- Default panel contents -->
 			  <div class="panel-heading">Liste des événements prévus le ${date}</div>

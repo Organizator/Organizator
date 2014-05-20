@@ -29,7 +29,6 @@ public class EtatServlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 		Utilisateur utilisateur = (Utilisateur) request.getSession().getAttribute("sessionUtilisateur");
-		System.out.println(utilisateur.getMail());
 		
 		List<Event> events = Manager.getInstance().listerEventsUtilisateur(utilisateur.getMail());
 		request.setAttribute("events", events);
@@ -43,7 +42,6 @@ public class EtatServlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 		Utilisateur utilisateur = (Utilisateur) request.getSession().getAttribute("sessionUtilisateur");
-		System.out.println(utilisateur.getMail());
 		
 		List<Event> events = Manager.getInstance().listerEventsUtilisateur(utilisateur.getMail());
 		request.setAttribute("events", events);
