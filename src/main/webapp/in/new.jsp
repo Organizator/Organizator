@@ -12,7 +12,7 @@
 	<!-- Menu de navigation -->
 	
 	<div class="container">
-	  <div class="alert alert-warning">
+	  <div class="alert alert-warning" role="alert">
         <strong>Attention !</strong> Ne quittez pas cette page ou vous devrez recommencer du début !
       </div>
       <form class="form-signin1" role="form" method=post action="confirmation" id="pilepapier" style="margin-top:25px;margin-bottom:25px;">

@@ -44,7 +44,7 @@
 					//]]>
 </script>
 		
-	<div class="alert alert-warning">
+	<div class="alert alert-warning" role="alert">
 		 <strong>Pour modifier un bâtiment vous devez le supprimer puis le re-créer</strong>
 		</div>	
   <div class="panel panel-default" >

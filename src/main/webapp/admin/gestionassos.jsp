@@ -42,7 +42,7 @@
 					//]]>
 </script>
 		
-		<div class="alert alert-warning">
+		<div class="alert alert-warning" role="alert">
 		 <strong>Pour modifier une association vous devez la supprimer puis la re-créer</strong>
 		</div>
 		

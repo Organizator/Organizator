@@ -15,13 +15,13 @@
 	</jsp:include> --%>
 	
 	<div class="container">
-	  <div class="alert alert-warning">
+	  <div class="alert alert-warning" role="alert">
         <strong>Attention !</strong> Ne quittez pas cette page ou vous devrez recommencer du début !
       </div>
       	<form class="form-signin1" role="form" method=post action="confirmation" id="pilepapier" style="margin-top:25px;margin-bottom:25px;">
 		   <h2 class="form-signin1-heading" align="center">Nouveau projet</h2>
 		   <h3 class="form-signin1-heading" align="center">Confirmation</h3>
-		   <div class="alert alert-danger">
+		   <div class="alert alert-danger" role="alert">
 	        <center>Merci de <strong>vérifier les informations</strong> avant de valider la création de l'évènement !</center>
 	       </div>
 		        <input type="email" class="form-control start" value="${sessionScope.sessionUtilisateur.mail}" disabled="disabled">
@@ -40,7 +40,7 @@
 		        <input type="hidden" id="effectif" name="effectif" value="${effectif}">
 		        <button class="btn btn-lg btn-success btn-block" type="submit">Valider</button>
 		        <p></p>	
-		        <div class="alert alert-success">
+		        <div class="alert alert-success" role="alert">
 	        	<center>Vous pourrez ensuite accéder à l'interface de gestion de votre évènement !</center>
 	      		</div>
       	</form>

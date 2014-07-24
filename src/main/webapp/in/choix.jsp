@@ -21,7 +21,7 @@
 
 </script>
 	<div class="container">
-		<div class="alert alert-info">Voici la liste de vos évènements. Cliquez sur celui que vous souhaitez modifier. </div>
+		<div class="alert alert-info" role="alert">Voici la liste de vos évènements. Cliquez sur celui que vous souhaitez modifier. </div>
 		<div class="list-group">
 			
 		  <a href="#" class="list-group-item active">

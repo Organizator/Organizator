@@ -17,15 +17,16 @@
 			<h4><span class="glyphicon glyphicon-stats"></span> Progression globale de l'évènement <strong>${event.nom}</strong> : </h4>
 		     <div class="progress">
 		        <div class="progress-bar progress-bar-success" style="width: ${tauxvert}%">${tauxvert}%</div>
-		        <div class="progress-bar progress-bar-warning" style="width: ${tauxorange}%">${tauxorange}%</span></div>
+		        <div class="progress-bar progress-bar-warning progress-bar-striped active" style="width: ${tauxorange}%">${tauxorange}%</span></div>
 		        <div class="progress-bar progress-bar-danger" style="width: ${100-tauxvert-tauxorange}%">${100-tauxvert-tauxorange}%</span></div>
 	     	</div>
-		     <div class="alert alert-warning">
+		     <div class="alert alert-warning" role="alert">
 		        <strong>J-${days}</strong> avant l'évènement. Avez-vous pensé à tout? <a href="listetaches"><button type="button" class="btn btn-xs btn-warning" style="float:right;">Liste des tâches</button></a>
 		     </div>
 		 </c:if>
 		 <c:if test="${days < 0}">
-		     <div class="alert alert-info">
+		     <div class="alert alert-info alert-dismissible" role="alert">
+		        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
 		        Votre évènement est passé depuis ${-days} jours
 		     </div>
 		 </c:if>

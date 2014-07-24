@@ -18,7 +18,7 @@
 	
 	<div class="container">
 		<c:if test="${!empty erreurs || resultat != null}">
-		  	<div class="alert alert-${empty erreurs ? 'success' : 'warning'}">
+		  	<div class="alert alert-${empty erreurs ? 'success' : 'warning'}" role="alert">
 	        	<strong>${resultat}</strong> ${erreurs['mail']} ${erreurs['motDePasse']} ${erreurs['confirmation']} ${empty erreurs ? '<a href="index"><button type="button" class="btn btn-xs btn-success" style="float:right;">Organiser un évènement (Reconnexion nécessaire)</button></a>' : ''}
 	      	</div>
 	    </c:if>

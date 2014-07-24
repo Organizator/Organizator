@@ -20,13 +20,16 @@
 	<div class="container">
 		<c:if test="${!empty sessionScope.sessionUtilisateur}">
 	        <%-- Si l'utilisateur existe en session, alors on affiche son adresse email. --%>
-	        <div class="alert alert-success"><strong>${form.resultat}</strong> Connecté(e) avec l'adresse : <strong>${sessionScope.sessionUtilisateur.mail}</strong> <a href="in/date"><button type="button" class="btn btn-xs btn-success" style="float:right;">Organiser un nouvel évènement</button></a></div>
+	        <div class="alert alert-success alert-dismissible" role="alert">
+	        	<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+	        	<strong>${form.resultat}</strong> Connecté(e) avec l'adresse : <strong>${sessionScope.sessionUtilisateur.mail}</strong> <a href="in/date"><button type="button" class="btn btn-xs btn-success" style="float:right; margin-right:10px;">Organiser un nouvel évènement</button></a>
+	        </div>
 	    </c:if>
 	    <c:if test="${!empty form.erreurs['mail']}">
-	        <div class="alert alert-warning"><strong>${form.resultat}</strong> ${form.erreurs['mail']}</div>
+	        <div class="alert alert-warning" role="alert"><strong>${form.resultat}</strong> ${form.erreurs['mail']}</div>
 	    </c:if>
 	    <c:if test="${!empty form.erreurs['motDePasse']}">
-	        <div class="alert alert-warning"><strong>${form.resultat}</strong> ${form.erreurs['motDePasse']}</div>
+	        <div class="alert alert-warning" role="alert"><strong>${form.resultat}</strong> ${form.erreurs['motDePasse']}</div>
 	    </c:if>
 	    <c:if test="${empty sessionScope.sessionUtilisateur}">
 	        <%-- Si l'utilisateur n'existe en session, formulaire de connexion. --%>

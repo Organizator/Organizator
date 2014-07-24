@@ -17,7 +17,7 @@
 
 	<div class="container">
 		<c:if test="${message != null}">
-		  	<div class="alert alert-success">${message}	</div>
+		  	<div class="alert alert-success" role="alert">${message}	</div>
 	    </c:if>
       <form class="form-signin1" role="form" method=post action="time" id="pilepapier" style="margin-top:25px;margin-bottom:25px;">
 	        <h2 class="form-signin1-heading" align="center">Modifier projet </h2>

@@ -42,7 +42,7 @@
 
 					//]]>
 </script>
-	<div class="alert alert-warning">
+	<div class="alert alert-warning" role="alert">
 		 <strong>Pour modifier un pôle vous devez le supprimer puis le re-créer</strong>
 		</div>	
 		
