@@ -1,18 +1,26 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.12
+-- version 4.0.4
 -- http://www.phpmyadmin.net
 --
--- Client :  localhost:3306
--- Généré le :  Lun 12 Mai 2014 à 23:51
--- Version du serveur :  5.5.34
--- Version de PHP :  5.5.10
+-- Client: localhost
+-- Généré le: Jeu 24 Juillet 2014 à 20:18
+-- Version du serveur: 5.6.12-log
+-- Version de PHP: 5.4.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
 --
--- Base de données :  `organizator`
+-- Base de données: `organizator`
 --
+CREATE DATABASE IF NOT EXISTS `organizator` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `organizator`;
 
 -- --------------------------------------------------------
 
@@ -20,13 +28,13 @@ SET time_zone = "+00:00";
 -- Structure de la table `associations`
 --
 
-CREATE TABLE `associations` (
+CREATE TABLE IF NOT EXISTS `associations` (
   `idAssociation` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(50) CHARACTER SET utf8 NOT NULL,
   `mail` varchar(50) CHARACTER SET utf8 NOT NULL,
   `pole` varchar(10) CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (`idAssociation`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=47 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=48 ;
 
 --
 -- Contenu de la table `associations`
@@ -70,7 +78,8 @@ INSERT INTO `associations` (`idAssociation`, `nom`, `mail`, `pole`) VALUES
 (43, 'Golf', '', 'BDS'),
 (44, 'Football', '', 'BDS'),
 (45, 'Handball', '', 'BDS'),
-(46, 'Rugby', '', 'BDS');
+(46, 'Rugby', '', 'BDS'),
+(47, 'Entracte', 'entracte@gmail.com', 'BDA');
 
 -- --------------------------------------------------------
 
@@ -78,7 +87,7 @@ INSERT INTO `associations` (`idAssociation`, `nom`, `mail`, `pole`) VALUES
 -- Structure de la table `batiments`
 --
 
-CREATE TABLE `batiments` (
+CREATE TABLE IF NOT EXISTS `batiments` (
   `idBatiment` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(45) CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (`idBatiment`)
@@ -91,7 +100,8 @@ CREATE TABLE `batiments` (
 INSERT INTO `batiments` (`idBatiment`, `nom`) VALUES
 (8, 'Colbert'),
 (9, 'Toul'),
-(10, 'Roland');
+(10, 'Roland'),
+(11, 'EuraTechnologie');
 
 -- --------------------------------------------------------
 
@@ -99,35 +109,34 @@ INSERT INTO `batiments` (`idBatiment`, `nom`) VALUES
 -- Structure de la table `communications`
 --
 
-CREATE TABLE `communications` (
+CREATE TABLE IF NOT EXISTS `communications` (
   `idComm` int(45) NOT NULL AUTO_INCREMENT,
   `nom` varchar(45) NOT NULL,
   `contact` varchar(45) NOT NULL,
   `message` varchar(500) NOT NULL,
   PRIMARY KEY (`idComm`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
 
 --
 -- Contenu de la table `communications`
 --
 
 INSERT INTO `communications` (`idComm`, `nom`, `contact`, `message`) VALUES
-(3, 'Depeche', 'depeche@hei.fr', 'Bonjour, je vous écris ce message à propros de notre évènement'),
-(4, 'TV', 'tv@hei.fr', 'Bonjour, je vous écris ce message à propros de notre évènement'),
-(5, 'Affiche', 'affiches@hei.fr', 'Bonjour, je vous écris ce message à propros de notre évènement'),
-(6, 'Reseau', '', 'Bonjour, je vous écris ce message à propros de notre évènement'),
-(7, 'Radio', '', 'Bonjour, je vous écris ce message à propros de notre évènement'),
-(8, 'Newsletter', '', 'Bonjour, je vous écris ce message à propros de notre évènement'),
-(9, 'Flyers', '', 'Bonjour, je vous écris ce message à propros de notre évènement'),
-(10, 'Son', '', 'Bonjour, je vous écris ce message à propros de notre évènement'),
-(11, 'Lumiere', '', 'Bonjour, je vous écris ce message à propros de notre évènement'),
+(3, 'Depeche', 'depeche@hei.fr', 'Bonjour, je vous écris ce message à propos de notre évènement'),
+(4, 'TV', 'tv@hei.fr', 'Bonjour, je vous écris ce message à propos de notre évènement'),
+(5, 'Affiche', 'affiches@hei.fr', 'Bonjour, je vous écris ce message à propos de notre évènement'),
+(6, 'Reseau', '', 'Bonjour, je vous écris ce message à propos de notre évènement'),
+(7, 'Radio', '', 'Bonjour, je vous écris ce message à propos de notre évènement'),
+(8, 'Newsletter', '', 'Bonjour, je vous écris ce message à propos de notre évènement'),
+(9, 'Flyers', '', 'Bonjour, je vous écris ce message à propos de notre évènement'),
+(10, 'Son', '', 'Bonjour, je vous écris ce message à propos de notre évènement'),
+(11, 'Lumiere', '', 'Bonjour, je vous écris ce message à propos de notre évènement'),
 (12, 'Photo', 'declic@hei.fr', 'Bonjour, Nous recherchons actuellement un ou plusieurs photographes afin de couvrir notre évènement.'),
-(13, 'Video', 'saturne@hei.fr', 'Bonjour, je vous écris ce message à propros de notre évènement'),
-(15, 'Pole', '', 'Bonjour, je vous écris ce message à propros de notre évènement'),
-(16, 'Administration', 'administrationhei@hei.fr', 'Bonjour, je vous écris ce message à propros de notre évènement'),
-(17, 'Demande de Lieu', 'Sophie.verny@hei.fr', 'Bonjour, je vous écris ce message à propros de notre évènement'),
-(18, 'Logistique HEI', 'logistique@hei.fr', ''),
-(19, 'Administrateur système', 'louis.sautelet@hei.fr', '');
+(13, 'Video', 'saturne@hei.fr', 'Bonjour, je vous écris ce message à propos de notre évènement'),
+(15, 'Pole', '', 'Bonjour, je vous écris ce message à propos de notre évènement'),
+(16, 'Admin', 'administrationhei@hei.fr', 'Bonjour, je vous écris ce message à propos de notre évènement'),
+(17, 'Lieu', 'Sophie.verny@hei.fr', 'Bonjour, je vous écris ce message à propos de notre évènement'),
+(18, 'Logistique HEI', 'logistique@hei.fr', '');
 
 -- --------------------------------------------------------
 
@@ -135,7 +144,7 @@ INSERT INTO `communications` (`idComm`, `nom`, `contact`, `message`) VALUES
 -- Structure de la table `events`
 --
 
-CREATE TABLE `events` (
+CREATE TABLE IF NOT EXISTS `events` (
   `idEvent` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(50) NOT NULL,
   `asso` varchar(50) DEFAULT NULL,
@@ -178,15 +187,18 @@ CREATE TABLE `events` (
   `ignorePole` varchar(50) DEFAULT 'off',
   `ignoreAdmin` varchar(50) DEFAULT 'off',
   PRIMARY KEY (`idEvent`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
 
 --
 -- Contenu de la table `events`
 --
 
 INSERT INTO `events` (`idEvent`, `nom`, `asso`, `date`, `heuredebut`, `heurefin`, `type`, `danshei`, `organisateur`, `mailorganisateur`, `batiment`, `salle`, `affluence`, `statutTV`, `statutAffiche`, `statutReseau`, `statutRadio`, `statutNewsletter`, `statutDepeche`, `statutFlyers`, `ignoreTV`, `ignoreAffiche`, `ignoreReseau`, `ignoreRadio`, `ignoreNewsletter`, `ignoreDepeche`, `ignoreFlyers`, `statutSon`, `statutLumiere`, `ignoreSon`, `ignoreLumiere`, `statutPhoto`, `statutVideo`, `ignorePhoto`, `ignoreVideo`, `statutLieu`, `statutPole`, `statutAdmin`, `ignoreLieu`, `ignorePole`, `ignoreAdmin`) VALUES
-(9, 'Babyfoot Contest 2', 'WHEI', '2014-05-23', '20:00', '23:00', 'Afterwork', 'Non', 'test@hei.fr', NULL, 'Bâtiment (si dans HEI)', NULL, '100', 'encours', 'ok', 'encours', 'encours', 'ok', 'encours', 'pasok', 'off', 'off', 'off', 'off', 'off', 'off', 'off', 'encours', 'pasok', 'off', 'on', 'pasok', 'ok', 'off', 'on', 'encours', 'ok', 'encours', 'off', 'off', 'off'),
-(14, 'Test', 'DECLIC', '2014-06-12', '23:34', '04:34', 'Petit déjeuner', 'Oui', 'test@hei.fr', NULL, 'Toul', NULL, '123', 'encours', 'encours', 'ok', 'encours', 'pasok', 'pasok', 'ok', 'off', 'off', 'off', 'off', 'off', 'off', 'off', 'ok', 'ok', 'off', 'off', 'pasok', 'pasok', 'off', 'off', 'pasok', 'pasok', 'pasok', 'off', 'off', 'off');
+(9, 'Babyfoot Contest 2', 'WHEI', '2014-09-17', '20:00', '23:00', 'Afterwork', 'Non', 'test@hei.fr', NULL, 'Bâtiment (si dans HEI)', NULL, '100', 'pasok', 'pasok', 'pasok', 'encours', 'encours', 'encours', 'pasok', 'off', 'off', 'off', 'off', 'off', 'off', 'off', 'encours', 'pasok', 'off', 'on', 'ok', 'ok', 'off', 'on', 'ok', 'pasok', 'ok', 'off', 'off', 'on'),
+(14, 'Test', 'DECLIC', '2014-03-06', '23:34', '04:34', 'Petit déjeuner', 'Oui', 'test@hei.fr', NULL, 'Toul', NULL, '123', 'encours', 'encours', 'ok', 'encours', 'pasok', 'pasok', 'ok', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'ok', 'ok', 'on', 'on', 'encours', 'encours', 'off', 'on', 'pasok', 'pasok', 'pasok', 'on', 'on', 'on'),
+(15, 'déjeuner', 'PET', '2014-05-31', '20:30', '23:00', 'Afterwork', 'Non', 'salut@hei.fr', NULL, 'Bâtiment (si dans HEI)', NULL, '100', 'pasok', 'ok', 'pasok', 'encours', 'encours', 'encours', 'pasok', 'on', 'off', 'off', 'off', 'off', 'off', 'off', 'pasok', 'pasok', 'off', 'off', 'ok', 'pasok', 'off', 'off', 'pasok', 'pasok', 'pasok', 'on', 'off', 'on'),
+(17, 'Tournoi', 'PES', '2014-05-23', '08:00', '10:30', 'Sportif', 'Non', 'lise.roubaud@hei.fr', NULL, 'Bâtiment (si dans HEI)', NULL, '454', 'pasok', 'pasok', 'pasok', 'ok', 'pasok', 'pasok', 'pasok', 'off', 'off', 'off', 'off', 'on', 'on', 'on', 'pasok', 'pasok', 'off', 'off', 'pasok', 'pasok', 'off', 'off', 'pasok', 'pasok', 'pasok', 'off', 'off', 'off'),
+(18, 'Pièce de théâtre', 'BDA', '2014-05-22', '20:00', '', 'Soirée', 'Non', 'simon.demarty@hei.fr', NULL, 'Bâtiment (si dans HEI)', NULL, '100', 'pasok', 'encours', 'ok', 'pasok', 'pasok', 'pasok', 'encours', 'on', 'off', 'off', 'off', 'off', 'off', 'off', 'ok', 'ok', 'off', 'off', 'pasok', 'pasok', 'off', 'off', 'ok', 'pasok', 'pasok', 'off', 'off', 'off');
 
 -- --------------------------------------------------------
 
@@ -194,7 +206,7 @@ INSERT INTO `events` (`idEvent`, `nom`, `asso`, `date`, `heuredebut`, `heurefin`
 -- Structure de la table `membre`
 --
 
-CREATE TABLE `membre` (
+CREATE TABLE IF NOT EXISTS `membre` (
   `idmembre` int(11) NOT NULL AUTO_INCREMENT,
   `mail` varchar(50) CHARACTER SET utf8 NOT NULL,
   `mdp` varchar(20) CHARACTER SET utf8 NOT NULL,
@@ -203,19 +215,19 @@ CREATE TABLE `membre` (
   `responsabilite` varchar(25) CHARACTER SET utf8 NOT NULL,
   `admin` varchar(3) CHARACTER SET utf8 NOT NULL DEFAULT 'non',
   PRIMARY KEY (`idmembre`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
 
 --
 -- Contenu de la table `membre`
 --
 
 INSERT INTO `membre` (`idmembre`, `mail`, `mdp`, `association`, `pole`, `responsabilite`, `admin`) VALUES
-(4, 'test@hei.fr', 'lol', 'WhEI', 'PES', 'Président', 'oui'),
+(4, 'test@hei.fr', 'lol', 'WHEI', 'PES', 'Président', 'oui'),
 (8, 'test@pou.fr', 'aze', 'test', 'PES', 'Président', 'oui'),
-(10, 'dfgfdg@gssg.fr', 'pos', 'dfgdf', 'PES', 'Communication', 'non'),
 (11, 'essai@essai.fr', 'loli', 'DECLIC', 'BDA', 'Président', 'non'),
-(15, 'walou@test.fr', 'poiu', 'Declic', 'PET', 'Président', 'non'),
-(16, 'test2@hei.fr', 'mpm', 'DECLIC HEI', 'Cap''so', 'Communication', 'non');
+(12, 'salut@hei.fr', 'aze', 'PET', 'Cinéfiles', 'Communication', 'oui'),
+(13, 'lise.roubaud@hei.fr', 'licorne', 'PES', 'WHEI', 'Vice Président', 'non'),
+(14, 'simon.demarty@hei.fr', 'Gaia', 'BDA', 'Entracte', 'Président', 'non');
 
 -- --------------------------------------------------------
 
@@ -223,11 +235,11 @@ INSERT INTO `membre` (`idmembre`, `mail`, `mdp`, `association`, `pole`, `respons
 -- Structure de la table `poles`
 --
 
-CREATE TABLE `poles` (
+CREATE TABLE IF NOT EXISTS `poles` (
   `idpole` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(25) CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (`idpole`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 --
 -- Contenu de la table `poles`
@@ -239,3 +251,7 @@ INSERT INTO `poles` (`idpole`, `nom`) VALUES
 (8, 'BDA'),
 (9, 'Cap''so'),
 (10, 'BDS');
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
